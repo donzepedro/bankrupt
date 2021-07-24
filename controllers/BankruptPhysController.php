@@ -20,16 +20,7 @@ class BankruptPhysController extends Controller{
     
     public function actionIndex(){
         $bankrupt_phys = BankruptPhys::find()->all();
-          
-         if(\Yii::$app->request->isPost){
-            $edit_bankrupt_phys = BankruptPhys::find()->where(['id'=>\Yii::$app->request->post('BankruptPhys')['id']])->one();
-            $edit_bankrupt_phys->attributes = \Yii::$app->request->post('BankruptPhys');
-            if(!$edit_bankrupt_phys->save()){
-                throw new \yii\web\HttpException(500,'server error, data for Bankrupt phys not saved'); 
-            }
-            $bankrupt_phys = BankruptPhys::find()->all();
-           
-        }
+      
         return $this->render('index',['bankrupt_phys'=>$bankrupt_phys]);
     }
     
@@ -60,5 +51,19 @@ class BankruptPhysController extends Controller{
             $this->redirect('http://bankrupt/bankrupt-phys/');
         }
         return $this->render('create_bankrupt_phys',['bankrupt_phys'=>$bankrupt_phys]);
+    }
+    
+    public function actionEditBankrupt(){
+        
+        $bankrupt_phys = BankruptPhys::findOne(\Yii::$app->request->get('id'));
+        if(\Yii::$app->request->isPost){
+            $bankrupt_phys->attributes = \Yii::$app->request->post('BankruptPhys');
+            if(!$bankrupt_phys->save()){
+                throw new \yii\web\HttpException(500,'server error,Bankrupt legal not saved'); 
+            }
+            $this->redirect('http://bankrupt/bankrupt-phys/');
+
+        }
+        return $this->render('edit_bankrupt_phys',['bankrupt_phys'=>$bankrupt_phys]);
     }
 }

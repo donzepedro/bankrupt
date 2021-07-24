@@ -18,17 +18,8 @@ class CreditorPhysController extends Controller{
     public $layout = 'crmlayout.php';
     
     public function actionIndex(){
+        
         $creditor_phys = CreditorPhys::find()->all();
-          
-         if(\Yii::$app->request->isPost){
-            $edit_creditor_phys = CreditorPhys::find()->where(['id'=>\Yii::$app->request->post('CreditorPhys')['id']])->one();
-            $edit_creditor_phys->attributes = \Yii::$app->request->post('CreditorPhys');
-            if(!$edit_creditor_phys->save()){
-                throw new \yii\web\HttpException(500,'server error, data for Creditor phys not saved'); 
-            }
-            $creditor_phys = CreditorPhys::find()->all();
-           
-        }
         return $this->render('index',['creditor_phys'=>$creditor_phys]);
     }
     
@@ -53,10 +44,23 @@ class CreditorPhysController extends Controller{
             $creditor_phys->attributes = \Yii::$app->request->post('CreditorPhys');
           
             if(!$creditor_phys->save()){
-                throw new \yii\web\HttpException(500,'server error,Bankrupt phys not saved'); 
+                throw new \yii\web\HttpException(500,'server error,Creditor phys not saved'); 
             }
             $this->redirect('http://bankrupt/creditor-phys/');
         }
         return $this->render('create_creditor_phys',['creditor_phys'=>$creditor_phys]);
+    }
+     public function actionEditCreditor(){
+        
+        $creditor_phys = CreditorPhys::findOne(\Yii::$app->request->get('id'));
+        if(\Yii::$app->request->isPost){
+            $creditor_phys->attributes = \Yii::$app->request->post('CreditorPhys');
+            if(!$creditor_phys->save()){
+                throw new \yii\web\HttpException(500,'server error,Creditor legal not saved'); 
+            }
+            $this->redirect('http://bankrupt/creditor-phys/');
+
+        }
+        return $this->render('edit_creditor_phys',['creditor_phys'=>$creditor_phys]);
     }
 }

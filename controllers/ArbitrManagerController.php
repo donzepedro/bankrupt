@@ -37,7 +37,7 @@ class ArbitrManagerController extends Controller {
         
         if(!empty(\Yii::$app->request->get('id'))){
             $imgupload = new UploadFormForEdit();
-            $SROAminfo = SROAMInformation::find()->where(['id'=>\Yii::$app->request->get('id')])->one();
+            $SROAminfo = SROAMInformation::find()->where(['id_am'=>\Yii::$app->request->get('id')])->one();
             $arbitr_managers = ArbitrationManager::find()->where(['id'=>\Yii::$app->request->get('id')])->one();
             $education = Education::find()->where(['id_am'=>\Yii::$app->request->get('id')])->one();
             $foreign_language = ForeignLanguage::find()->where(['id_am'=>\Yii::$app->request->get('id')])->one();           
@@ -97,6 +97,7 @@ class ArbitrManagerController extends Controller {
     
     
     public function actionCreateManager(){
+        $SROAminfo = new SROAMInformation();
         $arbitr_managers = new ArbitrationManager();
         $education = new Education();
         $foreign_language = new ForeignLanguage();
@@ -105,6 +106,7 @@ class ArbitrManagerController extends Controller {
         if(\Yii::$app->request->isPost){
             
             $arbitr_managers->attributes = \Yii::$app->request->post('ArbitrationManager');
+            $arbitr_managers->SRO_AM_name = \Yii::$app->request->post('SROAMInformation')['SRO_name'];
            
             if(!$arbitr_managers->save()){
                 throw new \yii\web\HttpException(500,'server error, data for Arbitr managers not saved');
@@ -123,6 +125,12 @@ class ArbitrManagerController extends Controller {
             if(!$foreign_language->save()){
                 throw new \yii\web\HttpException(500,'server error, data for Arbitr Foreign lang not saved');
             } 
+            $SROAminfo->attributes = \Yii::$app->request->post('SROAMInformation');
+            $SROAminfo->id_am =$arbitr_managers->id;
+            
+            if(!$SROAminfo->save()){
+                    throw new \yii\web\HttpException(500,'server error, data for SRO AM not saved');
+                }
             
             $path = MANAGERS_IMG_FOLDER . $arbitr_managers->id . '/';
             
@@ -152,23 +160,39 @@ class ArbitrManagerController extends Controller {
 //            echo "</pre>";
             
         }
-        return $this->render('create_manager',['imgupload'=>$imgupload,'foreign_language'=>$foreign_language,'education'=>$education, 'arbitr_managers'=>$arbitr_managers]);
+        return $this->render('create_manager',['SROAminfo'=>$SROAminfo,'imgupload'=>$imgupload,'foreign_language'=>$foreign_language,'education'=>$education, 'arbitr_managers'=>$arbitr_managers]);
     }
     
     public function actionDeleteManager(){
         $arbitr_managers = ArbitrationManager::findOne(\Yii::$app->request->get('id'));
-        
+        $SROAminfo = SROAMInformation::find()->where(['id_am'=>\Yii::$app->request->get('id')])->one();
+        $education = Education::find()->where(['id_am'=>\Yii::$app->request->get('id')])->one();
+        $foreign_language = ForeignLanguage::find()->where(['id_am'=>\Yii::$app->request->get('id')])->one();  
+        if(($arbitr_managers== null)||($SROAminfo== null)||($education== null)||($foreign_language== null)){
+            throw new \yii\web\HttpException(500,'server error, record not found');
+        }
         if((file_exists('../web/img/managers_profile_img/' . \Yii::$app->request->get('id')))&&(is_dir('../web/img/managers_profile_img/' . \Yii::$app->request->get('id')))){
             unlink($arbitr_managers->path_to_img);
             rmdir('../web/img/managers_profile_img/' . \Yii::$app->request->get('id'));
             }
-        
-        try{
-            $arbitr_managers->delete();
+//        if(!(( $arbitr_managers->delete(false))&($SROAminfo->delete(false))&($education->delete(false))&($foreign_language->delete(false)))){
+//            throw new \yii\web\HttpException(500,'server error, some problem durinng deleting');
+//        }
             
-        } catch (ErrorException $e){
-            \Yii::warning('some problem durinng deleting');
+        if(!$arbitr_managers->delete(false)){
+            throw new \yii\web\HttpException(500,'server error, some problem durinng deleting');
         }
+        
+        
+//        try{
+//            $arbitr_managers->delete();
+//            $SROAminfo->delete();
+//            $education->delete();
+//            $foreign_language->delete();
+//            
+//        } catch (ErrorException $e){
+//            \Yii::warning('some problem durinng deleting');
+//        }
         
         if(!empty(\Yii::$app->request->get('page'))){
             $page = '&page=' . \Yii::$app->request->get('page');

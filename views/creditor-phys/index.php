@@ -76,20 +76,17 @@ $start_rows_for_one_page = 5;
         
         
          <?php $form = ActiveForm::begin(); ?>
-        <td class="pt-0"><?= $form->field($each_creditor_phys,'lname')->label('') ?></td>
-        <td class="pt-0"><?= $form->field($each_creditor_phys,'fname')->label('') ?></td>
-        <td class="pt-0"><?= $form->field($each_creditor_phys,'mname')->label('') ?></td>
-        <td class="pt-0"><?= $form->field($each_creditor_phys,'debt_amount')->label('') ?></td>
-        <td class="pt-0"><?= $form->field($each_creditor_phys,'inn')->label('') ?></td>
-        <td class="border-right pt-0"><?= $form->field($each_creditor_phys,'region')->label('') ?></td>
+        <td class="pt-4 "><?= $each_creditor_phys->lname ?></td>
+        <td class="pt-4 "><?= $each_creditor_phys->fname ?></td>
+        <td class="pt-4 "><?= $each_creditor_phys->mname ?></td>
+        <td class="pt-4 "><?= $each_creditor_phys->debt_amount ?></td>
+        <td class="pt-4 "><?= $each_creditor_phys->inn ?></td>
+        <td class="pt-4 border-right"><?= $each_creditor_phys->region ?></td>
         <?= $form->field($each_creditor_phys,'id')->hiddenInput(['value'=>$each_creditor_phys->id])->label(false) ?>
         <!--<td ><?php// $each_creditor_legal->id ?></td>-->
 
-        <td class="p-0"><?= Html::submitButton('Save', [
-            'class' => 'btn btn-success  my-3 py-2 ', 
-            'name' => 'SaveChange-button',
-            'value' => 'save']) ?></td>
-        <td class="btn btn-danger p-2 mt-3 ml-1 "><a id='delete_manager' href="<?= $base_url_for_controller . 'delete-creditor-phys/' . '?pg='. $pg . '&page='. $curpage .'&id=' . $each_creditor_phys->id?>" onclick="delete_manager()">delete</a></td>
+        <td class="btn btn-secondary p-2 mt-3 ml-1 "><a href="<?= $base_url_for_controller . 'edit-creditor/' . '?pg='. $pg . '&page='. $curpage .'&id=' . $each_creditor_phys->id?>">Edit</a></td>
+        <td class="btn btn-danger p-2 mt-3 ml-1 "><a id='delete_manager' href="<?= $base_url_for_controller . 'delete-creditor-phys/' . '?pg='. $pg . '&page='. $curpage .'&id=' . $each_creditor_phys->id?>" onclick="delete_manager()">Delete</a></td>
        
         
         

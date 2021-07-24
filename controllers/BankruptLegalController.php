@@ -20,15 +20,7 @@ class BankruptLegalController extends Controller{
     
     public function actionIndex(){
         $bankrupt_legal = BankruptLegal::find()->all();
-        if(\Yii::$app->request->isPost){
-            $edit_bankrupt_legal = BankruptLegal::find()->where(['id'=>\Yii::$app->request->post('BankruptLegal')['id']])->one();
-            $edit_bankrupt_legal->attributes = \Yii::$app->request->post('BankruptLegal');
-            if(!$edit_bankrupt_legal->save()){
-                throw new \yii\web\HttpException(500,'server error, data for Bankrupt legal not saved'); 
-            }
-            $bankrupt_legal = BankruptLegal::find()->all();
-           
-        }
+       
          
         return $this->render('index',['bankrupt_legal'=>$bankrupt_legal]);
     }
@@ -61,6 +53,22 @@ class BankruptLegalController extends Controller{
             $this->redirect('http://bankrupt/bankrupt-legal/');
         }
         return $this->render('create_bankrupt_legal',['bankrupt_legal'=>$bankrupt_legal]);
+    }
+    public function actionEditBankrupt(){
+        
+        $bankrupt_legal = BankruptLegal::findOne(\Yii::$app->request->get('id'));
+        if(\Yii::$app->request->isPost){
+            $bankrupt_legal->attributes = \Yii::$app->request->post('BankruptLegal');
+            if(!$bankrupt_legal->save()){
+                throw new \yii\web\HttpException(500,'server error,Bankrupt legal not saved'); 
+            }
+            $this->redirect('http://bankrupt/bankrupt-legal/');
+//            echo "<pre>";
+//            var_dump(\Yii::$app->request->post());
+//            echo "</pre>";
+            
+        }
+        return $this->render('edit_bankrupt_legal',['bankrupt_legal'=>$bankrupt_legal]);
     }
     
 }

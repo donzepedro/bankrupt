@@ -72,25 +72,19 @@ $start_rows_for_one_page = 5;
        }
        $rows++;
        ?>
-     <input type="hidden" id="managerid" value=>
      <tr class="text-center">
      <?php $form = ActiveForm::begin(); ?>
-        <td class="pt-0"><?= $form->field($each_bankrupt_legal,'lname')->label('') ?></td>
-        <td class="pt-0"><?= $form->field($each_bankrupt_legal,'fname')->label('') ?></td>
-        <td class="pt-0"><?= $form->field($each_bankrupt_legal,'mname')->label('') ?></td>
-        <td class="pt-0"><?= $form->field($each_bankrupt_legal,'debt_amount')->label('') ?></td>
-        <td class="pt-0"><?= $form->field($each_bankrupt_legal,'org_name')->label('') ?></td>
-        <td class="pt-0"><?= $form->field($each_bankrupt_legal,'inn')->label('') ?></td>
-        <td class="border-right pt-0"><?= $form->field($each_bankrupt_legal,'region')->label('') ?></td>
+        <td class="pt-4"><?= $each_bankrupt_legal->lname ?></td>
+        <td class="pt-4"><?= $each_bankrupt_legal->fname ?></td>
+        <td class="pt-4"><?= $each_bankrupt_legal->mname ?></td>
+        <td class="pt-4"><?= $each_bankrupt_legal->debt_amount?></td>
+        <td class="pt-4"><?= $each_bankrupt_legal->org_name ?></td>
+        <td class="pt-4"><?= $each_bankrupt_legal->inn ?></td>
+        <td class="border-right pt-4"><?= $each_bankrupt_legal->region?></td>
         <?= $form->field($each_bankrupt_legal,'id')->hiddenInput(['value'=>$each_bankrupt_legal->id])->label(false) ?>
         <!--<td ><?php// $each_bankrupt_legal->id ?></td>-->
-
-        <td class="p-0"><?= Html::submitButton('Save', [
-            'class' => 'btn btn-success  my-3 py-2 ', 
-            'name' => 'SaveChange-button',
-            'value' => 'save']) ?></td>
-        <td class="btn btn-danger p-2 mt-3 ml-1 "><a id='delete_manager' href="<?= $base_url_for_controller . 'delete-bankrupt-legal/' . '?pg='. $pg . '&page='. $curpage .'&id=' . $each_bankrupt_legal->id?>" onclick="delete_manager()">delete</a></td>
-       
+        <td class="btn btn-secondary p-2 mt-3 ml-1 "><a id='delete_manager' href="<?= $base_url_for_controller . 'edit-bankrupt/' .'?id=' . $each_bankrupt_legal->id?>">Edit</a></td>
+       <td class="btn btn-danger p-2 mt-3 ml-1 "><a id='delete_manager' href="<?= $base_url_for_controller . 'delete-bankrupt-legal/' . '?pg='. $pg . '&page='. $curpage .'&id=' . $each_bankrupt_legal->id?>" onclick="delete_manager()">Delete</a></td>
         
         
     <?php ActiveForm::end()?>   

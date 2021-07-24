@@ -18,18 +18,8 @@ class CreditorLegalController extends Controller {
     public $layout = 'crmlayout.php';
     
     public function actionIndex(){
+       
         $creditor_legal = CreditorLegal::find()->all();
-         if(\Yii::$app->request->isPost){
-            $edit_creditor_legal = CreditorLegal::find()->where(['id'=>\Yii::$app->request->post('CreditorLegal')['id']])->one();
-            $edit_creditor_legal->attributes = \Yii::$app->request->post('CreditorLegal');
-            if(!$edit_creditor_legal->save()){
-                throw new \yii\web\HttpException(500,'server error, data for Creditor legal not saved'); 
-            }
-            $creditor_legal = CreditorLegal::find()->all();
-           
-         }
-        
-        
         return $this->render('index',['creditor_legal'=>$creditor_legal]);
     }
     
@@ -60,6 +50,23 @@ class CreditorLegalController extends Controller {
             $this->redirect('http://bankrupt/creditor-legal/');
         }
         return $this->render('create_creditor_legal',['creditor_legal'=>$creditor_legal]);
+    }
+    
+    public function actionEditCreditor(){
+        
+        $creditor_legal = CreditorLegal::findOne(\Yii::$app->request->get('id'));
+        if(\Yii::$app->request->isPost){
+            $creditor_legal->attributes = \Yii::$app->request->post('CreditorLegal');
+            if(!$creditor_legal->save()){
+                throw new \yii\web\HttpException(500,'server error,Creditorlegal not saved'); 
+            }
+            $this->redirect('http://bankrupt/creditor-legal/');
+//            echo "<pre>";
+//            var_dump(\Yii::$app->request->post());
+//            echo "</pre>";
+            
+        }
+        return $this->render('edit_creditor_legal',['creditor_legal'=>$creditor_legal]);
     }
  
 }

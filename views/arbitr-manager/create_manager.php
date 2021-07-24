@@ -31,20 +31,21 @@ use yii\bootstrap4\ActiveForm;
                     <?= $form->field($arbitr_managers, 'inn')->textInput([]) ?>
                     <?= $form->field($arbitr_managers, 'phone_number')->textInput([]) ?>
                     <?= $form->field($arbitr_managers, 'job_region')->textInput([]) ?>
+                    <?= $form->field($arbitr_managers, 'government_secret_access')->textInput([]) ?>
         
         </div>
         <div class="col-3">
                     <?php // $form = ActiveForm::begin();?>
             
-                    <?= $form->field($arbitr_managers, 'government_secret_access')->textInput([]) ?>
-                    <?= $form->field($arbitr_managers, 'legal_phys')->textInput([]) ?>
-                    <?= $form->field($arbitr_managers, 'SRO_AM_name')->textInput([]) ?>
+                   <?= $form->field($arbitr_managers, 'legal_phys')->textInput([]) ?>
                     <?= $form->field($arbitr_managers, 'categories')->textInput([]) ?>
                     <?= $form->field($arbitr_managers, 'count_of_procedure_phys')->textInput([]) ?>
                     <?= $form->field($arbitr_managers, 'count_of_procedure_legal')->textInput([]) ?>
                     <?= $form->field($arbitr_managers, 'procedure_time_average')->textInput([]) ?>
                     <?= $form->field($arbitr_managers, 'start_date')->textInput(['type'=>'date']) ?>
                     <?= $form->field($arbitr_managers, 'end_date')->textInput(['type'=>'date']) ?>
+                    <?= $form->field($education, 'speciality')->textInput([]) ?>
+                    <?= $form->field($education, 'level')->textInput([]) ?>
                     
                     <?php // ActiveForm::end(); ?>
         </div><!-- comment -->
@@ -52,13 +53,15 @@ use yii\bootstrap4\ActiveForm;
                 <?php // $form = ActiveForm::begin();?>
                     <?php // $form->field($arbitr_managers, 'path_to_img')->textInput([]) ?>
             
-                        <?= $form->field($education, 'speciality')->textInput([]) ?>
-                        <?= $form->field($education, 'level')->textInput([]) ?>
                         <?= $form->field($education, 'institution')->textInput([]) ?>
-                        <?= $form->field($education, 'start_date')->textInput(['type'=>'date']) ?>
-                        <?= $form->field($education, 'end_date')->textInput(['type'=>'date']) ?>
+                    <?= $form->field($education, 'start_date')->textInput(['type'=>'date']) ?>
+                    <?= $form->field($education, 'end_date')->textInput(['type'=>'date']) ?>
                     <?= $form->field($foreign_language, 'language')->textInput([]) ?>
                     <?= $form->field($foreign_language, 'level')->textInput([]) ?>
+                    <?= $form->field($SROAminfo,'SRO_name')->textInput([]);?>
+                    <?= $form->field($SROAminfo,'membership_start_date')->textInput(['type'=>'date']); ?>
+                    <?= $form->field($SROAminfo,'membership_end_date')->textInput(['type'=>'date']); ?>
+                    <?= $form->field($SROAminfo,'leave_reason')->textarea([]); ?>
                 <?php // ActiveForm::end(); ?>
         </div>
         <div class="col-12">

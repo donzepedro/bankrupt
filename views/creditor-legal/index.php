@@ -76,21 +76,17 @@ $start_rows_for_one_page = 5;
      <input type="hidden" id="managerid" value=>
      <tr class="text-center">
      <?php $form = ActiveForm::begin(); ?>
-        <td class="pt-0"><?= $form->field($each_creditor_legal,'lname')->label('') ?></td>
-        <td class="pt-0"><?= $form->field($each_creditor_legal,'fname')->label('') ?></td>
-        <td class="pt-0"><?= $form->field($each_creditor_legal,'mname')->label('') ?></td>
-        <td class="pt-0"><?= $form->field($each_creditor_legal,'debt_amount')->label('') ?></td>
-        <td class="pt-0"><?= $form->field($each_creditor_legal,'org_name')->label('') ?></td>
-        <td class="pt-0"><?= $form->field($each_creditor_legal,'inn')->label('') ?></td>
-        <td class="border-right pt-0"><?= $form->field($each_creditor_legal,'region')->label('') ?></td>
+        <td class="pt-4"><?= $each_creditor_legal->lname ?></td>
+        <td class="pt-4"><?= $each_creditor_legal->fname ?></td>
+        <td class="pt-4"><?= $each_creditor_legal->mname ?></td>
+        <td class="pt-4"><?= $each_creditor_legal->debt_amount ?></td>
+        <td class="pt-4"><?= $each_creditor_legal->org_name ?></td>
+        <td class="pt-4"><?= $each_creditor_legal->inn ?></td>
+        <td class="border-right pt-4"><?= $each_creditor_legal->region ?></td>
         <?= $form->field($each_creditor_legal,'id')->hiddenInput(['value'=>$each_creditor_legal->id])->label(false) ?>
         <!--<td ><?php// $each_creditor_legal->id ?></td>-->
-
-        <td class="p-0"><?= Html::submitButton('Save', [
-            'class' => 'btn btn-success  my-3 py-2 ', 
-            'name' => 'SaveChange-button',
-            'value' => 'save']) ?></td>
-        <td class="btn btn-danger p-2 mt-3 ml-1 "><a id='delete_manager' href="<?= $base_url_for_controller . 'delete-creditor-legal/' . '?pg='. $pg . '&page='. $curpage .'&id=' . $each_creditor_legal->id?>" onclick="delete_manager()">delete</a></td>
+        <td class="btn btn-secondary p-2 mt-3 ml-1 "><a href="<?= $base_url_for_controller . 'edit-creditor/' . '?id='. $each_creditor_legal->id?>">Edit</a></td>
+        <td class="btn btn-danger p-2 mt-3 ml-1 "><a id='delete_manager' href="<?= $base_url_for_controller . 'delete-creditor-legal/' . '?pg='. $pg . '&page='. $curpage .'&id=' . $each_creditor_legal->id?>" onclick="delete_manager()">Delete</a></td>
        
         
         
