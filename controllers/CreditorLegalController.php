@@ -9,13 +9,33 @@
 namespace app\controllers;
 use yii\web\Controller;
 use app\models\CreditorLegal;
+use yii\filters\AccessControl;
 /**
  * Description of CreditorLegalController
  *
  * @author zepedro
  */
 class CreditorLegalController extends Controller {
+    
+    
     public $layout = 'crmlayout.php';
+    
+    public function behaviors() {
+        return [
+            'access'=>[
+              'class' => AccessControl::className(),
+                'only' => ['index','create-creditor','edit-creditor','delete-creditor-legal'],
+                'rules' => [
+                    [
+                        'allow'=>true,
+                        'actions' => ['index','create-creditor','edit-creditor','delete-creditor-legal'],
+                        'roles'=>['@'],
+                    ],
+                ],
+            ],
+        ];
+       
+    }
     
     public function actionIndex(){
        

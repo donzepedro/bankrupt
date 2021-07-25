@@ -9,6 +9,7 @@
 namespace app\controllers;
 use yii\web\Controller;
 use app\models\BankruptLegal;
+use yii\filters\AccessControl;
 /**
  * Description of BankruptLegalController
  *
@@ -17,6 +18,24 @@ use app\models\BankruptLegal;
 class BankruptLegalController extends Controller{
     
     public $layout = 'crmlayout.php';
+    
+    public function behaviors() {
+        return [
+            'access'=>[
+              'class' => AccessControl::className(),
+                'only' => ['index','create-manager'],
+                'rules' => [
+                    [
+                        'allow'=>true,
+                        'actions' => ['index','create-bankrupt','edit-bankrupt','delete-bankrupt-legal'],
+                        'roles'=>['@'],
+                    ],
+                ],
+            ],
+        ];
+       
+    }
+    
     
     public function actionIndex(){
         $bankrupt_legal = BankruptLegal::find()->all();

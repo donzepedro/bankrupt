@@ -14,6 +14,8 @@ use app\models\Education;
 use app\models\UploadForm;
 use app\models\UploadFormForEdit;
 use app\models\SROAMInformation;
+use app\models\Moderators;
+use yii\filters\AccessControl;
 
 /**
  * Description of ArbitrManagerController
@@ -24,7 +26,23 @@ class ArbitrManagerController extends Controller {
     
     public $layout = 'crmlayout.php';
     public $base_url_for_controller = 'bankrupt-legal';
-
+    
+    public function behaviors() {
+        return [
+            'access'=>[
+              'class' => AccessControl::className(),
+                'only' => ['index','create-manager','edit-manager','delete-manager'],
+                'rules' => [
+                    [
+                        'allow'=>true,
+                        'actions' => ['index','create-manager','edit-manager','delete-manager'],
+                        'roles'=>['@'],
+                    ],
+                ],
+            ],
+        ];
+       
+    }
   
     
     public function actionIndex(){
@@ -32,6 +50,7 @@ class ArbitrManagerController extends Controller {
         $arbitr_managers = ArbitrationManager::find()->all();
         return $this->render('index',['data'=>$arbitr_managers]);
     }
+    
     
     public function actionEditManager(){
         

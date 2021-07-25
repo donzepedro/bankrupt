@@ -9,6 +9,7 @@
 namespace app\controllers;
 use yii\web\Controller;
 use app\models\BankruptPhys;
+use yii\filters\AccessControl;
 /**
  * Description of BankruptPhysController
  *
@@ -17,6 +18,23 @@ use app\models\BankruptPhys;
 class BankruptPhysController extends Controller{
     
     public $layout = 'crmlayout.php';
+    
+    public function behaviors() {
+        return [
+            'access'=>[
+              'class' => AccessControl::className(),
+                'only' => ['index','create-bankrupt','edit-bankrupt','delete-bankrupt-phys'],
+                'rules' => [
+                    [
+                        'allow'=>true,
+                        'actions' => ['index','create-bankrupt','edit-bankrupt','delete-bankrupt-phys'],
+                        'roles'=>['@'],
+                    ],
+                ],
+            ],
+        ];
+       
+    }
     
     public function actionIndex(){
         $bankrupt_phys = BankruptPhys::find()->all();

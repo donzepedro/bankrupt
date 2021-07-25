@@ -9,6 +9,7 @@
 namespace app\controllers;
 use yii\web\Controller;
 use app\models\CreditorPhys;
+use yii\filters\AccessControl;
 /**
  * Description of CreditorPhysController
  *
@@ -16,6 +17,24 @@ use app\models\CreditorPhys;
  */
 class CreditorPhysController extends Controller{
     public $layout = 'crmlayout.php';
+    
+     
+    public function behaviors() {
+        return [
+            'access'=>[
+              'class' => AccessControl::className(),
+                'only' => ['index','create-creditor','edit-creditor','delete-creditor-phys'],
+                'rules' => [
+                    [
+                        'allow'=>true,
+                        'actions' => ['index','create-creditor','edit-creditor','delete-creditor-phys'],
+                        'roles'=>['@'],
+                    ],
+                ],
+            ],
+        ];
+       
+    }
     
     public function actionIndex(){
         
