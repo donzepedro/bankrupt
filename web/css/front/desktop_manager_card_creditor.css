@@ -1,0 +1,47 @@
+
+.card-client-choice ul {
+    list-style: none;
+    padding-left: 0;
+}
+.search-creditor-wrapper .form-select-block-1 select,
+.search-creditor-wrapper .form-select-block-2 select {
+    width: 100%;
+}
+.search-creditor-wrapper .form-select-block-1 select[name='menu'],
+.search-creditor-wrapper .form-select-block-2 select[name='menu'] {
+    border: 1px solid #A2B6C8;
+    background-color: #fafafa;
+    border-radius: 2px;
+    padding: 5px 0 5px 4px;
+    font-family: Jost-Regular;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+    color: #454F5B;
+}
+.search-creditor-wrapper .personal-specialists-wrapper {
+    position: relative;
+}
+.search-creditor-wrapper .personal-block-close {
+    position: absolute;
+    right: 5px;
+    top: -40px;
+}
+.search-creditor-wrapper .personal-block-close svg {
+    width: 21px;
+    height: 19px;
+}
+
+
+
+@media (max-width : 991px) {
+    .search-creditor-wrapper .personal-specialists-wrapper {
+        margin-top: 80px!important;
+    }
+    .search-creditor-wrapper .desktop-link-search {
+        display: none;
+    }
+    .search-creditor-container .personal-specialists-text {
+        margin-top: 24px;
+    }
+}

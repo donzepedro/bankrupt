@@ -1,0 +1,402 @@
+
+/****************** section id="main-banner" ********************/
+#main-banner {
+    background-color: #EEF1F4;
+}
+/** main-telephone-flex **/
+.main-telephone-flex {
+    display: flex;
+    padding-top: 20px;
+}
+.main-telephone-text {
+    padding: 32px 0 46px 0;
+}
+.main-banner-location {
+    background-color: #f6f6f6;
+    box-shadow: 0px 8px 20px 0px #E0E0E080;
+    padding: 20px 15px;
+}
+.main-telephone-text p.main-text-p3 {
+    margin: 16px 0 28px 0;
+}
+
+
+/******* telephone-block *******/
+.main-telephone-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.telephone-absolute img {width: 100%}
+.telephone-block {
+    width: 100%;
+    max-width: 331px;
+    height: 100%;
+    background-image: url("../../img/front/base.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
+}
+.img-telephone {
+    width: 100%;
+    max-width: 290px;
+    height: 100%;
+    background-image: url("../../img/front/telephone-block_1.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 65px;
+}
+.telephone-absolute {
+    position: absolute;
+    box-shadow: 0px 6px 8px 0px #A4A4A437;
+    background-color: #fafafa;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.telephone-absolute.img-absolute-1 {
+    width: 93px;
+    height: 93px;
+    left: -13px;
+    top: 190px;
+}
+.telephone-absolute.img-absolute-2 {
+    width: 81px;
+    height: 81px;
+    top: 110px;
+    left: 110px;
+}
+.telephone-absolute.img-absolute-3 {
+    width: 81px;
+    height: 81px;
+    top: 158px;
+    right: 32px;
+}
+.telephone-absolute.img-absolute-4 {
+    width: 54px;
+    height: 54px;
+    opacity: 0.6;
+    top: 15px;
+    left: 46px;
+}
+.telephone-absolute.img-absolute-5 {
+    width: 54px;
+    height: 54px;
+    opacity: 0.6;
+    top: -12px;
+    left: 155px;
+}
+.telephone-absolute.img-absolute-6 {
+    width: 62px;
+    height: 62px;
+    opacity: 0.6;
+    top: 32px;
+    right: 38px;
+}
+.main-telephone-img.main-telephone-img-mobil {
+    display: none;
+}
+
+@media (max-width: 991px){
+    .main-telephone-flex {
+        flex-direction: column;
+    }
+    .block-50 {
+        width: 100%;
+    }
+    .main-telephone-img.main-telephone-img-desktop {
+        display: none;
+    }
+    .main-telephone-img.main-telephone-img-mobil {
+        display: flex;
+        min-height: 400px;
+    }
+    .main-telephone-img-mobil .telephone-block {
+        height: 467px;
+    }
+    .main-banner-location {
+        position: relative;
+        margin-bottom: -171px;
+    }
+}
+
+
+/*****************  section class="three-easy-steps"  *********************/
+section.three-easy-steps {
+    padding: 90px 0;
+    background-color: #fafafa;
+}
+.easy-steps-row {
+    margin-bottom: 48px;
+}
+.width-text {
+    width: 100%;
+    max-width: 818px;
+    margin: 0 auto;
+}
+.steps-block-flex {
+    display: flex;
+}
+.steps-block-wrap {
+    box-shadow: 0px 20px 60px 0px #3B3D481A;
+}
+.steps-block-img {
+    width: 100%;
+    max-width: 120px;
+    height: 120px;
+    background-color: #3951D2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.steps-block-name {
+    background: #EEF1F4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px 20px 20px 16px;
+}
+.steps-block-info {
+    background-color: #fafafa;
+    padding: 16px 5px 30px 24px;
+}
+.steps-block-info p {
+    max-width: 252px;
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+    .steps-block-name {
+        padding: 10px;
+    }
+    .steps-block-name h3.main-name-h3 {
+        font-size: 20px;
+    }
+}
+@media (max-width: 991px){
+    .three-easy-steps .steps-block-wrap {
+        margin-bottom: 30px;
+    }
+    section.three-easy-steps {
+        padding: 180px 0 30px 0;
+    }
+}
+@media (max-width: 767px) {
+    .footer-social-flex {
+        margin-bottom: 58px;
+    }
+    .logo-mobil-block {
+        display: flex;
+        justify-content: space-between;
+    }
+    .logo-mobil-block .footer-year {
+        margin-top: 25px;
+    }
+    .social-mobil-block {
+        order: 1;
+    }
+    .logo-mobil-block {
+        order: 2;
+    }
+}
+@media (max-width: 368px) {
+    .steps-block-name {
+        padding: 10px;
+    }
+    .steps-block-name h3.main-name-h3 {
+        font-size: 20px;
+    }
+    .logo-mobil-block {
+        flex-direction: column;
+    }
+}
+
+/**************** section id="difficulties" *****************/
+#difficulties {
+    width: 100%;
+    background: linear-gradient(131.99deg, #2232C7 5.64%, #516FD7 100%);
+    padding: 112px 0;
+}
+.difficulties-wrapper {
+    width: 100%;
+    max-width: 930px;
+    margin: 0 auto;
+}
+#difficulties .main-name-h2 {
+    color: #fafafa;
+}
+.difficulties-border {
+    width: 65px;
+    height: 2px;
+    background-color: #D1D7DC;
+    margin-bottom: 52px;
+}
+.difficulties-flex {
+    display: flex;
+}
+.difficulties-img {
+    margin-right: 135px;
+}
+.difficulties-info {
+    padding-top: 50px;
+}
+ul.difficulties-ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 32px;
+}
+ul.difficulties-ul li {
+    margin-bottom: 16px;
+    position: relative;
+}
+ul.difficulties-ul li a {
+    color: #fafafa;
+}
+ul.difficulties-ul li a svg {
+    width: 15px;
+    height: 12px;
+    margin-top: -3px;
+    margin-right: 18px;
+}
+
+@media (max-width: 991px){
+    .difficulties-img {
+        margin-right: 0px;
+        order: 1;
+    }
+    .difficulties-flex {
+        display: flex;
+        flex-direction: column;
+    }
+    .difficulties-info {
+        padding-top: 0px;
+        order: 0;
+        margin-bottom: 24px;
+    }
+}
+
+/****************  section id="customer-reviews"  ********************/
+#customer-reviews {
+    padding: 96px 0;
+    background-color: #fafafa;
+}
+.carousel-row {
+    margin-top: 48px;
+}
+.customer-block-name {
+    background: #EEF1F4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px 20px 5px 10px;
+}
+.carousel-customer-flex {
+    display: flex!important;
+    justify-content: space-between;
+    color: transparent;
+    background: transparent;
+}
+.carousel-block-wrap {
+    width: 100%;
+    /*max-width: 31.5%;*/
+    /*box-shadow: 0px 20px 60px 0px #3B3D481A;*/
+}
+.customer-text {
+    padding: 16px 20px;
+    min-height: 410px;
+}
+.customer-name {
+    padding: 0 20px 12px 20px;
+}
+
+.carousel-wrapper .slick-dots li button:before {
+    font-size: 20px;
+    color: #3951D2;
+    opacity: .1;
+}
+.carousel-wrapper .slick-dots li.slick-active button:before {
+    opacity: 1;
+}
+.carousel-wrapper .slick-dots {
+    bottom: -60px;
+}
+.carousel-container {
+    width: 100%;
+    max-width: 1427px;
+    margin: 0 auto;
+}
+/****/
+.slider {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.slick-slide {
+    margin: 0px 20px;
+    box-shadow: 0px 20px 20px 0px #3b3d481a;
+    padding: 0;
+}
+
+.slick-slide img {
+    width: 100%;
+}
+
+.slick-track{
+    margin: 30px 0 122px;
+}
+.row.carousel-row .col-lg-12 {
+    padding-right: 0;
+    padding-left: 0;
+}
+.carousel-row .slick-dots {
+    bottom: 30px;
+}
+.carousel-row .slick-dots li button:before {
+    font-size: 20px;
+    opacity: 1;
+    color: #d7d7d7;
+    /*border: 3px solid #D1D7DC*/
+}
+.carousel-row .slick-dots li.slick-active button:before {
+    opacity: 1;
+    color: #3951D2;
+}
+
+/****************** section id="main-contacts" **********************/
+#main-contacts {
+    background-color: #fafafa;
+}
+.phone,
+.phone a {
+    font-size: 32px;
+    line-height: 46px;
+    color: #454F5B;
+    font-family: Jost-Regular;
+}
+.contacts-block-info {
+    margin-left: 41%;
+}
+.contacts-indent {
+    margin-top: 32px;
+}
+#main-contacts a.button-search {
+    margin-top: 48px;
+}
+h3.mail-block {
+    margin-bottom: 0;
+}
+#main-contacts .steps-border {
+    margin-bottom: 20px;
+}
+@media (max-width: 991px) {
+    .contacts-block-info {
+        margin-left: 14%;
+    }
+}
+

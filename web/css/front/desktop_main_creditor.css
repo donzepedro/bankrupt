@@ -1,0 +1,63 @@
+.main-creditor .main-telephone-text p.main-text-p3 {
+    margin: 16px 0 28px 0;
+    max-width: 500px;
+}
+.main-creditor .checkbox-human {
+    display: flex;
+    justify-content: space-between;
+}
+.main-creditor .form-group.form-check {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    padding-top: 10px;
+}
+.main-creditor .checkbox-block-flex {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.block-form-group-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.form-select-block-1,
+.form-select-block-2 {
+    margin-top: 5px;
+}
+.form-select-block-1 select,
+.form-select-block-2 select {
+    width: 100%;
+}
+.form-select-block-1 select[name='menu'],
+.form-select-block-2 select[name='menu'] {
+    border: 1px solid #A2B6C8;
+    background-color: #fafafa;
+    border-radius: 2px;
+    padding: 5px 0 5px 4px;
+    font-family: Jost-Regular;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+    color: #454F5B;
+}
+.form-select-block-2 {
+    width: 65%;
+}
+.width-block-60  {
+    width: 60%;
+}
+.width-block-40 {
+    width: 40%;
+}
+
+
+
+@media (max-width : 991px) {
+    .main-creditor .width-block-60,
+    .main-creditor .width-block-40 {
+        width: 100%;
+    }
+}

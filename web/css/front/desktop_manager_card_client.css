@@ -1,0 +1,102 @@
+
+
+.manager-card-client .personal-specialists-block:last-child {
+    border-bottom: 1px solid #D1D7DC;
+}
+.personal-specialists-text {
+    padding: 24px 0 33px 0;
+}
+.card-client-choice {
+    padding: 20px 0 10px 0;
+}
+.card-client-choice ul {
+    list-style: none;
+    padding-left: 0;
+}
+.manager-card-client .personal-specialists-wrapper {
+    position: relative;
+}
+.personal-block-close {
+    position: absolute;
+    right: 5px;
+    top: -40px;
+}
+.personal-block-close svg {
+    width: 21px;
+    height: 19px;
+}
+
+
+
+@media (max-width : 991px){
+    .manager-card-client .personal-specialists-wrapper {
+        margin-top: 80px;
+    }
+    .manager-card-client .desktop-link-search {
+        display: none;
+    }
+    .manager-card-client .main-banner-location {
+        margin: 0 auto;
+    }
+    .specialists-flex, .specialists-name-text-flex {
+        flex-wrap: wrap;
+    }
+}
+@media (max-width : 767px) {
+    .manager-card-client .go-profile {
+        margin-top: 24px;
+        width: 100%;
+        text-align: right;
+    }
+}
+@media (max-width : 575px) {
+    .manager-card-client .col-lg-7.personal-col {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .manager-card-client .specialists-name {
+        width: 50%;
+    }
+    .manager-card-client .specialists-name h4 {
+        text-align: center;
+    }
+}
+@media (max-width : 450px) {
+    .manager-card-client .specialists-name-text-flex {
+        flex-direction: column;
+        align-items: center;
+    }
+    .manager-card-client .name-text-block {
+        text-align: center;
+    }
+}
+@media (max-width : 400px) {
+    .manager-card-client .specialists-flex {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .manager-card-client .specialists-name,
+    .manager-card-client .specialists-photo {
+        width: 100%;
+    }
+    .manager-card-client .specialists-name-text-flex {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .manager-card-client .specialists-name {
+        margin-top: 24px;
+    }
+}
+@media (max-width : 380px) {
+    .manager-card-client .checkbox-block-flex {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .manager-card-client .checkbox-block-flex button.reset-filter {
+        margin-bottom: 24px;
+    }
+}
+
+

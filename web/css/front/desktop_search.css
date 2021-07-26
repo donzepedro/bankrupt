@@ -1,0 +1,173 @@
+section#found-specialists {
+    padding: 32px 0 77px 0;
+    background-color: #f6f6f6;
+}
+
+
+/***** specialists-location-row *****/
+.specialists-location-row {
+    margin-top: 22px;
+}
+.specialists-location-row .main-banner-location,
+.specialists-location-row .desktop-link-search {
+    box-shadow: 0px 20px 60px 0px #3B3D481A;
+    padding: 25px 16px;
+    max-width: 396px;
+}
+.specialists-location-row .form-check-flex {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.specialists-location-row .checkbox-block-flex {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin-top: 15px;
+}
+.specialists-location-row .checkbox-block-flex button {
+    margin-right: 30px;
+}
+/*******/
+.desktop-link-search {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.link-search-border {
+    width: 100%;
+    max-width: 338px;
+    height: 1px;
+    background-color: #D1D7DC;
+    margin-top: 9px;
+    margin-bottom: 24px;
+}
+.link-search-a span {
+    text-transform: uppercase;
+}
+/************ personal-specialists-wrapper ************/
+.col-lg-7.personal-col {
+    padding-left: 0;
+    padding-right: 0;
+}
+.personal-specialists-wrapper {
+    box-shadow: 0px 20px 60px 0px #3B3D481A;
+    width: 100%;
+    max-width: 818px;
+    padding: 0 20px 20px 20px;
+}
+.specialists-flex,
+.specialists-name-text-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 100%;
+}
+.specialists-photo {
+    width: 30%;
+    max-width: 142px;
+    margin-right: 10px;
+}
+.specialists-name {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    margin-right: 10px;
+}
+.personal-specialists-block {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #D1D7DC;
+}
+.personal-specialists-block:last-child {
+    border-bottom: none;
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+    #found-specialists .specialists-flex {
+        flex-wrap: wrap;
+    }
+    #found-specialists .go-profile {
+        margin-top: 24px;
+        width: 100%;
+        text-align: right;
+    }
+}
+
+@media (max-width : 991px) {
+    #found-specialists .desktop-link-search {
+        display: none;
+    }
+    #found-specialists .personal-specialists-wrapper {
+        margin-top: 24px;
+    }
+    #found-specialists .main-banner-location {
+        margin: 0 auto;
+        margin-bottom: 70px;
+    }
+}
+@media (max-width : 767px) {
+    #found-specialists .specialists-flex {
+        flex-wrap: wrap;
+    }
+    #found-specialists .go-profile {
+        margin-top: 24px;
+        width: 100%;
+        text-align: left;
+    }
+}
+
+@media (max-width : 575px) {
+    #found-specialists .col-lg-7.personal-col {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    #found-specialists .specialists-name {
+        width: 50%;
+    }
+    #found-specialists .specialists-name h4 {
+        text-align: center;
+    }
+}
+@media (max-width : 450px) {
+    #found-specialists .specialists-name-text-flex {
+        flex-direction: column;
+        align-items: center;
+    }
+    #found-specialists .name-text-block {
+        text-align: center;
+    }
+}
+@media (max-width : 400px) {
+    #found-specialists .specialists-flex {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    #found-specialists .specialists-name,
+    #found-specialists .specialists-photo {
+        width: 100%;
+    }
+    #found-specialists .specialists-name-text-flex {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    #found-specialists .specialists-name {
+        margin-top: 24px;
+    }
+}
+@media (max-width : 380px) {
+    #found-specialists .checkbox-block-flex {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    #found-specialists .checkbox-block-flex button.reset-filter {
+        margin-bottom: 24px;
+        width: 100%;
+    }
+    .specialists-location-row .checkbox-block-flex button {
+        margin-right: 0px;
+        width: 100%;
+    }
+}

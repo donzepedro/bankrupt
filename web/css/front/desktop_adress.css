@@ -1,0 +1,55 @@
+section.adress-block-wrapper {
+    background-color: #fafafa;
+    padding: 32px 0 94px 0;
+}
+/*******/
+.adress-block-wrapper .desktop-link-search {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    box-shadow: 0px 20px 60px 0px #3B3D481A;
+    width: 100%;
+    max-width: 394px;
+    padding: 24px 17px;
+}
+.link-search-border {
+    width: 100%;
+    max-width: 338px;
+    height: 1px;
+    background-color: #D1D7DC;
+    margin-top: 9px;
+    margin-bottom: 24px;
+}
+.link-search-a span {
+    text-transform: uppercase;
+}
+.adress-block-wrapper .desktop-link-search .link-search-a {
+    margin-bottom: 16px;
+}
+/*********************/
+.adress-block-text .main-text-p2,
+.adress-block-text a.email-address{
+    line-height: 28px;
+}
+.adress-block-text .main-name-color-h4 {
+    line-height: 20px;
+}
+/***********/
+.central-federal-district,
+.northwestern-federal-district {
+    border-bottom: 1px solid #D1D7DC;
+    padding-bottom: 24px;
+}
+
+@media (min-width: 767px) and (max-width: 991px) {
+    .adress-block-wrapper .desktop-link-search {
+        margin-top: 50px;
+    }
+}
+
+@media (max-width : 767px) {
+    .adress-block-wrapper .desktop-link-search {
+        display: none;
+    }
+}
+

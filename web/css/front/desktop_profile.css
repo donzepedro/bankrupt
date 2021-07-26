@@ -1,0 +1,107 @@
+
+section.profile-section {
+    padding: 32px 0 86px 0;
+    background-color: #fafafa;
+}
+/************ personal-specialists-wrapper ************/
+.col-lg-12.personal-col {
+    padding-right: 0;
+    padding-left: 0;
+}
+.personal-specialists-wrapper.profile-block-wrapper {
+    width: 100%;
+    max-width: 770px;
+    padding: 0 20px 20px 20px;
+}
+.profile-block-wrapper .specialists-flex {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    height: 100%;
+}
+
+.profile-block-wrapper .specialists-name-text-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 100%;
+}
+.profile-block-wrapper .specialists-photo {
+    width: 30%;
+    max-width: 142px;
+    margin-right: 32px;
+}
+.profile-block-wrapper .specialists-name {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    margin-right: 10px;
+    width: 38%;
+}
+.personal-specialists-block {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #D1D7DC;
+}
+.personal-specialists-block:last-child {
+    border-bottom: none;
+}
+.profile-block-wrapper .personal-specialists-text {
+    padding-top: 24px;
+}
+/****************************/
+.personal-specialists-text .main-text-h3 {
+    margin: 40px 0;
+}
+
+@media (max-width : 767px) {
+    .profile-block-wrapper .specialists-name {
+        width: 50%;
+    }
+}
+@media (max-width : 450px) {
+    .profile-block-wrapper .specialists-name {
+        width: calc(100% - 30%);
+    }
+    .profile-block-wrapper .specialists-name-text-flex {
+        display: flex;
+        align-items: flex-start;
+        height: 100%;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+    .profile-block-wrapper .specialists-flex {
+        align-items: flex-start;
+    }
+    .profile-block-wrapper .specialists-photo {
+        margin-right: 15px;
+    }
+    .profile-block-wrapper .specialists-photo,
+    .profile-block-wrapper .specialists-photo img {
+        height: 142px;
+        width: 142px;
+    }
+}
+@media (max-width : 380px) {
+    .profile-block-wrapper .specialists-flex {
+        align-items: center;
+        flex-direction: column;
+    }
+    .profile-block-wrapper .specialists-name {
+        width: 100%;
+    }
+    h4.main-name-color-h4 {
+        text-align: center;
+    }
+    .profile-block-wrapper .specialists-name-text-flex {
+        flex-direction: row;
+    }
+}
+
+@media (max-width : 280px) {
+    .profile-block-wrapper .specialists-name-text-flex {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
