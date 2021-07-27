@@ -1,74 +1,212 @@
-fonts_styles.css
-Jost-Black.eot
-Jost-BlackItalic.eot
-Jost-BlackItalic.ttf
-Jost-BlackItalic.woff
-Jost-BlackItalic.woff2
-Jost-Black.ttf
-Jost-Black.woff
-Jost-Black.woff2
-Jost-Bold.eot
-Jost-BoldItalic.eot
-Jost-BoldItalic.ttf
-Jost-BoldItalic.woff
-Jost-BoldItalic.woff2
-Jost-Bold.ttf
-Jost-Bold.woff
-Jost-Bold.woff2
-Jost-ExtraBold.eot
-Jost-ExtraBoldItalic.eot
-Jost-ExtraBoldItalic.ttf
-Jost-ExtraBoldItalic.woff
-Jost-ExtraBoldItalic.woff2
-Jost-ExtraBold.ttf
-Jost-ExtraBold.woff
-Jost-ExtraBold.woff2
-Jost-ExtraLight.eot
-Jost-ExtraLightItalic.eot
-Jost-ExtraLightItalic.ttf
-Jost-ExtraLightItalic.woff
-Jost-ExtraLightItalic.woff2
-Jost-ExtraLight.ttf
-Jost-ExtraLight.woff
-Jost-ExtraLight.woff2
-Jost-Italic.eot
-Jost-Italic.ttf
-Jost-Italic.woff
-Jost-Italic.woff2
-Jost-Light.eot
-Jost-LightItalic.eot
-Jost-LightItalic.ttf
-Jost-LightItalic.woff
-Jost-LightItalic.woff2
-Jost-Light.ttf
-Jost-Light.woff
-Jost-Light.woff2
-Jost-Medium.eot
-Jost-MediumItalic.eot
-Jost-MediumItalic.ttf
-Jost-MediumItalic.woff
-Jost-MediumItalic.woff2
-Jost-Medium.ttf
-Jost-Medium.woff
-Jost-Medium.woff2
-Jost-Regular.eot
-Jost-Regular.ttf
-Jost-Regular.woff
-Jost-Regular.woff2
-Jost-SemiBold.eot
-Jost-SemiBoldItalic.eot
-Jost-SemiBoldItalic.ttf
-Jost-SemiBoldItalic.woff
-Jost-SemiBoldItalic.woff2
-Jost-SemiBold.ttf
-Jost-SemiBold.woff
-Jost-SemiBold.woff2
-Jost-Thin.eot
-Jost-ThinItalic.eot
-Jost-ThinItalic.ttf
-Jost-ThinItalic.woff
-Jost-ThinItalic.woff2
-Jost-Thin.ttf
-Jost-Thin.woff
-Jost-Thin.woff2
-names.txt
+<section id="customer-reviews">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<h2 class="main-name-h2">Отзывы клиентов</h2>
+				<div class="steps-border"></div>
+			</div>
+		</div>
+		<div class="row carousel-row">
+			<div class="col-lg-12">
+				<div class="regular slider">
+					<div>
+						<div class="carousel-block-wrap"> <!-- carousel-block-wrap -->
+							<div class="">
+								<div class="steps-block-flex">
+									<div class="steps-block-img">
+										<img src="<?=$img_path ?>bankrut-img2.png">
+									</div>
+									<div class="customer-block-name">
+										<h4 class="main-text-h4">Просто дали начать снова жить!</h4>
+									</div>
+								</div>
+								<div class="customer-text">
+									<p class="main-name-p3">
+										Мне порекомендовала обратиться в компанию коллега еще год назад. Сначала даже не поверила, что избавиться от долгов можно так легко. Решила даже позвонить в другие конторы, однако самым выгодным и адекватным вариантом стал тот, который посоветовала знакомая. Меня порадовала, что компания сама собирает пакет документов, оформляет все за считанные дни. Фирма быстро избавила меня от долгов, и я смогла спокойно жить, работать без звонков коллекторов и нервотрепки.								</p>
+								</div>
+								<div class="customer-name">
+									<p class="main-name-p2">Марина Иванова</p>
+								</div>
+							</div>
+						</div> <!-- //carousel-block-wrap -->
+					</div>
+					<div>
+						<div class="carousel-block-wrap"> <!-- carousel-block-wrap -->
+							<div class="carousel-customer-block">
+								<div class="">
+									<div class="steps-block-flex">
+										<div class="steps-block-img">
+											<img src="<?=$img_path ?>bankrut-img1.png">
+										</div>
+										<div class="customer-block-name">
+											<h4 class="main-text-h4">Всем советую!</h4>
+										</div>
+									</div>
+									<div class="customer-text">
+										<p class="main-name-p3">
+											Спасибо большое компании по списанию долгов. Процедура прошла законно, прозрачно, легально. В свое время, я брал кредит на собственное дело, но бизнес не пошел и не поехал, а вот долги стали копиться моментально. Естественно, что коллекторы и проблемы не заставили себя ждать. Поэтому и решил обратиться за банкротством, и затем был приятно удивлен, что мне быстро помогли с долгами.								</div>
+									<div class="customer-name">
+										<p class="main-name-p2">Сергей Иванов</p>
+									</div>
+								</div>
+							</div>
+						</div> <!-- //carousel-block-wrap -->
+					</div>
+					<div>
+						<div class="carousel-block-wrap"> <!-- carousel-block-wrap -->
+							<div class="carousel-customer-block">
+								<div class="">
+									<div class="steps-block-flex">
+										<div class="steps-block-img">
+											<img src="<?=$img_path ?>bankrut-img3.png">
+										</div>
+										<div class="customer-block-name">
+											<h4 class="main-text-h4">Проверенная фирма.</h4>
+										</div>
+									</div>
+									<div class="customer-text">
+										<p class="main-name-p3">
+											Отвечаю за то, что говорю. Я сам успешно списал долги, а затем посоветовал знакомым, попавшим в тяжелую жизненную ситуацию, тоже обратиться в эту же компанию. Помогли и мне, и моим друзьям. Естественно, как камень с плеч!								</div>
+									<div class="customer-name">
+										<p class="main-name-p2">Иван Иванов</p>
+									</div>
+								</div>
+							</div>
+						</div><!-- //carousel-block-wrap -->
+					</div>
+					<div>
+						<div class="carousel-block-wrap"> <!-- carousel-block-wrap -->
+							<div class="">
+								<div class="steps-block-flex">
+									<div class="steps-block-img">
+										<img src="<?=$img_path ?>bankrut-img2.png">
+									</div>
+									<div class="customer-block-name">
+										<h4 class="main-text-h4">Просто дали начать снова жить!</h4>
+									</div>
+								</div>
+								<div class="customer-text">
+									<p class="main-name-p3">
+										Мне порекомендовала обратиться в компанию коллега еще год назад. Сначала даже не поверила, что избавиться от долгов можно так легко. Решила даже позвонить в другие конторы, однако самым выгодным и адекватным вариантом стал тот, который посоветовала знакомая. Меня порадовала, что компания сама собирает пакет документов, оформляет все за считанные дни. Фирма быстро избавила меня от долгов, и я смогла спокойно жить, работать без звонков коллекторов и нервотрепки.								</p>
+								</div>
+								<div class="customer-name">
+									<p class="main-name-p2">Марина Иванова</p>
+								</div>
+							</div>
+						</div> <!-- //carousel-block-wrap -->
+					</div>
+					<div>
+						<div class="carousel-block-wrap"> <!-- carousel-block-wrap -->
+							<div class="carousel-customer-block">
+								<div class="">
+									<div class="steps-block-flex">
+										<div class="steps-block-img">
+											<img src="<?=$img_path ?>bankrut-img1.png">
+										</div>
+										<div class="customer-block-name">
+											<h4 class="main-text-h4">Всем советую!</h4>
+										</div>
+									</div>
+									<div class="customer-text">
+										<p class="main-name-p3">
+											Спасибо большое компании по списанию долгов. Процедура прошла законно, прозрачно, легально. В свое время, я брал кредит на собственное дело, но бизнес не пошел и не поехал, а вот долги стали копиться моментально. Естественно, что коллекторы и проблемы не заставили себя ждать. Поэтому и решил обратиться за банкротством, и затем был приятно удивлен, что мне быстро помогли с долгами.								</div>
+									<div class="customer-name">
+										<p class="main-name-p2">Сергей Иванов</p>
+									</div>
+								</div>
+							</div>
+						</div> <!-- //carousel-block-wrap -->
+					</div>
+					<div>
+						<div class="carousel-block-wrap"> <!-- carousel-block-wrap -->
+							<div class="carousel-customer-block">
+								<div class="">
+									<div class="steps-block-flex">
+										<div class="steps-block-img">
+											<img src="<?=$img_path ?>bankrut-img3.png">
+										</div>
+										<div class="customer-block-name">
+											<h4 class="main-text-h4">Проверенная фирма.</h4>
+										</div>
+									</div>
+									<div class="customer-text">
+										<p class="main-name-p3">
+											Отвечаю за то, что говорю. Я сам успешно списал долги, а затем посоветовал знакомым, попавшим в тяжелую жизненную ситуацию, тоже обратиться в эту же компанию. Помогли и мне, и моим друзьям. Естественно, как камень с плеч!								</div>
+									<div class="customer-name">
+										<p class="main-name-p2">Иван Иванов</p>
+									</div>
+								</div>
+							</div>
+						</div><!-- //carousel-block-wrap -->
+					</div>
+					<div>
+						<div class="carousel-block-wrap"> <!-- carousel-block-wrap -->
+							<div class="">
+								<div class="steps-block-flex">
+									<div class="steps-block-img">
+										<img src="<?=$img_path ?>bankrut-img2.png">
+									</div>
+									<div class="customer-block-name">
+										<h4 class="main-text-h4">Просто дали начать снова жить!</h4>
+									</div>
+								</div>
+								<div class="customer-text">
+									<p class="main-name-p3">
+										Мне порекомендовала обратиться в компанию коллега еще год назад. Сначала даже не поверила, что избавиться от долгов можно так легко. Решила даже позвонить в другие конторы, однако самым выгодным и адекватным вариантом стал тот, который посоветовала знакомая. Меня порадовала, что компания сама собирает пакет документов, оформляет все за считанные дни. Фирма быстро избавила меня от долгов, и я смогла спокойно жить, работать без звонков коллекторов и нервотрепки.								</p>
+								</div>
+								<div class="customer-name">
+									<p class="main-name-p2">Марина Иванова</p>
+								</div>
+							</div>
+						</div> <!-- //carousel-block-wrap -->
+					</div>
+					<div>
+						<div class="carousel-block-wrap"> <!-- carousel-block-wrap -->
+							<div class="carousel-customer-block">
+								<div class="">
+									<div class="steps-block-flex">
+										<div class="steps-block-img">
+											<img src="<?=$img_path ?>bankrut-img1.png">
+										</div>
+										<div class="customer-block-name">
+											<h4 class="main-text-h4">Всем советую!</h4>
+										</div>
+									</div>
+									<div class="customer-text">
+										<p class="main-name-p3">
+											Спасибо большое компании по списанию долгов. Процедура прошла законно, прозрачно, легально. В свое время, я брал кредит на собственное дело, но бизнес не пошел и не поехал, а вот долги стали копиться моментально. Естественно, что коллекторы и проблемы не заставили себя ждать. Поэтому и решил обратиться за банкротством, и затем был приятно удивлен, что мне быстро помогли с долгами.								</div>
+									<div class="customer-name">
+										<p class="main-name-p2">Сергей Иванов</p>
+									</div>
+								</div>
+							</div>
+						</div> <!-- //carousel-block-wrap -->
+					</div>
+					<div>
+						<div class="carousel-block-wrap"> <!-- carousel-block-wrap -->
+							<div class="carousel-customer-block">
+								<div class="">
+									<div class="steps-block-flex">
+										<div class="steps-block-img">
+											<img src="<?=$img_path ?>bankrut-img3.png">
+										</div>
+										<div class="customer-block-name">
+											<h4 class="main-text-h4">Проверенная фирма.</h4>
+										</div>
+									</div>
+									<div class="customer-text">
+										<p class="main-name-p3">
+											Отвечаю за то, что говорю. Я сам успешно списал долги, а затем посоветовал знакомым, попавшим в тяжелую жизненную ситуацию, тоже обратиться в эту же компанию. Помогли и мне, и моим друзьям. Естественно, как камень с плеч!								</div>
+									<div class="customer-name">
+										<p class="main-name-p2">Иван Иванов</p>
+									</div>
+								</div>
+							</div>
+						</div><!-- //carousel-block-wrap -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</section>

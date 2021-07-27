@@ -15,11 +15,15 @@ use yii\web\Controller;
  */
 class MainController extends Controller{
     
-    public $layout = 'emptylayout.php';
+    public $layout = 'frontend_layout.php';
+    
     public function actionIndex() {
         
         return $this->render('index');
+    }
+    public function actionAddress(){
         
+        return $this->render('address');
     }
     //put your code here
 }
