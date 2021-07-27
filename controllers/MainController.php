@@ -21,9 +21,51 @@ class MainController extends Controller{
         
         return $this->render('index');
     }
+    
     public function actionAddress(){
         
         return $this->render('address');
     }
+    
+    public function actionSearch(){
+        return $this->render('search');
+    }
+    
+    public function actionCreditor(){
+        return $this->render('creditor');
+    }
+    
+    public function actionManagerCardClient(){
+        return $this->render('manager_card_client');
+    }
+    
+    public function actionNews(){
+        return $this->render('news');
+    }
+    
+    public function actionNewsRead(){
+        return $this->render('news_read');
+    }
+    
+    public function actionSearchCreditor(){
+        return $this->render('search_creditor');
+    }
+    
+    public function actionManagerCardCreditor(){
+        return $this->render('manager_card_creditor');
+    }
+    
+    public function actionLogin(){
+        return $this->render('login');
+    }
+    
+    public function actionProfile(){
+        return $this->render('profile');
+    }
+    
+    public function actionSignUp(){
+        return $this->render('sign_up');
+    }
+    
     //put your code here
 }
