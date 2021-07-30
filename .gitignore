@@ -34,3 +34,5 @@ tests/_support/_generated
 
 #database settings
 /config/db.php
+#yii core Because it already there
+/vendor

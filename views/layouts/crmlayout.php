@@ -33,12 +33,12 @@ NewAsset::register($this);
               </button>
               <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                  <a class="nav-link active" aria-current="page" href="http://bankrupt/arbitr-manager">Arbitration managers</a>
-                  <a class="nav-link active" href="http://bankrupt/bankrupt-legal">Bankrupt legal</a>
-                  <a class="nav-link active" href="http://bankrupt/bankrupt-phys">Bankrupt physical</a>
-                  <a class="nav-link active" href="http://bankrupt/creditor-legal">Creditor legal</a>
-                  <a class="nav-link active" href="http://bankrupt/creditor-phys">Creditor physical</a>
-                  <a class="nav-link active" href="http://bankrupt/login/logout/">LogOut</a>
+                  <a class="nav-link active" aria-current="page" href="<?=DOMAIN?>arbitr-manager">Arbitration managers</a>
+                  <a class="nav-link active" href="<?=DOMAIN?>bankrupt-legal">Bankrupt legal</a>
+                  <a class="nav-link active" href="<?=DOMAIN?>bankrupt-phys">Bankrupt physical</a>
+                  <a class="nav-link active" href="<?=DOMAIN?>creditor-legal">Creditor legal</a>
+                  <a class="nav-link active" href="<?=DOMAIN?>creditor-phys">Creditor physical</a>
+                  <a class="nav-link active" href="<?=DOMAIN?>login/logout/">LogOut</a>
                   
                  
                 </div>
