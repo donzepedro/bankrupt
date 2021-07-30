@@ -23,7 +23,7 @@ use yii\bootstrap4\ActiveForm;
             <?= $form->field($bankrupt_legal,'inn')->label('INN') ?>
         <div class="row">
         <div class="col-6"><?= Html::submitButton('Save',['class'=>'btn btn-success  px-4','name'=>'Save']); ?></div>
-        <div class="col-6 text-right"><a id='delete_manager' class="text-center btn btn-danger" href="<?= '/bankrupt-legal/'?>">Back</a></div>
+            <a id='delete_manager' class="text-center btn btn-danger" href="<?= '/bankrupt-legal/'?>"><div class="col-6 text-right">Back</div></a>
         </div>
         <?php ActiveForm::end(); ?>
     </div>
