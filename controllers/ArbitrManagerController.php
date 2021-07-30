@@ -14,7 +14,7 @@ use app\models\Education;
 use app\models\UploadForm;
 use app\models\UploadFormForEdit;
 use app\models\SROAMInformation;
-use app\models\Moderators;
+use app\models\Regions;
 use yii\filters\AccessControl;
 
 /**
@@ -56,6 +56,7 @@ class ArbitrManagerController extends Controller {
         
         if(!empty(\Yii::$app->request->get('id'))){
             $imgupload = new UploadFormForEdit();
+            $regions = Regions::find()->all();
             $SROAminfo = SROAMInformation::find()->where(['id_am'=>\Yii::$app->request->get('id')])->one();
             $arbitr_managers = ArbitrationManager::find()->where(['id'=>\Yii::$app->request->get('id')])->one();
             $education = Education::find()->where(['id_am'=>\Yii::$app->request->get('id')])->one();
@@ -106,7 +107,7 @@ class ArbitrManagerController extends Controller {
                 
             }
             
-            return $this->render('edit_manager',['SROAminfo'=>$SROAminfo,'imgupload'=>$imgupload,'foreign_language'=>$foreign_language,'education'=>$education, 'arbitr_managers'=>$arbitr_managers]);    
+            return $this->render('edit_manager',['regions'=>$regions,'SROAminfo'=>$SROAminfo,'imgupload'=>$imgupload,'foreign_language'=>$foreign_language,'education'=>$education, 'arbitr_managers'=>$arbitr_managers]);    
         }
       
         return $this->render('edit_manager',['error'=>'ERROR MESSAGE']);
@@ -119,6 +120,7 @@ class ArbitrManagerController extends Controller {
         $SROAminfo = new SROAMInformation();
         $arbitr_managers = new ArbitrationManager();
         $education = new Education();
+        $regions = Regions::find()->all();
         $foreign_language = new ForeignLanguage();
         $imgupload = new UploadForm();
         

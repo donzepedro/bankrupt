@@ -17,7 +17,6 @@ use Yii;
  * @property int|null $phone_number
  * @property string|null $job_region
  * @property int|null $government_secret_access
- * @property int|null $legal_phys 0-phys/1-legal
  * @property string $SRO_AM_name
  * @property int $categories At this column user have to choose what categories he will be accept legal or physical
  * @property int $count_of_procedure_phys
@@ -49,7 +48,7 @@ class ArbitrationManager extends \yii\db\ActiveRecord
         return [
             [['lname', 'fname', 'SRO_AM_name', 'categories', 'count_of_procedure_phys', 'count_of_procedure_legal', 'procedure_time_average', 'start_date'], 'required'],
             [['birth_date', 'start_date', 'end_date'], 'safe'],
-            [['inn', 'phone_number', 'government_secret_access', 'legal_phys', 'categories', 'count_of_procedure_phys', 'count_of_procedure_legal'], 'integer'],
+            [['inn', 'phone_number', 'government_secret_access', 'categories', 'count_of_procedure_phys', 'count_of_procedure_legal'], 'integer'],
             [['procedure_time_average'], 'number'],
             [['inn'],'string','max'=>12],
             [['lname', 'fname', 'mname'], 'string', 'max' => 20],
@@ -77,7 +76,6 @@ class ArbitrationManager extends \yii\db\ActiveRecord
             'phone_number' => 'Phone Number',
             'job_region' => 'Job Region',
             'government_secret_access' => 'Government Secret Access',
-            'legal_phys' => 'Legal Phys',
             'SRO_AM_name' => 'Sro Am Name',
             'categories' => 'Categories',
             'count_of_procedure_phys' => 'Count Of Procedure Phys',

@@ -1,6 +1,8 @@
 <?php
 use yii\helpers\Html;
+use yii\helpers\ArrayHelper;
 use yii\bootstrap4\ActiveForm;
+$base_url_for_controller = '/arbitr-manager/';
 //if(isset($error)) echo $error;  else      DBdebug($data);
 ?>
 <?php 
@@ -17,7 +19,11 @@ use yii\bootstrap4\ActiveForm;
         <img class="img-fluid" id="image_upload_preview" style="max-height: 300px" src= '/img/F_M_profilepic.jpg'>
         <div class='col '><?= $form->field($imgupload, 'imageFile')->fileInput(['id'=>'inputFile', 'class'=>'imgloadbtn'])->label('') ?></div>
         <div class="row mt-5">
-           <div class="col-12"><?= Html::submitButton('Create Manager', ['class' => 'btn btn-success', 'name' => 'Create-button']) ?></div>
+           <div class="col-6"><?= Html::submitButton('Create Manager', ['class' => 'btn btn-success', 'name' => 'Create-button']) ?></div>
+           <a id='delete_manager' href="<?= $base_url_for_controller ?>"><div class="col btn btn-danger"> 
+                Back
+            </div></a>
+           
         </div>
     </div>
         <div class="col-3">
@@ -30,15 +36,14 @@ use yii\bootstrap4\ActiveForm;
                     <?= $form->field($arbitr_managers, 'post_addr')->textInput([]) ?>
                     <?= $form->field($arbitr_managers, 'inn')->textInput([]) ?>
                     <?= $form->field($arbitr_managers, 'phone_number')->textInput([]) ?>
-                    <?= $form->field($arbitr_managers, 'job_region')->textInput([]) ?>
-                    <?= $form->field($arbitr_managers, 'government_secret_access')->textInput([]) ?>
+                    <?= $form->field($arbitr_managers, 'job_region')->dropDownList(ArrayHelper::map(\app\models\Regions::find()->all(), 'id', 'region')) ?>
+                    <?= $form->field($arbitr_managers, 'government_secret_access')->dropdownList(['Yes','No']) ?>
         
         </div>
         <div class="col-3">
                     <?php // $form = ActiveForm::begin();?>
             
-                   <?= $form->field($arbitr_managers, 'legal_phys')->textInput([]) ?>
-                    <?= $form->field($arbitr_managers, 'categories')->textInput([]) ?>
+                    <?= $form->field($arbitr_managers, 'categories')->dropdownList(['Legal','Physical','Both']) ?>
                     <?= $form->field($arbitr_managers, 'count_of_procedure_phys')->textInput([]) ?>
                     <?= $form->field($arbitr_managers, 'count_of_procedure_legal')->textInput([]) ?>
                     <?= $form->field($arbitr_managers, 'procedure_time_average')->textInput([]) ?>
