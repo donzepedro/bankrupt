@@ -15,7 +15,7 @@ class UploadForm extends Model
     public function rules()
     {
         return [
-           [['imageFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg','maxSize'=>10000],
+           [['imageFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg','maxSize'=>90000],
         ];
     }
 //    '../web/img/managers_profile_img/'
