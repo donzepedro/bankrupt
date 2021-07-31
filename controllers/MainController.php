@@ -34,11 +34,12 @@ class MainController extends Controller{
                             && (preg_match("/^(0|1)$/", \Yii::$app->request->post("SearchModel")['goverment_secret'])))){
                         throw new \yii\web\HttpException(500,'server error, Some error with checkbox data'); 
             }
-            $this->redirect(array('/search-managers/index',
+            $this->redirect(array('/search-managers/index','SearchModel'=>[
                 'region'=>\Yii::$app->request->post("SearchModel")['goverment_secret'],
-                'gov_sec'=>\Yii::$app->request->post("SearchModel")['goverment_secret'],
+                'goverment_secret'=>\Yii::$app->request->post("SearchModel")['goverment_secret'],
                 'legal' =>\Yii::$app->request->post("SearchModel")['legal'],
                 'phys' =>\Yii::$app->request->post("SearchModel")['phys'],
+                ],
                 ));
             
         }
