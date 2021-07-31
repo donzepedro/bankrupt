@@ -65,7 +65,7 @@ $img_path ='/img/front/';
                             <div class="personal-specialists-wrapper">
                                 <div class="row">
                                             <div class="col-12 text-center pt-4"><h4 class="main-name-color-h4"><?= $val['fname'].' '.$val['mname'].' '.$val['lname']; ?></h4></div>
-                                            <div class="col-3"><img src="<?= str_replace('../web','',$val['path_to_img']);?>"></div>
+                                            <div class="col-3"><img style="max-height: 100px" src="<?= str_replace('../web','',$val['path_to_img']);?>"></div>
                                             <div class="col-3 name-text-block"> <p class="main-name-p3 mt-4 pt-5">Средний срок:</p>
                                                                 <h4 class="main-name-color-h4"><span><?= $val['procedure_time_average']?></span> месяцев </h4>
                                             </div>
