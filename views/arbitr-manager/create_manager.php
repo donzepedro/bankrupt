@@ -37,7 +37,7 @@ $base_url_for_controller = '/arbitr-manager/';
                     <?= $form->field($arbitr_managers, 'inn')->textInput([]) ?>
                     <?= $form->field($arbitr_managers, 'phone_number')->textInput([]) ?>
                     <?= $form->field($arbitr_managers, 'job_region')->dropDownList(ArrayHelper::map(\app\models\Regions::find()->all(), 'id', 'region')) ?>
-                    <?= $form->field($arbitr_managers, 'government_secret_access')->dropdownList(['Yes','No']) ?>
+                    <?= $form->field($arbitr_managers, 'government_secret_access')->dropdownList(['No','Yes']) ?>
         
         </div>
         <div class="col-3">

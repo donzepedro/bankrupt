@@ -37,7 +37,7 @@ $start_rows_for_one_page = 5;
 
 ?>
 <div class="row">
-    <div class="btn btn-primary mt-3"><a href= "<?= $base_url_for_controller . 'create-bankrupt'?>">Create new Bankrupt legal</a></div>
+    <a href= "<?= $base_url_for_controller . 'create-bankrupt'?>"><div class="btn btn-primary mt-3">Create new Bankrupt legal</div></a>
 </div>
 <table class="table my-4">
     <tr class="text-center">

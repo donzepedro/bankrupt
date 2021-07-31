@@ -8,6 +8,8 @@
 
 namespace app\controllers;
 use yii\web\Controller;
+use app\models\SearchModel;
+use \app\models\Regions;
 /**
  * Description of MainController
  *
@@ -19,7 +21,28 @@ class MainController extends Controller{
     
     public function actionIndex() {
         
-        return $this->render('index');
+        $search_model = new SearchModel();
+        $regions = Regions::find()->all();
+        if(\Yii::$app->request->isPost){
+//            echo "<pre>";
+//            var_dump(\Yii::$app->request->post());
+////            var_dump(preg_match("/^(0|1)$/", \Yii::$app->request->post("SearchModel")['goverment_secret']));
+////            die;
+//            echo "</pre>";
+            if(!((preg_match("/^(0|1)$/", \Yii::$app->request->post("SearchModel")['phys'])) 
+                    && (preg_match("/^(0|1)$/", \Yii::$app->request->post("SearchModel")['legal'])) 
+                            && (preg_match("/^(0|1)$/", \Yii::$app->request->post("SearchModel")['goverment_secret'])))){
+                        throw new \yii\web\HttpException(500,'server error, Some error with checkbox data'); 
+            }
+            $this->redirect(array('/search-managers/index',
+                'region'=>\Yii::$app->request->post("SearchModel")['goverment_secret'],
+                'gov_sec'=>\Yii::$app->request->post("SearchModel")['goverment_secret'],
+                'legal' =>\Yii::$app->request->post("SearchModel")['legal'],
+                'phys' =>\Yii::$app->request->post("SearchModel")['phys'],
+                ));
+            
+        }
+        return $this->render('index',['search_model'=>$search_model]);
     }
     
     public function actionAddress(){
@@ -66,6 +89,4 @@ class MainController extends Controller{
     public function actionSignUp(){
         return $this->render('sign_up');
     }
-    
-    //put your code here
 }

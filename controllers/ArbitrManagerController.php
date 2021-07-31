@@ -63,11 +63,6 @@ class ArbitrManagerController extends Controller {
             $foreign_language = ForeignLanguage::find()->where(['id_am'=>\Yii::$app->request->get('id')])->one();           
             
             if(\Yii::$app->request->isPost){
-//                echo "<pre>";
-//                var_dump(\Yii::$app->request->post());
-//
-//                echo "</pre>";
-//                die;
                 if(\Yii::$app->request->post("DiscardChange-button") == 'discard'){
                     return $this->render('edit_manager',['imgupload'=>$imgupload,'foreign_language'=>$foreign_language,'education'=>$education, 'arbitr_managers'=>$arbitr_managers]);
                 }
@@ -81,13 +76,14 @@ class ArbitrManagerController extends Controller {
                         $arbitr_managers->attributes = \Yii::$app->request->post('ArbitrationManager');
                         $arbitr_managers->SRO_AM_name = \Yii::$app->request->post('SROAMInformation')['SRO_name'];
                         $arbitr_managers->path_to_img = $path . $imgupload->imageFile->name;
-                    
+                       
                         if(!$arbitr_managers->save()){
                             throw new \yii\web\HttpException(500,'server error, data for Arbitr managers not saved'); 
                         }
                     }
                 }else{
                     $arbitr_managers->attributes = \Yii::$app->request->post('ArbitrationManager');
+                    $arbitr_managers->job_region = Regions::find()->where(['id'=>\Yii::$app->request->post('ArbitrationManager')['job_region']])->one()->region;
                     if(!$arbitr_managers->save()){
                         throw new \yii\web\HttpException(500,'server error, data for Arbitr managers not saved'); 
                     }
@@ -104,7 +100,7 @@ class ArbitrManagerController extends Controller {
                 if(!$SROAminfo->save()){
                     throw new \yii\web\HttpException(500,'server error, data for SRO AM not saved');
                 }
-                
+                return $this->redirect(HOME);
             }
             
             return $this->render('edit_manager',['regions'=>$regions,'SROAminfo'=>$SROAminfo,'imgupload'=>$imgupload,'foreign_language'=>$foreign_language,'education'=>$education, 'arbitr_managers'=>$arbitr_managers]);    
@@ -128,6 +124,7 @@ class ArbitrManagerController extends Controller {
             
             $arbitr_managers->attributes = \Yii::$app->request->post('ArbitrationManager');
             $arbitr_managers->SRO_AM_name = \Yii::$app->request->post('SROAMInformation')['SRO_name'];
+            $arbitr_managers->job_region = Regions::find()->where(['id'=>\Yii::$app->request->post('ArbitrationManager')['job_region']])->one()->region;
            
             if(!$arbitr_managers->save()){
                 throw new \yii\web\HttpException(500,'server error, data for Arbitr managers not saved');
@@ -175,11 +172,6 @@ class ArbitrManagerController extends Controller {
             }
             
             return $this->redirect(HOME);
-            //service temporary output
-//            var_dump($foreign_language->attributes);
-////            var_dump(\Yii::$app->request->post());
-//            echo "</pre>";
-            
         }
         return $this->render('create_manager',['SROAminfo'=>$SROAminfo,'imgupload'=>$imgupload,'foreign_language'=>$foreign_language,'education'=>$education, 'arbitr_managers'=>$arbitr_managers]);
     }

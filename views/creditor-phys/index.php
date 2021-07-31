@@ -37,7 +37,7 @@ $start_rows_for_one_page = 5;
 
 ?>
 <div class="row">
-    <div class="btn btn-primary mt-3"><a href= "<?= $base_url_for_controller . 'create-creditor'?>">Create new Creditor physical</a></div>
+    <a href= "<?= $base_url_for_controller . 'create-creditor'?>"><div class="btn btn-primary mt-3">Create new Creditor physical</div></a>
 </div>
 <table class="table my-4">
     <tr class="text-center">

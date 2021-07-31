@@ -1,5 +1,8 @@
 <!doctype html>
 <?php
+use yii\helpers\Html;
+use yii\helpers\ArrayHelper;
+use yii\bootstrap4\ActiveForm;
 $img_path ='/img/front/';
 ?>
 
@@ -64,34 +67,37 @@ $img_path ='/img/front/';
 						</div>
 						<div class="main-banner-location">
 							<form action="" method="post">
+                                                            
 								<div class="form-group">
-									<p class="main-text-p4">Регион</p>
-									<select name="menu" size="1" class="form-control">
-										<option selected="selected" value="second">Республика Карелия</option>
-										<option value="third">1</option>
-										<option value="fourth">2</option>
-									</select>
+                                                                        <p class="main-text-p4 indent-p5">Регион</p>
+									<?php $form = ActiveForm::begin(['options'=>['class'=>'form-group']]) ?>
+                                                                        <?= $form->field($search_model, 'region')->dropDownList(ArrayHelper::map(\app\models\Regions::find()->all(), 'id', 'region'))->label('') ?>
+                                                                        
 									<p class="main-text-p4 indent-p5">Вы являетесь:</p>
 								</div>
 								<div class="form-group form-check form-check-flex">
 									<div class="checkbox-human">
-										<div>
-											<input type="checkbox" id="cb1"> <label for="cb1" class="main-name-p3">Физическим лицом</label>
+										<div class="main-name-p3">
+                                                                                    <?=$form->field($search_model,'phys')->checkbox([])->label('Физическим лицом') ?>
+											<!--<input type="checkbox" id="cb1"> <label for="cb1" class="main-name-p3">Физическим лицом</label>-->
 										</div>
-										<div>
-											<input type="checkbox" id="cb2"> <label for="cb2" class="main-name-p3">Юридическим лицом</label>
+										<div class="main-name-p3 mt-2">
+                                                                                    <?=$form->field($search_model,'legal')->checkbox([])->label('Юридическим лицом') ?>
+											<!--<input type="checkbox" id="cb2"> <label for="cb2" class="main-name-p3">Юридическим лицом</label>-->
 										</div>
-									</div>
-									<div class="checkbox-toggle">
-										<label class="checkbox">
-											<input type="checkbox">
-											<span class="main-name-p3">Допуск к гос.тайне</span>
-										</label>
-									</div>
+                                                                        </div>
+                                                                        <div class="checkbox-toggle">
+                                                                            
+                                                                                <?= $form->field($search_model, 'goverment_secret')->checkbox([
+                                                                                'template' => "<div class=\"custom-control custom-switch\">{input} {label}</div>\n<div>{error}</div>",
+                                                                                'class' => 'custom-control-input'])->label('Допуск к гос.тайне', ['class' => 'custom-control-label main-name-p3']) ?>
+                                                                        </div>
 									<div class="checkbox-block-flex">
-										<button type="submit" class="btn button-search">Поиск</button>
+                                                                            <?= Html::submitButton('Поиск', ['class' => 'btn button-search', 'name' => 'Search-button']) ?>
+										<!--<button type="submit" class="">Поиск</button>-->
 									</div>
 								</div>
+                                                            <?php ActiveForm::end();?>
 							</form>
 						</div>
 					</div>

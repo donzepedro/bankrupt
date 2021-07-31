@@ -36,3 +36,6 @@ tests/_support/_generated
 /config/db.php
 #yii core Because it already there
 /vendor
+
+#profiles image
+/web/img/managers_profile_img
