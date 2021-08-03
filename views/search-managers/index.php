@@ -26,10 +26,10 @@ $img_path ='/img/front/';
 							<div class="form-group form-check form-check-flex">
 								<div class="checkbox-human">
 									<div class="main-name-p3 mt-2">
-										<?=$form->field($search_model,'phys')->checkbox([])->label('Физическим лицом') ?>
+										<?=$form->field($search_model,'b_phys')->checkbox([])->label('Физическим лицом') ?>
 									</div>
 									<div class="main-name-p3 mt-2">
-										<?=$form->field($search_model,'legal')->checkbox([])->label('Юридическим лицом') ?>
+										<?=$form->field($search_model,'b_legal')->checkbox([])->label('Юридическим лицом') ?>
 									</div>
 								</div>
 								<div class="checkbox-toggle mt-2">

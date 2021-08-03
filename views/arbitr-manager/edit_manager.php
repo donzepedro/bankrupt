@@ -44,7 +44,7 @@ $base_url_for_controller = '/arbitr-manager/';
                                       
                     <?php // $form->field($arbitr_managers, 'SRO_AM_name')->textInput([]) ?>
                     <?= $form->field($arbitr_managers, 'debtor_categories')->dropdownList(['Legal','Physical','Both']) ?>
-                    <?= $form->field($arbitr_managers, 'bankrupt_categoties')->dropdownList(['Legal','Physical','Both']) ?>
+                    <?= $form->field($arbitr_managers, 'bankrupt_categories')->dropdownList(['Legal','Physical','Both']) ?>
                     <?= $form->field($arbitr_managers, 'count_of_procedure_phys')->textInput([]) ?>
                     <?= $form->field($arbitr_managers, 'count_of_procedure_legal')->textInput([]) ?>
                     <?= $form->field($arbitr_managers, 'procedure_time_average')->textInput([]) ?>
