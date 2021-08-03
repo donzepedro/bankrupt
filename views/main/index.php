@@ -78,11 +78,11 @@ $img_path ='/img/front/';
 								<div class="form-group form-check form-check-flex">
 									<div class="checkbox-human">
 										<div class="main-name-p3">
-                                                                                    <?=$form->field($search_model,'phys')->checkbox([])->label('Физическим лицом') ?>
+                                                                                    <?=$form->field($search_model,'b_phys')->checkbox([])->label('Физическим лицом') ?>
 											<!--<input type="checkbox" id="cb1"> <label for="cb1" class="main-name-p3">Физическим лицом</label>-->
 										</div>
 										<div class="main-name-p3 mt-2">
-                                                                                    <?=$form->field($search_model,'legal')->checkbox([])->label('Юридическим лицом') ?>
+                                                                                    <?=$form->field($search_model,'b_legal')->checkbox([])->label('Юридическим лицом') ?>
 											<!--<input type="checkbox" id="cb2"> <label for="cb2" class="main-name-p3">Юридическим лицом</label>-->
 										</div>
                                                                         </div>

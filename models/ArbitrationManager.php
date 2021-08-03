@@ -17,9 +17,8 @@ use Yii;
  * @property int|null $phone_number
  * @property string|null $job_region
  * @property int|null $government_secret_access
- * @property int|null $legal_phys 0-phys/1-legal
  * @property string $SRO_AM_name
- * @property int $bankrupt_categoties categories of clients(bankrupt/creditor) 0-phys 1-legal 3-both
+ * @property int $bankrupt_categories categories of clients(bankrupt/creditor) 0-phys 1-legal 3-both
  * @property int $debtor_categories categories of debtors(bankrupt/creditor) 0-phys 1-legal 3-both
  * @property int $count_of_procedure_phys
  * @property int $count_of_procedure_legal
@@ -48,9 +47,9 @@ class ArbitrationManager extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['lname', 'fname', 'SRO_AM_name', 'bankrupt_categoties', 'debtor_categories', 'count_of_procedure_phys', 'count_of_procedure_legal', 'procedure_time_average', 'start_date'], 'required'],
+            [['lname', 'fname', 'SRO_AM_name', 'bankrupt_categories', 'debtor_categories', 'count_of_procedure_phys', 'count_of_procedure_legal', 'procedure_time_average', 'start_date'], 'required'],
             [['birth_date', 'start_date', 'end_date'], 'safe'],
-            [['inn', 'phone_number', 'government_secret_access', 'legal_phys', 'bankrupt_categoties', 'debtor_categories', 'count_of_procedure_phys', 'count_of_procedure_legal'], 'integer'],
+            [['inn', 'phone_number', 'government_secret_access', 'bankrupt_categories', 'debtor_categories', 'count_of_procedure_phys', 'count_of_procedure_legal'], 'integer'],
             [['procedure_time_average'], 'number'],
             [['lname', 'fname', 'mname'], 'string', 'max' => 20],
             [['post_addr'], 'string', 'max' => 255],
@@ -76,9 +75,8 @@ class ArbitrationManager extends \yii\db\ActiveRecord
             'phone_number' => 'Phone Number',
             'job_region' => 'Job Region',
             'government_secret_access' => 'Government Secret Access',
-            'legal_phys' => 'Legal Phys',
             'SRO_AM_name' => 'Sro Am Name',
-            'bankrupt_categoties' => 'Bankrupt Categoties',
+            'bankrupt_categories' => 'Bankrupt Categoties',
             'debtor_categories' => 'Debtor Categories',
             'count_of_procedure_phys' => 'Count Of Procedure Phys',
             'count_of_procedure_legal' => 'Count Of Procedure Legal',

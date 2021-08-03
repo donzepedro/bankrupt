@@ -29,16 +29,16 @@ class MainController extends Controller{
 ////            var_dump(preg_match("/^(0|1)$/", \Yii::$app->request->post("SearchModel")['goverment_secret']));
 ////            die;
 //            echo "</pre>";
-            if(!((preg_match("/^(0|1)$/", \Yii::$app->request->post("SearchModel")['phys'])) 
-                    && (preg_match("/^(0|1)$/", \Yii::$app->request->post("SearchModel")['legal'])) 
+            if(!((preg_match("/^(0|1)$/", \Yii::$app->request->post("SearchModel")['b_phys'])) 
+                    && (preg_match("/^(0|1)$/", \Yii::$app->request->post("SearchModel")['b_legal'])) 
                             && (preg_match("/^(0|1)$/", \Yii::$app->request->post("SearchModel")['goverment_secret'])))){
                         throw new \yii\web\HttpException(500,'server error, Some error with checkbox data'); 
             }
             $this->redirect(array('/search-managers/index','SearchModel'=>[
                 'region'=>\Yii::$app->request->post("SearchModel")['goverment_secret'],
                 'goverment_secret'=>\Yii::$app->request->post("SearchModel")['goverment_secret'],
-                'legal' =>\Yii::$app->request->post("SearchModel")['legal'],
-                'phys' =>\Yii::$app->request->post("SearchModel")['phys'],
+                'b_legal' =>\Yii::$app->request->post("SearchModel")['b_legal'], //bankrupt category
+                'b_phys' =>\Yii::$app->request->post("SearchModel")['b_phys'], //bankrupt category
                 ],
                 ));
             
