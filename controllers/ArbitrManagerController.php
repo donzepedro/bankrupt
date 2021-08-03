@@ -121,12 +121,16 @@ class ArbitrManagerController extends Controller {
         $imgupload = new UploadForm();
         
         if(\Yii::$app->request->isPost){
-            
+//            echo '<pre>';
+//            var_dump(\Yii::$app->request->post());
+//            echo '</pre>';
+           
             $arbitr_managers->attributes = \Yii::$app->request->post('ArbitrationManager');
             $arbitr_managers->SRO_AM_name = \Yii::$app->request->post('SROAMInformation')['SRO_name'];
             $arbitr_managers->job_region = Regions::find()->where(['id'=>\Yii::$app->request->post('ArbitrationManager')['job_region']])->one()->region;
-           
+            
             if(!$arbitr_managers->save()){
+                
                 throw new \yii\web\HttpException(500,'server error, data for Arbitr managers not saved');
             } 
             
@@ -164,8 +168,8 @@ class ArbitrManagerController extends Controller {
                 echo 'error upload';
                 die;
             }else{
+              
                 $arbitr_managers->path_to_img = $path . $imgupload->imageFile->name;
-                
                 if(!$arbitr_managers->save()){
                     throw new \yii\web\HttpException(500,'server error, data for Arbitr managers not saved');
                 } 
