@@ -24,11 +24,7 @@ class MainController extends Controller{
         $search_model = new SearchModel();
         $regions = Regions::find()->all();
         if(\Yii::$app->request->isPost){
-//            echo "<pre>";
-//            var_dump(\Yii::$app->request->post());
-////            var_dump(preg_match("/^(0|1)$/", \Yii::$app->request->post("SearchModel")['goverment_secret']));
-////            die;
-//            echo "</pre>";
+           
             if(!((preg_match("/^(0|1)$/", \Yii::$app->request->post("SearchModel")['b_phys'])) 
                     && (preg_match("/^(0|1)$/", \Yii::$app->request->post("SearchModel")['b_legal'])) 
                             && (preg_match("/^(0|1)$/", \Yii::$app->request->post("SearchModel")['goverment_secret'])))){
@@ -46,18 +42,17 @@ class MainController extends Controller{
         return $this->render('index',['search_model'=>$search_model]);
     }
     
+    public function actionCreditor(){
+        $search_model = new SearchModel();
+        return $this->render('main_creditor',['search_model'=>$search_model]);
+    }
+    
     public function actionAddress(){
         
         return $this->render('address');
     }
     
-    public function actionSearch(){
-        return $this->render('search');
-    }
-    
-    public function actionCreditor(){
-        return $this->render('creditor');
-    }
+
     
     public function actionManagerCardClient(){
         return $this->render('manager_card_client');
@@ -71,9 +66,6 @@ class MainController extends Controller{
         return $this->render('news_read');
     }
     
-    public function actionSearchCreditor(){
-        return $this->render('search_creditor');
-    }
     
     public function actionManagerCardCreditor(){
         return $this->render('manager_card_creditor');

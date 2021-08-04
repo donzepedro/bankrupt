@@ -18,8 +18,10 @@ use yii\base\Model;
 class SearchModel Extends Model{
     
     public $region;
+    public $SRO_name;
     public $b_legal;
     public $b_phys;
+    public $debtor_category;
     public $goverment_secret;
     
     public function rules()

@@ -39,3 +39,6 @@ tests/_support/_generated
 
 #profiles image
 /web/img/managers_profile_img
+
+#favicon image
+/web/favicon.ico

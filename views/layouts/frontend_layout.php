@@ -7,7 +7,28 @@ use yii\widgets\Breadcrumbs;
 use app\assets\NewAsset;
 
 NewAsset::register($this);
+switch(\Yii::$app->request->url){
+    case '/main/creditor/':
+        $creditor_page = 'nav-item active';
+        $bankrupt_page = 'nav-item';
+        $am_page = 'nav-item';
+        break;
+    case '/main/':
+        $creditor_page = 'nav-item';
+        $bankrupt_page = 'nav-item active';
+        $am_page = 'nav-item';
+        break;
+    default:
+        $creditor_page = 'nav-item';
+        $bankrupt_page = 'nav-item';
+        $am_page = 'nav-item';
+}
 $img_path ='/img/front/';
+$creditors_path = '/main/creditor/';
+$bankrupt_path = '/main/';
+$am_path = '/main/creditor/';
+
+
 //$this->registerCssFile("",['rel'=>'stylesheet']);
 ?>
 <?php $this->beginPage() ?>
@@ -38,14 +59,14 @@ $img_path ='/img/front/';
 					</button>
 					<div class="collapse navbar-collapse">
 						<ul class="navbar-nav">
-							<li class="nav-item active">
-								<a class="nav-link main-text-p3" href="#">Клиентам</a>
+							<li class="<?=$bankrupt_page?>">
+								<a class="nav-link main-text-p3" href="<?=$bankrupt_path?>">Клиентам</a>
 							</li>
-							<li class="nav-item">
-								<a class="nav-link main-text-p3" href="#">Кредиторам</a>
+							<li class="<?=$creditor_page?>">
+								<a class="nav-link main-text-p3" href="<?=$creditors_path?>">Кредиторам</a>
 							</li>
-							<li class="nav-item">
-								<a class="nav-link main-text-p3" href="#">Арбитражным управляющим</a>
+							<li class="<?=$am_page?>">
+								<a class="nav-link main-text-p3" href="<?=$am_path?>">Арбитражным управляющим</a>
 							</li>
 						</ul>
 					</div>
