@@ -82,13 +82,19 @@ class SearchManagersController extends Controller{
     
     public function actionCreditorAmProfile(){
         $search_model = new SearchModel();
-        $managers = ArbitrationManager::find()->where(['id'=>'2'])->all();
+        $managers = ArbitrationManager::find()->where(['id'=>0])->all();
+        if(\Yii::$app->request->isPost){
+            $managers = ArbitrationManager::find()->where(['id'=>\Yii::$app->request->post("SearchModel")['id']])->all();
+        }
         return $this->render('creditor_am_profile',['managers'=>$managers,'search_model'=>$search_model]);
     }
     
     public function actionClientAmProfile(){
         $search_model = new SearchModel();
-        $managers = ArbitrationManager::find()->where(['id'=>'8'])->all();
+        $managers = ArbitrationManager::find()->where(['id'=>0])->all();
+        if(\Yii::$app->request->isPost){
+            $managers = ArbitrationManager::find()->where(['id'=>\Yii::$app->request->post("SearchModel")['id']])->all();
+        }
         return $this->render('client_am_profile',['managers'=>$managers,'search_model'=>$search_model]);
     }
     
