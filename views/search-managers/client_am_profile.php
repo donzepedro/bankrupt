@@ -85,7 +85,7 @@ $img_path ='/img/front/';
                                     <div class="col-4 go-profile mt-4 pt-5"><a href='#'class="button-search ">Отправить&nbsp;заявку</a></div>
                                 </div>
                                 <hr>
-                            <?php endforeach; ?>
+                            
 
 
                             <div class="personal-specialists-text">
@@ -108,6 +108,7 @@ $img_path ='/img/front/';
                                 <p class="main-text-p3">Финансовое обеспечение деятельности</p>
                                 <p class="main-text-p2">ООО СК Арсеналъ, 18.02.2019-17.02.2020 лицензия от 05.12.2014 <span>№</span> 3193, г. Москва, 2-я ул. Синичкина, д. 9а стр.10</p>
                             </div>
+                                <?php endforeach; ?>
                         </div>
                     </div>
                     
