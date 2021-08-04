@@ -66,11 +66,10 @@ $img_path ='/img/front/';
 							</div>
 						</div>
 						<div class="main-banner-location">
-							<form action="" method="post">
-                                                            
+                                                                <?php $form = ActiveForm::begin(['method'=>'post','action'=>'/search-managers/']) ?>
 								<div class="form-group">
                                                                         <p class="main-text-p4 indent-p5">Регион</p>
-									<?php $form = ActiveForm::begin(['options'=>['class'=>'form-group']]) ?>
+									
                                                                         <?= $form->field($search_model, 'region')->dropDownList(ArrayHelper::map(\app\models\Regions::find()->all(), 'id', 'region'))->label('') ?>
                                                                         
 									<p class="main-text-p4 indent-p5">Вы являетесь:</p>
@@ -98,7 +97,7 @@ $img_path ='/img/front/';
 									</div>
 								</div>
                                                             <?php ActiveForm::end();?>
-							</form>
+							
 						</div>
 					</div>
 					<div class="block-50 main-telephone-img main-telephone-img-desktop">

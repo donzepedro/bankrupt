@@ -1,6 +1,10 @@
 <?php
+use yii\helpers\Html;
+use yii\helpers\ArrayHelper;
+use yii\bootstrap4\ActiveForm;
 $img_path ='/img/front/';
 ?>
+
 <section id="main-banner">
 	<div class="container">
 		<div class="row">
@@ -56,56 +60,52 @@ $img_path ='/img/front/';
 							</div>
 						</div>
 						<div class="main-banner-location">
-							<form>
+							
 								<div class="form-group">
 									<p class="main-text-p4">Регион</p>
-									<select name="menu" size="1" class="form-control">
-										<option selected="selected" value="second">Республика Карелия</option>
-										<option value="third">1</option>
-										<option value="fourth">2</option>
-									</select>
+									<?php $form = ActiveForm::begin(['method'=>'post','action'=>'/search-managers/creditor']) ?>
+                                                                        <?= $form->field($search_model, 'region')->dropDownList(ArrayHelper::map(\app\models\Regions::find()->all(), 'id', 'region'))->label('') ?>
 									<div class="form-select-block-1">
 										<p class="main-text-p4">Саморегулируемая организация (СРО АУ)</p>
-										<select name="menu" size="1">
-											<option selected="selected" value="second">Все</option>
-											<option value="third">1</option>
-											<option value="fourth">2</option>
-										</select>
+										
+                                                                                <?= $form->field($search_model, 'SRO_name')->dropDownList(ArrayHelper::map(\app\models\SROAMInformation::find()->all(), 'id', 'SRO_name'))->label('') ?>
 									</div>
 									<div class="block-form-group-flex">
 										<div class="form-select-block-2">
-											<p class="main-text-p4">Категория должников</p>
-											<select name="menu" size="1">
-												<option selected="selected" value="second">Все</option>
-												<option value="third">1</option>
-												<option value="fourth">2</option>
-											</select>
+                                                                                    <p class="main-text-p4">Категория должников</p>
+                                                                                       
+                                                                                        <?= $form->field($search_model, 'debtor_category')->dropDownList([
+                                                                                            '2'=>'Все',
+                                                                                            '1'=>'Юридическое лицо',
+                                                                                            '0'=> 'Физическое лицо'
+                                                                                            ])->label('') ?>
 											<p class="main-text-p4 indent-p5">Вы являетесь:</p>
 											<div class="checkbox-human">
-												<div>
-													<input type="checkbox" id="cb1"> <label for="cb1" class="main-name-p3">Физическим&nbsp;лицом</label>
-												</div>
-												<div>
-													<input type="checkbox" id="cb2"> <label for="cb2" class="main-name-p3">Юридическим&nbsp;лицом</label>
-												</div>
+												<div class="main-name-p3">
+                                                                                    <?=$form->field($search_model,'b_phys')->checkbox([])->label('Физическим лицом') ?>
+											<!--<input type="checkbox" id="cb1"> <label for="cb1" class="main-name-p3">Физическим лицом</label>-->
+										</div>
+										<div class="main-name-p3 mt-2">
+                                                                                    <?=$form->field($search_model,'b_legal')->checkbox([])->label('Юридическим лицом') ?>
+											<!--<input type="checkbox" id="cb2"> <label for="cb2" class="main-name-p3">Юридическим лицом</label>-->
+										</div>
 											</div>
 										</div>
-										<div class="form-group form-check">
-											<div class="checkbox-toggle">
-												<label class="checkbox">
-													<input type="checkbox">
-													<span class="main-name-p3">Допуск&nbsp;к&nbsp;гос.тайне</span>
-												</label>
+										<div class="form-group form-check m-3">
+											<div class="checkbox-toggle p-4">
+												<?= $form->field($search_model, 'goverment_secret')->checkbox([
+                                                                                                'template' => "<div class=\"custom-control custom-switch\">{input} {label}</div>\n<div>{error}</div>",
+                                                                                                'class' => 'custom-control-input'])->label('Допуск к гос.тайне', ['class' => 'custom-control-label main-name-p3']) ?>
 											</div>
 											<div class="checkbox-block-flex">
-												<button type="submit" class="btn button-search">Поиск</button>
+												 <?= Html::submitButton('Поиск', ['class' => 'btn button-search', 'name' => 'Search-button']) ?>
 											</div>
 										</div>
 									</div>
-								</div>
-							</form>
+                                                                </div>
 						</div>
 					</div>
+                                    <?php ActiveForm::end();?>
 					<div class="width-block-40 main-telephone-img main-telephone-img-desktop">
 						<div class="telephone-block">
 							<div class="img-telephone"></div>
