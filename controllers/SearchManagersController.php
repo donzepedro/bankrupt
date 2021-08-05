@@ -84,18 +84,37 @@ class SearchManagersController extends Controller{
         $search_model = new SearchModel();
         $managers = ArbitrationManager::find()->where(['id'=>0])->all();
         if(\Yii::$app->request->isPost){
-            $managers = ArbitrationManager::find()->where(['id'=>\Yii::$app->request->post("SearchModel")['id']])->all();
+            $managers = \Yii::$app->db->createCommand(
+                    'SELECT * FROM arbitration_manager'
+                    . ' JOIN education'
+                    . ' JOIN SRO_AM_information'
+                    . ' WHERE arbitration_manager.id=:id AND SRO_AM_information.id_am=:id AND education.id_am=:id'
+            )
+                    ->bindValue(':id',\Yii::$app->request->post("SearchModel")['id'])
+                    ->QueryAll();
+            $foreign_lang = \app\models\ForeignLanguage::find()->where(['id_am'=>\Yii::$app->request->post("SearchModel")['id']])->one();
+           
         }
-        return $this->render('creditor_am_profile',['managers'=>$managers,'search_model'=>$search_model]);
+        return $this->render('creditor_am_profile',['managers'=>$managers,'search_model'=>$search_model,'foreign_lang'=>$foreign_lang]);
     }
     
     public function actionClientAmProfile(){
+       
         $search_model = new SearchModel();
         $managers = ArbitrationManager::find()->where(['id'=>0])->all();
         if(\Yii::$app->request->isPost){
-            $managers = ArbitrationManager::find()->where(['id'=>\Yii::$app->request->post("SearchModel")['id']])->all();
+            $managers = \Yii::$app->db->createCommand(
+                    'SELECT * FROM arbitration_manager'
+                    . ' JOIN education'
+                    . ' JOIN SRO_AM_information'
+                    . ' WHERE arbitration_manager.id=:id AND SRO_AM_information.id_am=:id AND education.id_am=:id'
+            )
+                    ->bindValue(':id',\Yii::$app->request->post("SearchModel")['id'])
+                    ->QueryAll();
+            $foreign_lang = \app\models\ForeignLanguage::find()->where(['id_am'=>\Yii::$app->request->post("SearchModel")['id']])->one();
+           
         }
-        return $this->render('client_am_profile',['managers'=>$managers,'search_model'=>$search_model]);
+        return $this->render('client_am_profile',['managers'=>$managers,'search_model'=>$search_model,'foreign_lang'=>$foreign_lang]);
     }
     
 }

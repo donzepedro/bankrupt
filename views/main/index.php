@@ -274,7 +274,7 @@ $img_path ='/img/front/';
 	</div>
 </section>
 
-
+<?= \app\widgets\SliderWidget::widget(['slides' => []]) ?>
 
 <section id="main-contacts">
 	<div class="container-fluid">
