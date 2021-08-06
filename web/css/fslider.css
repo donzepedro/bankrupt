@@ -1,0 +1,19 @@
+.slider{
+    background-color:#fafafa;
+}    
+.commentcard{
+    min-width: 300px;
+    max-width: 300px;
+    /*border: 1px solid red;*/
+    box-shadow: 0px 20px 20px 0px #3b3d481a;
+}
+.commentcard .capture{
+    background-color: #EEF1F4;
+}
+.commentcard .customer-text{
+    text-align: left;
+}
+.hsd{
+    
+    border:1px solid red;
+}
