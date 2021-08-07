@@ -274,7 +274,29 @@ $img_path ='/img/front/';
 	</div>
 </section>
 
+    <div class="pb-5 slider">
+        <?php
+        $commentsamount = 9;
+        $dispamount = 3;
+        ?>
+        <div id="commentsAmount" style='display:none'><?= $commentsamount ?> </div>
+        <div class="d-flex justify-content-center py-5">
+            <?php for ($i = 0; $i < $commentsamount; $i++): ?>
+                <div class="col-2 commentcard mt-5 pb-0 ml-5" style='display:none' id=<?= 'slide' . $i ?>>
+                    <div class="row">
+                        <div class="col-5 capture p-0"><img src="<?= $img_path ?>bankrut-img1.png"/></div>
+                        <div class="col-7 capture p-0"><h4 class="main-text-h4">Просто дали начать снова жить!<?= $i ?></h4></div>
+                    </div>
+                    <div class="col-12customer-text pb-5 mt-3 mb-5"><p class="main-name-p3">Мне порекомендовала обратиться в компанию коллега еще год назад. Сначала даже не поверила, что избавиться от долгов можно так легко. Решила даже позвонить в другие конторы, однако самым выгодным и адекватным вариантом стал тот, который посоветовала знакомая. Меня порадовала, что компания сама собирает пакет документов, оформляет все за считанные дни. Фирма быстро избавила меня от долгов, и я смогла спокойно жить, работать без звонков коллекторов и нервотрепки.</p></div>
+                    <div class="mb-0 pb-0"><p class="main-name-p2">Сергей Иванов</p></div>
+                </div>
+            <?php endfor; ?>
+        </div>
+        <div class="d-flex justify-content-center mb-5" style=""id="switches">
 
+        </div>
+    </div>
+    
 
 <section id="main-contacts">
 	<div class="container-fluid">

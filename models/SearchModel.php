@@ -23,6 +23,7 @@ class SearchModel Extends Model{
     public $b_phys;
     public $debtor_category;
     public $goverment_secret;
+    public $id;
     
     public function rules()
     {

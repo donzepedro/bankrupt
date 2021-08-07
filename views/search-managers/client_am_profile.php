@@ -85,9 +85,6 @@ $img_path ='/img/front/';
                                     <div class="col-4 go-profile mt-4 pt-5"><a href='#'class="button-search ">Отправить&nbsp;заявку</a></div>
                                 </div>
                                 <hr>
-                            
-
-
                             <div class="personal-specialists-text">
                                 <p class="main-text-p3">Название саморегулируемой организации</p>
                                 <p class="main-text-p2"><?= $val['SRO_AM_name']?></p>
@@ -96,19 +93,20 @@ $img_path ='/img/front/';
                                 <p class="main-text-p3">Допуск к государственной тайне</p>
                                 <p class="main-text-p2"><?php echo ($val['government_secret_access'] == 0) ? "Отсутсвует" : "Присутствует"; ?></p>
                                 <p class="main-text-p3">Образование</p>
-                                <p class="main-text-p2">Диплом серии АВС <span>№</span> 0969127 БЮИ МВД России </p>
+                                <p class="main-text-p2"><?= $val["institution"].' '.$val["speciality"].' '.$val["level"]?></p>
                                 <p class="main-text-p3">Дата начала  работы в качестве арбитражного управляющего</p>
-                                <p class="main-text-p2">01.02.2015</p>
+                                <p class="main-text-p2"><?= date('d.m.Y',strtotime($val["start_date"]))?></p>
                                 <p class="main-text-p3">Дата окончания  работы в качестве арбитражного управляющего</p>
-                                <p class="main-text-p2">01.02.2020</p>
+                                <p class="main-text-p2"><?= date('d.m.Y',strtotime($val["end_date"]))?></p>
                                 <p class="main-text-p3">Владение языками</p>
-                                <p class="main-text-p2">Английский b1</p>
+                                <p class="main-text-p2"><?= $foreign_lang->language. ' ' ?><?= $foreign_lang->level ?></p>
                                 <p class="main-text-p3">Аттестаты, сертификаты, лицензии</p>
                                 <p class="main-text-p2">Отсутсвуют</p>
                                 <p class="main-text-p3">Финансовое обеспечение деятельности</p>
                                 <p class="main-text-p2">ООО СК Арсеналъ, 18.02.2019-17.02.2020 лицензия от 05.12.2014 <span>№</span> 3193, г. Москва, 2-я ул. Синичкина, д. 9а стр.10</p>
                             </div>
                                 <?php endforeach; ?>
+                               
                         </div>
                     </div>
                     

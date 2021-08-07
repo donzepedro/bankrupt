@@ -81,8 +81,9 @@ $path_to_profile = '/search-managers/client-am-profile/';
                                     <h4 class="main-name-color-h4"><span><?= $val['count_of_procedure_phys'] + $val['count_of_procedure_legal'] ?></span></h4>
                                 </div>
                                 
-                                <div class="col-4 go-profile mt-4 pt-5"><?= Html::submitButton('Перейти&nbsp;в&nbsp;профиль', ['class' => 'btn button-search', 'name' => 'Search-button']) ?></div>
+                                <div class="col-4 go-profile mt-4 pt-5"><?= Html::submitButton('Перейти&nbsp;в&nbsp;профиль', ['class' => 'btn button-search', 'name' => 'Search-button'])?></div>
                             </div>
+                            <?= $amform->field($search_model,'id')->hiddenInput(['value'=>$val['id']])->label(''); ?>
                             <hr>
                             <?php endforeach; ?>
                          <?php ActiveForm::end()?>

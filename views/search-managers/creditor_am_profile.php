@@ -85,7 +85,42 @@ $img_path ='/img/front/';
 							<path d="M22.377 1.15778L11.9986 10.4983L21.9778 19.3199" stroke="#3951D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 						</svg>
 					</div>
-				</div>
+				
+                                <?php foreach ($managers as $key => $val): ?>
+                                <div class="row">
+                                    <div class="col-12 text-center pt-4"><h4 class="main-name-color-h4"><?= $val['fname'] . ' ' . $val['mname'] . ' ' . $val['lname']; ?></h4></div>
+                                    <div class="col-3"><img style="max-height: 100px" src="<?= str_replace('../web', '', $val['path_to_img']); ?>"></div>
+                                    <div class="col-3 name-text-block"> <p class="main-name-p3 mt-4 pt-5">Средний срок:</p>
+                                        <h4 class="main-name-color-h4"><span><?= $val['procedure_time_average'] ?></span> месяцев </h4>
+                                    </div>
+                                    <div class="col-2 name-text-block "> <p class="main-name-p3 mt-4 pt-5">Процедур:</p>
+                                        <h4 class="main-name-color-h4"><span><?= $val['count_of_procedure_phys'] + $val['count_of_procedure_legal'] ?></span></h4>
+                                    </div>
+                                    <div class="col-4 go-profile mt-4 pt-5"><a href='#'class="button-search ">Отправить&nbsp;заявку</a></div>
+                                </div>
+                                <hr>
+                            <div class="personal-specialists-text">
+                                <p class="main-text-p3">Название саморегулируемой организации</p>
+                                <p class="main-text-p2"><?= $val['SRO_AM_name']?></p>
+                                <p class="main-text-p3">Сведения о членстве в СРО</p>
+                                <p class="main-text-p2">ААУ СЦЭАУ (с 20.09.2013г. по настоящее время), квалификация: юрист, специальность: юриспруденция, диплом серии АВС <span>№</span>0969127; владеет иностранными языками: английский; стаж руководящей работы в должности руководителя, заместителя юридического лица, - 5 лет; обязательное страхование АУ имеется в соответствии с законодательством РФ </p>
+                                <p class="main-text-p3">Допуск к государственной тайне</p>
+                                <p class="main-text-p2"><?php echo ($val['government_secret_access'] == 0) ? "Отсутсвует" : "Присутствует"; ?></p>
+                                <p class="main-text-p3">Образование</p>
+                                <p class="main-text-p2"><?= $val["institution"].' '.$val["speciality"].' '.$val["level"]?></p>
+                                <p class="main-text-p3">Дата начала  работы в качестве арбитражного управляющего</p>
+                                <p class="main-text-p2"><?= date('d.m.Y',strtotime($val["start_date"]))?></p>
+                                <p class="main-text-p3">Дата окончания  работы в качестве арбитражного управляющего</p>
+                                <p class="main-text-p2"><?= date('d.m.Y',strtotime($val["end_date"]))?></p>
+                                <p class="main-text-p3">Владение языками</p>
+                                <p class="main-text-p2"><?= $foreign_lang->language. ' ' ?><?= $foreign_lang->level ?></p>
+                                <p class="main-text-p3">Аттестаты, сертификаты, лицензии</p>
+                                <p class="main-text-p2">Отсутсвуют</p>
+                                <p class="main-text-p3">Финансовое обеспечение деятельности</p>
+                                <p class="main-text-p2">ООО СК Арсеналъ, 18.02.2019-17.02.2020 лицензия от 05.12.2014 <span>№</span> 3193, г. Москва, 2-я ул. Синичкина, д. 9а стр.10</p>
+                            </div>
+                                <?php endforeach; ?>
+                                </div>
 			</div>
 		</div>
 	</div>

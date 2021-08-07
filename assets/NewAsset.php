@@ -16,6 +16,7 @@ class NewAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
+        'css/fslider.css',
         'css/crmlayout.css',
         'css/imgloadbtn.css',
         'css/front/common_styles.css',                  
@@ -110,6 +111,7 @@ class NewAsset extends AssetBundle
         
     ];
     public $js = [
+        'js/fslider.js',
         'js/manager_delete.js',
         'js/validator.js',
         'js/loadphoto.js',
