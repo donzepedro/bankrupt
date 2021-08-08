@@ -20,11 +20,11 @@ $img_path ='/img/front/';
                                         <div class="form-group">
                                             <p class="main-text-p4">Регион</p>
                                             <?php $form = ActiveForm::begin(['method' => 'post', 'action' => '/search-managers/creditor/']) ?>
-                                            <?= $form->field($search_model, 'region')->dropDownList(ArrayHelper::map(\app\models\Regions::find()->all(), 'id', 'region'),['prompt'=>''])->label('') ?>
+                                            <?= $form->field($search_model, 'region')->dropDownList(ArrayHelper::map(\app\models\Regions::find()->all(), 'id', 'region'))->label('') ?>
                                             <div class="form-select-block-1">
                                                 <p class="main-text-p4">Саморегулируемая организация (СРО АУ)</p>
 
-                                                <?= $form->field($search_model, 'SRO_name')->dropDownList(ArrayHelper::map(\app\models\SROAMInformation::find()->all(), 'id', 'SRO_name'))->label('') ?>
+                                                <?= $form->field($search_model, 'SRO_name')->dropDownList(ArrayHelper::map(\app\models\SROAMInformation::find()->all(), 'id', 'SRO_name'),['prompt'=>''])->label('') ?>
                                             </div>
                                             <div class="block-form-group-flex">
                                                 <div class="form-select-block-2">
@@ -102,8 +102,8 @@ $img_path ='/img/front/';
                             <div class="personal-specialists-text">
                                 <p class="main-text-p3">Название саморегулируемой организации</p>
                                 <p class="main-text-p2"><?= $val['SRO_AM_name']?></p>
-                                <p class="main-text-p3">Сведения о членстве в СРО</p>
-                                <p class="main-text-p2">ААУ СЦЭАУ (с 20.09.2013г. по настоящее время), квалификация: юрист, специальность: юриспруденция, диплом серии АВС <span>№</span>0969127; владеет иностранными языками: английский; стаж руководящей работы в должности руководителя, заместителя юридического лица, - 5 лет; обязательное страхование АУ имеется в соответствии с законодательством РФ </p>
+<!--                                <p class="main-text-p3">Сведения о членстве в СРО</p>
+                                <p class="main-text-p2">ААУ СЦЭАУ (с 20.09.2013г. по настоящее время), квалификация: юрист, специальность: юриспруденция, диплом серии АВС <span>№</span>0969127; владеет иностранными языками: английский; стаж руководящей работы в должности руководителя, заместителя юридического лица, - 5 лет; обязательное страхование АУ имеется в соответствии с законодательством РФ </p>-->
                                 <p class="main-text-p3">Допуск к государственной тайне</p>
                                 <p class="main-text-p2"><?php echo ($val['government_secret_access'] == 0) ? "Отсутсвует" : "Присутствует"; ?></p>
                                 <p class="main-text-p3">Образование</p>
@@ -111,13 +111,13 @@ $img_path ='/img/front/';
                                 <p class="main-text-p3">Дата начала  работы в качестве арбитражного управляющего</p>
                                 <p class="main-text-p2"><?= date('d.m.Y',strtotime($val["start_date"]))?></p>
                                 <p class="main-text-p3">Дата окончания  работы в качестве арбитражного управляющего</p>
-                                <p class="main-text-p2"><?= date('d.m.Y',strtotime($val["end_date"]))?></p>
+                                <p class="main-text-p2"><?php if($val["end_date"] === null) echo 'По настоящее время'; else date('d.m.Y',strtotime($val["end_date"]));?></p>
                                 <p class="main-text-p3">Владение языками</p>
                                 <p class="main-text-p2"><?= $foreign_lang->language. ' ' ?><?= $foreign_lang->level ?></p>
-                                <p class="main-text-p3">Аттестаты, сертификаты, лицензии</p>
+<!--                                <p class="main-text-p3">Аттестаты, сертификаты, лицензии</p>
                                 <p class="main-text-p2">Отсутсвуют</p>
                                 <p class="main-text-p3">Финансовое обеспечение деятельности</p>
-                                <p class="main-text-p2">ООО СК Арсеналъ, 18.02.2019-17.02.2020 лицензия от 05.12.2014 <span>№</span> 3193, г. Москва, 2-я ул. Синичкина, д. 9а стр.10</p>
+                                <p class="main-text-p2">ООО СК Арсеналъ, 18.02.2019-17.02.2020 лицензия от 05.12.2014 <span>№</span> 3193, г. Москва, 2-я ул. Синичкина, д. 9а стр.10</p>-->
                             </div>
                                 <?php endforeach; ?>
                                 </div>

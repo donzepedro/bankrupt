@@ -83,6 +83,7 @@ class SearchManagersController extends Controller{
                 ];
             }
             $managers = ArbitrationManager::find()->where($searcharray)->all();
+            
         }
         return $this->render('creditor_search',['managers'=>$managers,'search_model'=>$search_model]);
         
@@ -101,7 +102,6 @@ class SearchManagersController extends Controller{
                     ->bindValue(':id',\Yii::$app->request->post("SearchModel")['id'])
                     ->QueryAll();
             $foreign_lang = \app\models\ForeignLanguage::find()->where(['id_am'=>\Yii::$app->request->post("SearchModel")['id']])->one();
-           
         }
         return $this->render('creditor_am_profile',['managers'=>$managers,'search_model'=>$search_model,'foreign_lang'=>$foreign_lang]);
     }

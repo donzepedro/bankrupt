@@ -96,7 +96,7 @@ $img_path ='/img/front/';
                                 <p class="main-text-p3">Дата начала  работы в качестве арбитражного управляющего</p>
                                 <p class="main-text-p2"><?= date('d.m.Y',strtotime($val["start_date"]))?></p>
                                 <p class="main-text-p3">Дата окончания  работы в качестве арбитражного управляющего</p>
-                                <p class="main-text-p2"><?= date('d.m.Y',strtotime($val["end_date"]))?></p>
+                                <p class="main-text-p2"><?php if($val["end_date"] === null) echo 'По настоящее время'; else date('d.m.Y',strtotime($val["end_date"]));?></p>
                                 <p class="main-text-p3">Владение языками</p>
                                 <p class="main-text-p2"><?= $foreign_lang->language. ' ' ?><?= $foreign_lang->level ?></p>
                                 
