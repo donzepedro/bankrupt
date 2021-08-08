@@ -20,7 +20,7 @@ $img_path ='/img/front/';
                                         <div class="form-group">
                                             <p class="main-text-p4">Регион</p>
                                             <?php $form = ActiveForm::begin(['method' => 'post', 'action' => '/search-managers/creditor/']) ?>
-                                            <?= $form->field($search_model, 'region')->dropDownList(ArrayHelper::map(\app\models\Regions::find()->all(), 'id', 'region'))->label('') ?>
+                                            <?= $form->field($search_model, 'region')->dropDownList(ArrayHelper::map(\app\models\Regions::find()->all(), 'id', 'region'),['prompt'=>''])->label('') ?>
                                             <div class="form-select-block-1">
                                                 <p class="main-text-p4">Саморегулируемая организация (СРО АУ)</p>
 
