@@ -88,8 +88,7 @@ $img_path ='/img/front/';
                             <div class="personal-specialists-text">
                                 <p class="main-text-p3">Название саморегулируемой организации</p>
                                 <p class="main-text-p2"><?= $val['SRO_AM_name']?></p>
-                                <p class="main-text-p3">Сведения о членстве в СРО</p>
-                                <p class="main-text-p2">ААУ СЦЭАУ (с 20.09.2013г. по настоящее время), квалификация: юрист, специальность: юриспруденция, диплом серии АВС <span>№</span>0969127; владеет иностранными языками: английский; стаж руководящей работы в должности руководителя, заместителя юридического лица, - 5 лет; обязательное страхование АУ имеется в соответствии с законодательством РФ </p>
+                                
                                 <p class="main-text-p3">Допуск к государственной тайне</p>
                                 <p class="main-text-p2"><?php echo ($val['government_secret_access'] == 0) ? "Отсутсвует" : "Присутствует"; ?></p>
                                 <p class="main-text-p3">Образование</p>
@@ -100,10 +99,7 @@ $img_path ='/img/front/';
                                 <p class="main-text-p2"><?= date('d.m.Y',strtotime($val["end_date"]))?></p>
                                 <p class="main-text-p3">Владение языками</p>
                                 <p class="main-text-p2"><?= $foreign_lang->language. ' ' ?><?= $foreign_lang->level ?></p>
-                                <p class="main-text-p3">Аттестаты, сертификаты, лицензии</p>
-                                <p class="main-text-p2">Отсутсвуют</p>
-                                <p class="main-text-p3">Финансовое обеспечение деятельности</p>
-                                <p class="main-text-p2">ООО СК Арсеналъ, 18.02.2019-17.02.2020 лицензия от 05.12.2014 <span>№</span> 3193, г. Москва, 2-я ул. Синичкина, д. 9а стр.10</p>
+                                
                             </div>
                                 <?php endforeach; ?>
                                

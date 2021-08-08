@@ -281,15 +281,18 @@ $img_path ='/img/front/';
         ?>
         <div id="commentsAmount" style='display:none'><?= $commentsamount ?> </div>
         <div class="d-flex justify-content-center py-5">
+            <?php $numberOfComment=0 ?>
             <?php for ($i = 0; $i < $commentsamount; $i++): ?>
+            <?php $numberOfComment= $numberOfComment == 3 ? 0 : $numberOfComment ?>
                 <div class="col-2 commentcard mt-5 pb-0 ml-5" style='display:none' id=<?= 'slide' . $i ?>>
                     <div class="row">
-                        <div class="col-5 capture p-0"><img src="<?= $img_path ?>bankrut-img1.png"/></div>
-                        <div class="col-7 capture p-0"><h4 class="main-text-h4">Просто дали начать снова жить!<?= $i ?></h4></div>
+                        <div class="col-5 capture p-0"><img src="<?= $img_path . $commentInfo[$numberOfComment]['img']?>"/></div>
+                        <div class="col-7 capture p-0"><h4 class="main-text-h4"><?= $commentInfo[$numberOfComment]['capture'] ?></h4></div>
                     </div>
-                    <div class="col-12customer-text pb-5 mt-3 mb-5"><p class="main-name-p3">Мне порекомендовала обратиться в компанию коллега еще год назад. Сначала даже не поверила, что избавиться от долгов можно так легко. Решила даже позвонить в другие конторы, однако самым выгодным и адекватным вариантом стал тот, который посоветовала знакомая. Меня порадовала, что компания сама собирает пакет документов, оформляет все за считанные дни. Фирма быстро избавила меня от долгов, и я смогла спокойно жить, работать без звонков коллекторов и нервотрепки.</p></div>
-                    <div class="mb-0 pb-0"><p class="main-name-p2">Сергей Иванов</p></div>
+                    <div class="col-12 customer-text pb-5 mt-3 mb-4"><p class="main-name-p3"><?=$commentInfo[$numberOfComment]['textComment']?></p></div>
+                    <div><p class="main-name-p2"><?=$commentInfo[$numberOfComment]['name']?></p></div>
                 </div>
+            <?php $numberOfComment++; ?>
             <?php endfor; ?>
         </div>
         <div class="d-flex justify-content-center mb-5" style=""id="switches">
@@ -312,9 +315,9 @@ $img_path ='/img/front/';
 					<p class="main-text-p2">Пн-Пт с 09:00 до 21:00</p>
 					<p class="main-text-p2">Сб-Вс с 10:00 до 20:00</p>
 					<h3 class="main-name-h3 contacts-indent mail-block">Адрес электронной почты:</h3>
-					<a href="mailto:support@atra.com?subject=Вопрос по HTML" class="email-address">support@atra.com</a>
+					<a href="mailto:<?=EMAIL?>?subject=Вопрос по HTML" class="email-address"><?=EMAIL?></a>
 					<h3 class="main-name-h3 contacts-indent">Единый телефон офиса:</h3>
-					<div class="phone"><a href="tel:+8800888888">+8 800 88 88 88</a></div>
+					<div class="phone"><a href="tel:+8800888888"><?=PHONE?></a></div>
 					<a href="#" class="btn button-search">Оставить заявку на звонок</a>
 				</div>
 			</div>
