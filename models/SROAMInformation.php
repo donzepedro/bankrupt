@@ -32,7 +32,7 @@ class SROAMInformation extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_am', 'SRO_name', 'membership_start_date', 'membership_end_date', 'leave_reason'], 'required'],
+            [['id_am', 'SRO_name'], 'required'],
             [['id_am'], 'integer'],
             [['membership_start_date', 'membership_end_date'], 'safe'],
             [['SRO_name'], 'string', 'max' => 100],

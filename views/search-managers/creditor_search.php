@@ -24,8 +24,13 @@ $path_to_profile = '/search-managers/creditor-am-profile/';
                             <?= $form->field($search_model, 'region')->dropDownList(ArrayHelper::map(\app\models\Regions::find()->all(), 'id', 'region'))->label('') ?>
                             <div class="form-select-block-1">
                                 <p class="main-text-p4">Саморегулируемая организация (СРО АУ)</p>
-
-                                <?= $form->field($search_model, 'SRO_name')->dropDownList(ArrayHelper::map(\app\models\SROAMInformation::find()->all(), 'id', 'SRO_name'))->label('') ?>
+                                <?php  
+                                       
+                                        $items = ArrayHelper::map(\app\models\SROAMInformation::find()->all(),'id', 'SRO_name');
+                                        $params = [
+                                            'prompt' => ''
+                                ];?>
+                                <?= $form->field($search_model, 'SRO_name')->dropDownList($items,$params)->label('') ?>
                             </div>
                             <div class="block-form-group-flex">
                                 <div class="form-select-block-2">
@@ -34,8 +39,8 @@ $path_to_profile = '/search-managers/creditor-am-profile/';
                                     <?=
                                     $form->field($search_model, 'debtor_category')->dropDownList([
                                         '2' => 'Все',
-                                        '1' => 'Юридическое лицо',
-                                        '0' => 'Физическое лицо'
+                                        '0' => 'Юридическое лицо',
+                                        '1' => 'Физическое лицо'
                                     ])->label('')
                                     ?>
                                     <p class="main-text-p4 indent-p5">Вы являетесь:</p>

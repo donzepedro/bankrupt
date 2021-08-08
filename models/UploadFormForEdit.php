@@ -22,7 +22,7 @@ class UploadFormForEdit extends Model{
     public function rules()
     {
         return [
-           [['imageFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg','maxSize'=>90000],
+           [['imageFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png,jpg,webp','maxSize'=>90000],
         ];
     }
 //    '../web/img/managers_profile_img/'

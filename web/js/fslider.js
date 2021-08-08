@@ -1,32 +1,18 @@
-
 let commentsAmount = document.getElementById('commentsAmount').textContent;
 var dispamount=3;
-
 switchstyle = "height:20px;width:20px; background-color:#d7d7d7; border-radius:100px;cursor: pointer"
 bootstrap = "fordel mb-5 mx-2"
 let switches = [];
-createSwitches();
-switchcomments(0);
+
+showslider()
+//createSwitches();
+//switchcomments(0);
+
 $(window).on("resize",()=>{
-    if(window.innerWidth > 1690){
-        dispamount=3;
-        createSwitches();
-        switchcomments(0);
-//        slideturn(commentsAmount,start,dispamount,0);
-    }else if (window.innerWidth > 1000){
-        dispamount=2;
-        createSwitches();
-        switchcomments(0);
-//        slideturn(commentsAmount,start,dispamount,0);
-    }else{
-        dispamount=1;
-        createSwitches();
-        switchcomments(0);
-    }
+    showslider()
 })
 
 function createSwitches(){
-//    for (let i = 0; i < Math.ceil(commentsAmount / dispamount); i++){
         $('.fordel').detach();
    
     for (let i = 0; i < Math.ceil(commentsAmount / dispamount); i++) {
@@ -52,5 +38,20 @@ function switchcomments(switch_number){
         $('#slide' + j).css("display", "block");
     }
     $('#slide')
+}
+function showslider(){
+    if(window.innerWidth > 1690){
+        dispamount=3;
+        createSwitches();
+        switchcomments(0);
+    }else if (window.innerWidth > 1000){
+        dispamount=2;
+        createSwitches();
+        switchcomments(0);
+    }else{
+        dispamount=1;
+        createSwitches();
+        switchcomments(0);
+    }
 }
 

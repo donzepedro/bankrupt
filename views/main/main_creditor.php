@@ -10,12 +10,12 @@ $img_path ='/img/front/';
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="main-telephone-flex">
-					<div class="width-block-60 main-telephone-text">
+					<div class="block-50 main-telephone-text">
 						<h1 class="main-name-h1">Займитесь процедурой банкротства</h1>
 						<p class="main-text-p3">Удобный поиск управляющих для работы на территории Российской Федерации</p>
 						<div class="main-telephone-img main-telephone-img-mobil">
 							<div class="telephone-block">
-								<div class="img-telephone"></div>
+                                                            <div class="img-telephone"></div>
 								<div class="telephone-absolute img-absolute-1">
 									<svg width="65" height="61" viewBox="0 0 65 61" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<circle cx="32.8801" cy="30.0722" r="18.5325" stroke="#454F5B" stroke-width="4"/>
@@ -60,15 +60,14 @@ $img_path ='/img/front/';
 							</div>
 						</div>
 						<div class="main-banner-location">
-							
+							<?php $form = ActiveForm::begin(['method'=>'post','action'=>'/search-managers/creditor']) ?>
 								<div class="form-group">
-									<p class="main-text-p4">Регион</p>
-									<?php $form = ActiveForm::begin(['method'=>'post','action'=>'/search-managers/creditor']) ?>
+                                                                    <p class="main-text-p4">Регион</p>
                                                                         <?= $form->field($search_model, 'region')->dropDownList(ArrayHelper::map(\app\models\Regions::find()->all(), 'id', 'region'))->label('') ?>
 									<div class="form-select-block-1">
 										<p class="main-text-p4">Саморегулируемая организация (СРО АУ)</p>
 										
-                                                                                <?= $form->field($search_model, 'SRO_name')->dropDownList(ArrayHelper::map(\app\models\SROAMInformation::find()->all(), 'id', 'SRO_name'))->label('') ?>
+                                                                                <?= $form->field($search_model, 'SRO_name')->dropDownList(ArrayHelper::map(\app\models\SROAMInformation::find()->all(), 'id', 'SRO_name'),['prompt'=>''])->label('') ?>
 									</div>
 									<div class="block-form-group-flex">
 										<div class="form-select-block-2">
@@ -103,10 +102,10 @@ $img_path ='/img/front/';
 										</div>
 									</div>
                                                                 </div>
+                                                    <?php ActiveForm::end();?>
 						</div>
 					</div>
-                                    <?php ActiveForm::end();?>
-					<div class="width-block-40 main-telephone-img main-telephone-img-desktop">
+					<div class="block-50 main-telephone-img main-telephone-img-desktop">
 						<div class="telephone-block">
 							<div class="img-telephone"></div>
 							<div class="telephone-absolute img-absolute-1">
@@ -278,7 +277,31 @@ $img_path ='/img/front/';
 		</div>
 	</div>
 </section>
+     <div class="pb-5 slider">
+        <?php
+        $commentsamount = 9;
+        $dispamount = 3;
+        ?>
+        <div id="commentsAmount" style='display:none'><?= $commentsamount ?> </div>
+        <div class="d-flex justify-content-center py-5">
+            <?php $numberOfComment=0 ?>
+            <?php for ($i = 0; $i < $commentsamount; $i++): ?>
+            <?php $numberOfComment= $numberOfComment == 3 ? 0 : $numberOfComment ?>
+                <div class="col-2 commentcard mt-5 pb-0 ml-5" style='display:none' id=<?= 'slide' . $i ?>>
+                    <div class="row">
+                        <div class="col-5 capture p-0"><img src="<?= $img_path . $commentInfo[$numberOfComment]['img']?>"/></div>
+                        <div class="col-7 capture p-0"><h4 class="main-text-h4"><?= $commentInfo[$numberOfComment]['capture'] ?></h4></div>
+                    </div>
+                    <div class="col-12 customer-text pb-5 mt-3 mb-4"><p class="main-name-p3"><?=$commentInfo[$numberOfComment]['textComment']?></p></div>
+                    <div><p class="main-name-p2"><?=$commentInfo[$numberOfComment]['name']?></p></div>
+                </div>
+            <?php $numberOfComment++; ?>
+            <?php endfor; ?>
+        </div>
+        <div class="d-flex justify-content-center mb-5" style=""id="switches">
 
+        </div>
+    </div>
 
 
 <section id="main-contacts">
@@ -295,9 +318,9 @@ $img_path ='/img/front/';
 					<p class="main-text-p2">Пн-Пт с 09:00 до 21:00</p>
 					<p class="main-text-p2">Сб-Вс с 10:00 до 20:00</p>
 					<h3 class="main-name-h3 contacts-indent mail-block">Адрес электронной почты:</h3>
-					<a href="mailto:support@atra.com?subject=Вопрос по HTML" class="email-address">support@atra.com</a>
+					<a href="mailto:<?=EMAIL?>?subject=Вопрос по HTML" class="email-address"><?=EMAIL?></a>
 					<h3 class="main-name-h3 contacts-indent">Единый телефон офиса:</h3>
-					<div class="phone"><a href="tel:+8800888888">+8 800 88 88 88</a></div>
+					<div class="phone"><a href="tel:+8800888888"><?=PHONE?></a></div>
 					<a href="#" class="btn button-search">Оставить заявку на звонок</a>
 				</div>
 			</div>

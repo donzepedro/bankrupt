@@ -18,9 +18,28 @@ use \app\models\Regions;
 class MainController extends Controller{
     
     public $layout = 'frontend_layout.php';
+     public $commentInfo=[
+            0=>[
+                "capture" => "Просто дали начать снова жить!",
+                "textComment"=>"Мне порекомендовала обратиться в компанию коллега еще год назад. Сначала даже не поверила, что избавиться от долгов можно так легко. Решила даже позвонить в другие конторы, однако самым выгодным и адекватным вариантом стал тот, который посоветовала знакомая. Меня порадовала, что компания сама собирает пакет документов, оформляет все за считанные дни. Фирма быстро избавила меня от долгов, и я смогла спокойно жить, работать без звонков коллекторов и нервотрепки.",
+                "name" => "Марина Иванова",
+                "img" => "bankrut-img2.png"
+            ],
+            1=>[
+                "capture" => "Всем советую!",
+                "textComment"=>"Спасибо большое компании по списанию долгов. Процедура прошла законно, прозрачно, легально. В свое время, я брал кредит на собственное дело, но бизнес не пошел и не поехал, а вот долги стали копиться моментально. Естественно, что коллекторы и проблемы не заставили себя ждать. Поэтому и решил обратиться за банкротством, и затем был приятно удивлен, что мне быстро помогли с долгами.								",
+                "name" => "Сергей Иванов",
+                "img" => "bankrut-img1.png"
+            ],
+            2=>[
+                "capture"=>"Проверенная фирма.",
+                "textComment"=>"Отвечаю за то, что говорю. Я сам успешно списал долги, а затем посоветовал знакомым, попавшим в тяжелую жизненную ситуацию, тоже обратиться в эту же компанию. Помогли и мне, и моим друзьям. Естественно, как камень с плеч!",
+                "name"=>"Иван Иванов",
+                "img"=>"bankrut-img3.png"
+            ]
+        ];
     
     public function actionIndex() {
-        
         $search_model = new SearchModel();
         $regions = Regions::find()->all();
         if(\Yii::$app->request->isPost){
@@ -39,12 +58,13 @@ class MainController extends Controller{
                 ));
             
         }
-        return $this->render('index',['search_model'=>$search_model]);
+       
+        return $this->render('index',['search_model'=>$search_model,"commentInfo"=>$this->commentInfo]);
     }
     
     public function actionCreditor(){
         $search_model = new SearchModel();
-        return $this->render('main_creditor',['search_model'=>$search_model]);
+        return $this->render('main_creditor',['search_model'=>$search_model,"commentInfo"=>$this->commentInfo]);
     }
     
     public function actionAddress(){
