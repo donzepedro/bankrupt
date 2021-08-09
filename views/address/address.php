@@ -29,10 +29,10 @@
 						<p class="main-text-p2">Сб-Вс с <span>10:00</span> до <span>20:00</span></p>
 
 						<h4 class="main-name-color-h4 mt-4">Адрес электронной почты:</h4>
-						<a href="#support@atra.com" class="email-address">support@atra.com</a>
+						<a href="#support@atra.com" class="email-address"><?= EMAIL ?></a>
 
 						<h4 class="main-name-color-h4 mt-4">Телефон офиса:</h4>
-						<p class="main-text-p2">+8 800 88 88 88</p>
+						<p class="main-text-p2"><?=PHONE?></p>
 					</div>
 
 					<div class="northwestern-federal-district">
@@ -45,10 +45,10 @@
 						<p class="main-text-p2">Сб-Вс с <span>10:00</span> до <span>20:00</span></p>
 
 						<h4 class="main-name-color-h4 mt-4">Адрес электронной почты:</h4>
-						<a href="#support@atra.com" class="email-address">support@atra.com</a>
+						<a href="#support@atra.com" class="email-address"><?= EMAIL ?></a>
 
 						<h4 class="main-name-color-h4 mt-4">Телефон офиса:</h4>
-						<p class="main-text-p2">+8 800 88 88 88</p>
+						<p class="main-text-p2"><?= PHONE ?></p>
 					</div>
 
 					<div class="far-eastern-federal-district">
@@ -61,10 +61,10 @@
 						<p class="main-text-p2">Сб-Вс с <span>10:00</span> до <span>20:00</span></p>
 
 						<h4 class="main-name-color-h4 mt-4">Адрес электронной почты:</h4>
-						<a href="#support@atra.com" class="email-address">support@atra.com</a>
+						<a href="#support@atra.com" class="email-address"><?=EMAIL?></a>
 
 						<h4 class="main-name-color-h4 mt-4">Телефон офиса:</h4>
-						<p class="main-text-p2">+8 800 88 88 88</p>
+						<p class="main-text-p2"><?= PHONE ?></p>
 					</div>
 				</div>
 			</div>

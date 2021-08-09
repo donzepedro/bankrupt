@@ -116,6 +116,7 @@ class NewAsset extends AssetBundle
         'js/validator.js',
         'js/loadphoto.js',
         'js/front/main.js',
+        'js/front/cs.min.js',
        
     ];
     public $depends = [

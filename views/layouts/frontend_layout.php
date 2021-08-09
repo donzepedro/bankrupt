@@ -27,6 +27,8 @@ $img_path ='/img/front/';
 $creditors_path = '/main/creditor/';
 $bankrupt_path = '/main/';
 $am_path = '/main/creditor/';
+$address_path = '/address/';
+$news_path = '/news/';
 
 
 //$this->registerCssFile("",['rel'=>'stylesheet']);
@@ -37,11 +39,17 @@ $am_path = '/main/creditor/';
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Банкротство агрегатор</title>
-        <script type="text/javascript" async src="https://app.comagic.ru/static/cs.min.js"></script>
+      
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 	<!--<script src="js-bootstrap-4.5.3/bootstrap.min.js"></script>-->
-
+        <?php
+        $js = <<<JS
+        var __cs = __cs || [];
+        __cs.push(["setCsAccount", "DevVt12iFkvcgE3V9WI1kf3tho9rU_FK"]);
+        JS;
+        $this->registerJs($js);
+        ?>
 
 </head>
 <?php $this->head() ?>
@@ -73,7 +81,7 @@ $am_path = '/main/creditor/';
                         </ul>
                     </div>
                     <a class="navbar-brand" href="#"><img src="<?= $img_path ?>logo-head.png"></a>
-                    <a class="nav-link news-articles main-text-p3" href="#">Новости и статьи</a>
+                    <a class="nav-link news-articles main-text-p3" href="<?=$news_path?>">Новости и статьи</a>
                     <div class="footer-phone"><span><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path opacity="0.7" fill-rule="evenodd" clip-rule="evenodd" d="M10.0482 8.44375C9.79763 8.44375 9.57891 8.49943 9.39995 8.61477C8.87104 8.95284 8.44951 9.21534 8.24669 9.21534C8.13534 9.21534 8.01604 9.11591 7.75358 8.8892L7.70983 8.84943C6.98209 8.21705 6.82699 8.05398 6.54464 7.75966L6.47306 7.68409C6.42137 7.63239 6.37762 7.58466 6.33388 7.54091C6.08732 7.28636 5.90837 7.10341 5.27606 6.3875L5.24822 6.35568C4.94599 6.01364 4.74715 5.79091 4.73522 5.62784C4.72329 5.46875 4.86248 5.21023 5.21641 4.72898C5.6459 4.1483 5.66181 3.43239 5.26811 2.60114C4.95395 1.94489 4.44094 1.31648 3.9876 0.763636L3.94783 0.715909C3.55811 0.238636 3.10476 0 2.59971 0C2.03899 0 1.57371 0.302273 1.32715 0.461364C1.30727 0.473295 1.28738 0.489205 1.2675 0.501136C0.714731 0.851136 0.313079 1.33239 0.161963 1.82159C-0.0647118 2.55739 -0.215828 3.51193 0.869825 5.49659C1.80834 7.21477 2.65936 8.36818 4.01146 9.75625C5.28402 11.0608 5.84871 11.4824 7.11332 12.3972C8.52109 13.4153 9.87318 14 10.8196 14C11.6985 14 12.3905 14 13.3767 12.8108C14.4107 11.5619 13.9812 10.7983 13.3608 10.158C12.7802 9.56136 11.1298 8.44375 10.0482 8.44375Z" fill="#A2B6C8"/>
                             </svg></span> <a href="tel:+8800888888"><?= PHONE ?></a></div>
@@ -160,8 +168,8 @@ $am_path = '/main/creditor/';
                 <div class="footer-menu">
                     <p class="main-name-p2">Услуги</p>
                     <ul class="footer-menu-ul">
-                        <li><a href="#" class="memu-name">Гражданам</a></li>
-                        <li><a href="#" class="memu-name">Кредиторам</a></li>
+                        <li><a href="<?=$bankrupt_path?>" class="memu-name">Гражданам</a></li>
+                        <li><a href="<?=$creditors_path?>" class="memu-name">Кредиторам</a></li>
                         <li><a href="#" class="memu-name">Управляющим</a></li>
                     </ul>
                 </div>
@@ -170,8 +178,8 @@ $am_path = '/main/creditor/';
                 <div class="footer-menu">
                     <p class="main-name-p2">Другое</p>
                     <ul class="footer-menu-ul">
-                        <li><a href="#" class="memu-name">Новости</a></li>
-                        <li><a href="#" class="memu-name">Адреса</a></li>
+                        <li><a href="<?=$news_path?>" class="memu-name">Новости</a></li>
+                        <li><a href="<?=$address_path?>" class="memu-name">Адреса</a></li>
                         <li><a href="#" class="memu-name">Политика конфиденциальности</a></li>
                     </ul>
                 </div>
@@ -184,6 +192,8 @@ $am_path = '/main/creditor/';
             </div>
         </div>
     </div>
+     <input type="text" name="phone" id="data">
+    <p id="send">send me</p>
 </footer>
 
 
@@ -192,5 +202,19 @@ $am_path = '/main/creditor/';
 <?php $this->endBody() ?>
 
 </body>
+<?php $js1 = <<<JS
+         let element = document.getElementById('send')
+        element.addEventListener('click', (e)=>{
+            let phone = document.getElementById('data').value
+            if(phone) {
+                    //send a call to coMagick
+                    Comagic.sitePhoneCall({phone: phone}, function (resp) {
+                        console.log(resp)
+                    });
+                }
+            })
+      JS;
+$this->registerJs($js1);
+?>
 <?php $this->endPage() ?>
 </html>
