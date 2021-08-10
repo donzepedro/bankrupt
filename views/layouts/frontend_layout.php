@@ -5,19 +5,6 @@ use yii\bootstrap4\Nav;
 use yii\bootstrap4\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\NewAsset;
-$js1 = <<<JS
-         let element = document.getElementById('send')
-        element.addEventListener('click', (e)=>{
-            let phone = document.getElementById('data').value
-            if(phone) {
-                    //send a call to coMagick
-                    Comagic.sitePhoneCall({phone: phone}, function (resp) {
-                        console.log(resp)
-                    });
-                }
-            })
-      JS;
-$this->registerJs($js1);
 NewAsset::register($this);
 switch(\Yii::$app->request->url){
     case '/main/creditor/':
@@ -60,13 +47,7 @@ $news_path = '/news/';
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 	<!--<script src="js-bootstrap-4.5.3/bootstrap.min.js"></script>-->
-        <?php
-        $js = <<<JS
-        var __cs = __cs || [];
-        __cs.push(["setCsAccount", "DevVt12iFkvcgE3V9WI1kf3tho9rU_FK"]);
-        JS;
-        $this->registerJs($js);
-        ?>
+       
 
 </head>
 <?php $this->head() ?>
