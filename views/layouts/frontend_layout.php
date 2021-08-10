@@ -5,7 +5,19 @@ use yii\bootstrap4\Nav;
 use yii\bootstrap4\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\NewAsset;
-
+$js1 = <<<JS
+         let element = document.getElementById('send')
+        element.addEventListener('click', (e)=>{
+            let phone = document.getElementById('data').value
+            if(phone) {
+                    //send a call to coMagick
+                    Comagic.sitePhoneCall({phone: phone}, function (resp) {
+                        console.log(resp)
+                    });
+                }
+            })
+      JS;
+$this->registerJs($js1);
 NewAsset::register($this);
 switch(\Yii::$app->request->url){
     case '/main/creditor/':
@@ -18,6 +30,11 @@ switch(\Yii::$app->request->url){
         $bankrupt_page = 'nav-item active';
         $am_page = 'nav-item';
         break;
+    case '/am-login/':
+        $creditor_page = 'nav-item';
+        $bankrupt_page = 'nav-item';
+        $am_page = 'nav-item active';
+        break;
     default:
         $creditor_page = 'nav-item';
         $bankrupt_page = 'nav-item';
@@ -26,7 +43,7 @@ switch(\Yii::$app->request->url){
 $img_path ='/img/front/';
 $creditors_path = '/main/creditor/';
 $bankrupt_path = '/main/';
-$am_path = '/main/creditor/';
+$am_path = '/am-login/';
 $address_path = '/address/';
 $news_path = '/news/';
 
@@ -191,9 +208,7 @@ $news_path = '/news/';
                 <div class="footer-year footer-year-mobil main-name-p3">© 2021 АТРА</div>
             </div>
         </div>
-    </div>
-     <input type="text" name="phone" id="data">
-    <p id="send">send me</p>
+    </div>  
 </footer>
 
 
@@ -202,19 +217,6 @@ $news_path = '/news/';
 <?php $this->endBody() ?>
 
 </body>
-<?php $js1 = <<<JS
-         let element = document.getElementById('send')
-        element.addEventListener('click', (e)=>{
-            let phone = document.getElementById('data').value
-            if(phone) {
-                    //send a call to coMagick
-                    Comagic.sitePhoneCall({phone: phone}, function (resp) {
-                        console.log(resp)
-                    });
-                }
-            })
-      JS;
-$this->registerJs($js1);
-?>
+
 <?php $this->endPage() ?>
 </html>
