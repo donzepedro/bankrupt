@@ -1,5 +1,19 @@
+.comment-header{
+    min-width: 1080px;
+}
+@media screen and (max-width:1690px){
+    .comment-header{
+        min-width: 730px;
+    }
+}
+@media screen and (max-width:990px){
+    .comment-header{
+        min-width: 380px;
+    }
+}
 .slider{
     background-color:#fafafa;
+    
 }    
 .commentcard{
     min-width: 300px;
