@@ -377,7 +377,12 @@ ul.difficulties-ul li a svg {
     opacity: 1;
     color: #3951D2;
 }
-
+/******* 09/08 *******/
+.slider .col-7.capture {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 /****************** section id="main-contacts" **********************/
 #main-contacts {
     background-color: #fafafa;
