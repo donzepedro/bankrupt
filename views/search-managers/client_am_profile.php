@@ -93,14 +93,20 @@ Modal::end();
                                     <div class="col-4 go-profile mt-4 pt-5">
                                         <?php 
                                         Modal::begin([
+                                                'title'=>'<h2 class="main-name-h2">Leave a claim</h2>',
                                                 //    'header'=>'<h2>Hello world </h2>',
                                                     'toggleButton'=>[
                                                         'label'=>'Отправить&nbsp;заявку',
                                                         'class'=>'button-search'
                                                         ],
-                                                    'footer'=>'bottom window',
-                                                ]);
-                                        
+                                                    'footer'=>Html::button('Отправить&nbsp;заявку', ['value' => 'some val','class' => 'button-search'])
+                                                ]);?>
+                                        <?php $form = ActiveForm::begin()?>
+                                        <?= $form->field($claimForm,'name')->textInput(['placeholder'=>'your name'])->label(''); ?>
+                                        <?= $form->field($claimForm,'name')->textInput(['placeholder'=>'your phone'])->label(''); ?>
+                                        <?= $form->field($claimForm,'name')->textInput(['placeholder'=>'your email'])->label(''); ?>
+                                        <?= $form->field($claimForm,'name')->textInput(['placeholder'=>'your INN'])->label(''); ?>
+                                        <?php ActiveForm::end();
                                         Modal::end();
                                         ?>
                                         </div>

@@ -8,28 +8,22 @@
 
 namespace app\models;
 use yii\base\Model;
-
 /**
- * Description of SearchModel
+ * Description of ClaimForm
  *
  * @author zepedro
  */
-class SearchModel Extends Model{
+class ClaimForm extends Model{
     
-    public $region;
-    public $SRO_name;
-    public $b_legal;
-    public $b_phys;
-    public $debtor_category;
-    public $goverment_secret;
-    public $id;
+    public $name;
+    public $phone;
+    public $email;
+    public $INN;
     
-    public function rules()
-    {
+    public function rules(){
         return [
-          ['region','required']  
+          [['name','phone','email','INN'], 'required']  
         ];
     }
-    
-            
+    //put your code here
 }
