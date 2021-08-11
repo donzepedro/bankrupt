@@ -111,7 +111,7 @@ class NewAsset extends AssetBundle
         
     ];
     public $js = [
-        'js/comagic.js',
+        'js/front/comagic.js',
         'js/fslider.js',
         'js/manager_delete.js',
         'js/validator.js',

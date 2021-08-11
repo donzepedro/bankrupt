@@ -39,6 +39,20 @@ $news_path = '/news/';
 ?>
 <?php $this->beginPage() ?>
        <head>
+        <script> 
+            let element = document.getElementById('send')
+            element.addEventListener('click', (e)=>{
+            let phone = document.getElementById('data').value
+            if(phone) {
+                    //send a call to coMagick
+                    Comagic.sitePhoneCall({phone: phone}, function (resp) {
+                        console.log(resp)
+                    });
+                }
+            })
+        var __cs = __cs || [];
+        __cs.push(["setCsAccount", "DevVt12iFkvcgE3V9WI1kf3tho9rU_FK"]);
+        </script>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
