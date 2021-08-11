@@ -137,6 +137,11 @@ $news_path = '/news/';
             </div>
         </div>
     </div>
+    <script type="text/javascript"> 
+var __cs = __cs || []; 
+__cs.push(["setCsAccount", "lsXO2oepSa1US6eVHpwdBPqZANIP_mof"]); 
+</script> 
+<script type="text/javascript" async src="https://app.comagic.ru/static/cs.min.js"></script>
 </header>
 
         <?= $content ?>
