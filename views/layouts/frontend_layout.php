@@ -11,21 +11,31 @@ switch(\Yii::$app->request->url){
         $creditor_page = 'nav-item active';
         $bankrupt_page = 'nav-item';
         $am_page = 'nav-item';
+         $news_page = 'nav-item';
         break;
     case '/main/':
         $creditor_page = 'nav-item';
         $bankrupt_page = 'nav-item active';
         $am_page = 'nav-item';
+         $news_page = 'nav-item';
         break;
     case '/am-login/':
         $creditor_page = 'nav-item';
         $bankrupt_page = 'nav-item';
         $am_page = 'nav-item active';
+        $news_page = 'nav-item';
+        break;
+    case '/news/':
+        $creditor_page = 'nav-item';
+        $bankrupt_page = 'nav-item';
+        $am_page = 'nav-item';
+        $news_page = 'nav-item active';
         break;
     default:
         $creditor_page = 'nav-item';
         $bankrupt_page = 'nav-item';
         $am_page = 'nav-item';
+        $news_page = 'nav-item';
 }
 $img_path ='/img/front/';
 $creditors_path = '/main/creditor/';
@@ -39,20 +49,7 @@ $news_path = '/news/';
 ?>
 <?php $this->beginPage() ?>
        <head>
-        <script> 
-            let element = document.getElementById('send')
-            element.addEventListener('click', (e)=>{
-            let phone = document.getElementById('data').value
-            if(phone) {
-                    //send a call to coMagick
-                    Comagic.sitePhoneCall({phone: phone}, function (resp) {
-                        console.log(resp)
-                    });
-                }
-            })
-        var __cs = __cs || [];
-        __cs.push(["setCsAccount", "DevVt12iFkvcgE3V9WI1kf3tho9rU_FK"]);
-        </script>
+
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -60,7 +57,7 @@ $news_path = '/news/';
       
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-	<!--<script src="js-bootstrap-4.5.3/bootstrap.min.js"></script>-->
+	<script src="js-bootstrap-4.5.3/bootstrap.min.js"></script>
        
 
 </head>
@@ -117,17 +114,17 @@ $news_path = '/news/';
                         </button>
                         <a class="navbar-brand" href="#"><img src="<?= $img_path ?>logo-head.png"></a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link main-text-p3" href="#">Клиентам</a>
+                    <li class="<?= $bankrupt_page ?>">
+                        <a class="nav-link main-text-p3" href="<?= $bankrupt_path ?>"">Клиентам</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link main-text-p3" href="#">Кредиторам</a>
+                    <li class="<?= $creditor_page ?>">
+                        <a class="nav-link main-text-p3" href="<?= $creditors_path ?>">Кредиторам</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link main-text-p3" href="#">Арбитражным управляющим</a>
+                    <li class="<?= $am_page ?>">
+                        <a class="nav-link main-text-p3" href="<?= $am_path ?>">Арбитражным управляющим</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link main-text-p3" href="#">Новости и статьи</a>
+                    <li class="<?= $news_page ?>">
+                        <a class="nav-link main-text-p3" href="<?=$news_path?>">Новости и статьи</a>
                     </li>
                    
                     <li class="nav-item footer-phone footer-phone-mobil">
