@@ -2,7 +2,15 @@
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 use yii\bootstrap4\ActiveForm;
+use yii\bootstrap4\Modal;
 $img_path ='/img/front/';
+Modal::begin([
+//    'header'=>'<h2>Hello world </h2>',
+//    'toggleButton'=>['label'=>'Click me'],
+    'footer'=>'bottom window',
+]);
+echo 'say hello';
+Modal::end();
 ?>
 <section id="found-specialists" class="search-creditor-wrapper">
 	<div class="container">
@@ -82,7 +90,20 @@ $img_path ='/img/front/';
                                     <div class="col-2 name-text-block "> <p class="main-name-p3 mt-4 pt-5">Процедур:</p>
                                         <h4 class="main-name-color-h4"><span><?= $val['count_of_procedure_phys'] + $val['count_of_procedure_legal'] ?></span></h4>
                                     </div>
-                                    <div class="col-4 go-profile mt-4 pt-5"><a href='#'class="button-search ">Отправить&nbsp;заявку</a></div>
+                                    <div class="col-4 go-profile mt-4 pt-5">
+                                        <?php 
+                                        Modal::begin([
+                                                //    'header'=>'<h2>Hello world </h2>',
+                                                    'toggleButton'=>[
+                                                        'label'=>'Отправить&nbsp;заявку',
+                                                        'class'=>'button-search'
+                                                        ],
+                                                    'footer'=>'bottom window',
+                                                ]);
+                                        
+                                        Modal::end();
+                                        ?>
+                                        </div>
                                 </div>
                                 <hr>
                             <div class="personal-specialists-text">
