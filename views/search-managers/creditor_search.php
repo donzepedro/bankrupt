@@ -93,18 +93,24 @@ $path_to_profile = '/search-managers/creditor-am-profile/';
                     </div>
                     <?php $amform = ActiveForm::begin(['action'=>$path_to_profile]) ?>
                     <?php foreach ($managers as $key => $val): ?>
-                        <div class="row">
-                            <div class="col-12 text-center pt-4"><h4 class="main-name-color-h4"><?= $val['fname'] . ' ' . $val['mname'] . ' ' . $val['lname']; ?></h4></div>
-                            <div class="col-3"><img style="max-height: 100px" src="<?= str_replace('../web', '', $val['path_to_img']); ?>"></div>
-                            <div class="col-3 name-text-block"> <p class="main-name-p3 mt-4 pt-5">Средний срок:</p>
+                    <div class="row text-center ">
+                            <div class="col-12 mt-3"><h4 class="main-name-color-h4"><?= $val['fname'] . ' ' . $val['mname'] . ' ' . $val['lname']; ?></h4></div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <div><img style="max-height: 150px" src="<?= str_replace('../web', '', $val['path_to_img']); ?>"></div>
+                            <div class="name-text-block mr-2 align-self-end" style="min-width: 105px"> <p class="main-name-p3">Средний срок:</p>
                                 <h4 class="main-name-color-h4"><span><?= $val['procedure_time_average'] ?></span> месяцев </h4>
                             </div>
-                            <div class="col-2 name-text-block "> <p class="main-name-p3 mt-4 pt-5">Процедур:</p>
+                            <div class="name-text-block mr-2 align-self-end"> <p class="main-name-p3">Процедур:</p>
                                 <h4 class="main-name-color-h4"><span><?= $val['count_of_procedure_phys'] + $val['count_of_procedure_legal'] ?></span></h4>
                             </div>
-                            <div class="col-4 go-profile mt-4 pt-5"><?= Html::submitButton('Перейти&nbsp;в&nbsp;профиль', ['class' => 'btn button-search', 'name' => 'Search-button'])?></div>
-                        <?= $amform->field($search_model,'id')->hiddenInput(['value'=>$val['id']])->label(''); ?>
+                            <div class="go-profile align-self-end snd-btn-hide"><?= Html::submitButton('Перейти&nbsp;в&nbsp;профиль', ['class' => 'btn button-search', 'name' => 'Search-button']) ?></div>
+                            
                         </div>
+                        <div class="row text-center">
+                            <div class="col snd-btn-show mt-3"><?= Html::submitButton('Перейти&nbsp;в&nbsp;профиль', ['class' => 'btn button-search', 'name' => 'Search-button']) ?></div>
+                        </div>
+                    <?= $amform->field($search_model, 'id')->hiddenInput(['value' => $val['id']])->label(''); ?>
                         <hr>
                     <?php endforeach; ?>
                     <?php ActiveForm::end()?>

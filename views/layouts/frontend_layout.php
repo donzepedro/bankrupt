@@ -1,41 +1,43 @@
 <?php 
-use app\widgets\Alert;
-use yii\helpers\Html;
+//use app\widgets\Alert;
+//use yii\helpers\Html;
 use yii\bootstrap4\Nav;
 use yii\bootstrap4\NavBar;
-use yii\widgets\Breadcrumbs;
+//use yii\widgets\Breadcrumbs;
 use app\assets\NewAsset;
+
 NewAsset::register($this);
+
 switch(\Yii::$app->request->url){
-    case '/main/creditor/':
-        $creditor_page = 'nav-item active';
-        $bankrupt_page = 'nav-item';
-        $am_page = 'nav-item';
-         $news_page = 'nav-item';
+    case '/main/creditor':
+        $creditor_page = ' active';
+        $bankrupt_page = '';
+        $am_page = '';
+         $news_page = '';
         break;
-    case '/main/':
-        $creditor_page = 'nav-item';
-        $bankrupt_page = 'nav-item active';
-        $am_page = 'nav-item';
-         $news_page = 'nav-item';
+    case '/main':
+        $creditor_page = '';
+        $bankrupt_page = ' active';
+        $am_page = '';
+         $news_page = '';
         break;
-    case '/am-login/':
-        $creditor_page = 'nav-item';
-        $bankrupt_page = 'nav-item';
-        $am_page = 'nav-item active';
-        $news_page = 'nav-item';
+    case '/am-login':
+        $creditor_page = '';
+        $bankrupt_page = '';
+        $am_page = ' active';
+        $news_page = '';
         break;
-    case '/news/':
-        $creditor_page = 'nav-item';
-        $bankrupt_page = 'nav-item';
-        $am_page = 'nav-item';
-        $news_page = 'nav-item active';
+    case '/news':
+        $creditor_page = '';
+        $bankrupt_page = '';
+        $am_page = '';
+        $news_page = ' active';
         break;
     default:
-        $creditor_page = 'nav-item';
-        $bankrupt_page = 'nav-item';
-        $am_page = 'nav-item';
-        $news_page = 'nav-item';
+        $creditor_page = '';
+        $bankrupt_page = '';
+        $am_page = '';
+        $news_page = '';
 }
 $img_path ='/img/front/';
 $creditors_path = '/main/creditor/';
@@ -65,17 +67,55 @@ $news_path = '/news/';
 
 <?php $this->beginBody() ?>
 <body>
-<div class="shadow-section"></div>
+<!--<div class="shadow-section"></div>-->
 
 <header class="header-top">
+    <?php 
+                            NavBar::begin([
+                                'innerContainerOptions' => [
+                                    'class'=>'bugerbtn'
+                                    ],
+                                
+                                'options'=>[
+                                    
+                                    'class'=>'navbar navbar-expand-lg navbar-dark bg-dark'
+                                ],
+                                ]);
+                            echo Nav::widget([
+                                'encodeLabels'=>false,
+                                'items' => [
+                                    
+                                    ['label' => 'Клиентам', 'url' => [$bankrupt_path],'linkOptions'=>['class'=>$bankrupt_page]],
+                                    ['label' => 'Кредиторам', 'url' => [$creditors_path],'linkOptions'=>['class'=>$creditor_page]],
+                                    ['label' => 'Арбитражным управляющим', 'url' => [$am_path],'linkOptions'=>['class'=>$am_page]],
+                                    'brandimage' => \yii\bootstrap4\Html::img($img_path.'logo-head.png',['class'=>'logoimg']),
+                                    ['label' => 'Новости и статьи', 'url' => [$news_path],'linkOptions'=>['class'=>$news_page]],
+                                    ['label' => PHONE, 'url' => [$news_path]],
+                                    ['label' => '<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="20" cy="20" r="20" fill="#D1D7DC"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M20.4082 19.4958C22.0492 19.4958 23.3794 18.0769 23.3794 16.3265C23.3794 14.5762 22.0492 13.1573 20.4082 13.1573C18.7673 13.1573 17.4371 14.5762 17.4371 16.3265C17.4371 18.0769 18.7673 19.4958 20.4082 19.4958ZM20.4082 21.2245C22.9442 21.2245 25.0001 19.0316 25.0001 16.3265C25.0001 13.6215 22.9442 11.4286 20.4082 11.4286C17.8722 11.4286 15.8164 13.6215 15.8164 16.3265C15.8164 19.0316 17.8722 21.2245 20.4082 21.2245Z" fill="#EEF1F4"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M21.0349 21.6071H19.1686C16.1977 21.6071 13.7893 23.9576 13.7893 26.8571C13.7893 26.9163 13.8385 26.9643 13.8991 26.9643H26.3044C26.3651 26.9643 26.4142 26.9163 26.4142 26.8571C26.4142 23.9576 24.0058 21.6071 21.0349 21.6071ZM19.1686 20C15.2882 20 12.1426 23.07 12.1426 26.8571C12.1426 27.8039 12.929 28.5714 13.8991 28.5714H26.3044C27.2745 28.5714 28.0609 27.8039 28.0609 26.8571C28.0609 23.07 24.9153 20 21.0349 20H19.1686Z" fill="#EEF1F4"/>
+                        </svg>', 'url' => [$news_path]],
+//                                  
+                                ],
+                                  
+                                'options' => ['class' => 'navbar-nav navbar'],
+                                
+                            ]);
+                           
+                            NavBar::end();
+                        ?>
     <div class="container">
+        <hr>
         <div class="row header-top-row">
-            <div class="col-lg-12 nav-border">
+            
+<!--            <div class="col-lg-12 nav-border">
 
                 <nav class="navbar navbar-expand-lg bg-dark navbar-dark indent-nav">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    
                         <span class="navbar-toggler-icon"></span>
-                    </button>
+                        
+                    
                     <div class="collapse navbar-collapse">
                         <ul class="navbar-nav">
                             <li class="<?= $bankrupt_page ?>">
@@ -93,48 +133,17 @@ $news_path = '/news/';
                     <a class="nav-link news-articles main-text-p3" href="<?=$news_path?>">Новости и статьи</a>
                     <div class="footer-phone"><span><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path opacity="0.7" fill-rule="evenodd" clip-rule="evenodd" d="M10.0482 8.44375C9.79763 8.44375 9.57891 8.49943 9.39995 8.61477C8.87104 8.95284 8.44951 9.21534 8.24669 9.21534C8.13534 9.21534 8.01604 9.11591 7.75358 8.8892L7.70983 8.84943C6.98209 8.21705 6.82699 8.05398 6.54464 7.75966L6.47306 7.68409C6.42137 7.63239 6.37762 7.58466 6.33388 7.54091C6.08732 7.28636 5.90837 7.10341 5.27606 6.3875L5.24822 6.35568C4.94599 6.01364 4.74715 5.79091 4.73522 5.62784C4.72329 5.46875 4.86248 5.21023 5.21641 4.72898C5.6459 4.1483 5.66181 3.43239 5.26811 2.60114C4.95395 1.94489 4.44094 1.31648 3.9876 0.763636L3.94783 0.715909C3.55811 0.238636 3.10476 0 2.59971 0C2.03899 0 1.57371 0.302273 1.32715 0.461364C1.30727 0.473295 1.28738 0.489205 1.2675 0.501136C0.714731 0.851136 0.313079 1.33239 0.161963 1.82159C-0.0647118 2.55739 -0.215828 3.51193 0.869825 5.49659C1.80834 7.21477 2.65936 8.36818 4.01146 9.75625C5.28402 11.0608 5.84871 11.4824 7.11332 12.3972C8.52109 13.4153 9.87318 14 10.8196 14C11.6985 14 12.3905 14 13.3767 12.8108C14.4107 11.5619 13.9812 10.7983 13.3608 10.158C12.7802 9.56136 11.1298 8.44375 10.0482 8.44375Z" fill="#A2B6C8"/>
-                            </svg></span> <a href="tel:+8800888888"><?= PHONE ?></a></div>
-                    <a href="#"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            </svg></span> <a href="<?= PHONE ?>"><?= PHONE ?></a></div>
+                    <a href="#">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="20" cy="20" r="20" fill="#D1D7DC"/>
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M20.4082 19.4958C22.0492 19.4958 23.3794 18.0769 23.3794 16.3265C23.3794 14.5762 22.0492 13.1573 20.4082 13.1573C18.7673 13.1573 17.4371 14.5762 17.4371 16.3265C17.4371 18.0769 18.7673 19.4958 20.4082 19.4958ZM20.4082 21.2245C22.9442 21.2245 25.0001 19.0316 25.0001 16.3265C25.0001 13.6215 22.9442 11.4286 20.4082 11.4286C17.8722 11.4286 15.8164 13.6215 15.8164 16.3265C15.8164 19.0316 17.8722 21.2245 20.4082 21.2245Z" fill="#EEF1F4"/>
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M21.0349 21.6071H19.1686C16.1977 21.6071 13.7893 23.9576 13.7893 26.8571C13.7893 26.9163 13.8385 26.9643 13.8991 26.9643H26.3044C26.3651 26.9643 26.4142 26.9163 26.4142 26.8571C26.4142 23.9576 24.0058 21.6071 21.0349 21.6071ZM19.1686 20C15.2882 20 12.1426 23.07 12.1426 26.8571C12.1426 27.8039 12.929 28.5714 13.8991 28.5714H26.3044C27.2745 28.5714 28.0609 27.8039 28.0609 26.8571C28.0609 23.07 24.9153 20 21.0349 20H19.1686Z" fill="#EEF1F4"/>
-                        </svg></a>
+                        </svg>
+</a>
                 </nav>
-            </div>
-            <div class="collapse navbar-collapse drop-down-navbar-mobil" id="collapsibleNavbar">
-                <ul class="navbar-nav">
-                    <li class="navbar-nav-icon-close">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                            <span class="navbar-toggler-icon icon-close">
-                                <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect y="2" width="2" height="24" transform="rotate(-45 0 2)" fill="#11223F"/>
-                                    <rect x="17" y="1" width="2" height="24" transform="rotate(45 17 1)" fill="#11223F"/>
-                                </svg>
-                            </span>
-                        </button>
-                        <a class="navbar-brand" href="#"><img src="<?= $img_path ?>logo-head.png"></a>
-                    </li>
-                    <li class="<?= $bankrupt_page ?>">
-                        <a class="nav-link main-text-p3" href="<?= $bankrupt_path ?>"">Клиентам</a>
-                    </li>
-                    <li class="<?= $creditor_page ?>">
-                        <a class="nav-link main-text-p3" href="<?= $creditors_path ?>">Кредиторам</a>
-                    </li>
-                    <li class="<?= $am_page ?>">
-                        <a class="nav-link main-text-p3" href="<?= $am_path ?>">Арбитражным управляющим</a>
-                    </li>
-                    <li class="<?= $news_page ?>">
-                        <a class="nav-link main-text-p3" href="<?=$news_path?>">Новости и статьи</a>
-                    </li>
-                   
-                    <li class="nav-item footer-phone footer-phone-mobil">
-                        <span><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path opacity="0.7" fill-rule="evenodd" clip-rule="evenodd" d="M10.0482 8.44375C9.79763 8.44375 9.57891 8.49943 9.39995 8.61477C8.87104 8.95284 8.44951 9.21534 8.24669 9.21534C8.13534 9.21534 8.01604 9.11591 7.75358 8.8892L7.70983 8.84943C6.98209 8.21705 6.82699 8.05398 6.54464 7.75966L6.47306 7.68409C6.42137 7.63239 6.37762 7.58466 6.33388 7.54091C6.08732 7.28636 5.90837 7.10341 5.27606 6.3875L5.24822 6.35568C4.94599 6.01364 4.74715 5.79091 4.73522 5.62784C4.72329 5.46875 4.86248 5.21023 5.21641 4.72898C5.6459 4.1483 5.66181 3.43239 5.26811 2.60114C4.95395 1.94489 4.44094 1.31648 3.9876 0.763636L3.94783 0.715909C3.55811 0.238636 3.10476 0 2.59971 0C2.03899 0 1.57371 0.302273 1.32715 0.461364C1.30727 0.473295 1.28738 0.489205 1.2675 0.501136C0.714731 0.851136 0.313079 1.33239 0.161963 1.82159C-0.0647118 2.55739 -0.215828 3.51193 0.869825 5.49659C1.80834 7.21477 2.65936 8.36818 4.01146 9.75625C5.28402 11.0608 5.84871 11.4824 7.11332 12.3972C8.52109 13.4153 9.87318 14 10.8196 14C11.6985 14 12.3905 14 13.3767 12.8108C14.4107 11.5619 13.9812 10.7983 13.3608 10.158C12.7802 9.56136 11.1298 8.44375 10.0482 8.44375Z" fill="#A2B6C8"/>
-                            </svg>
-                        </span> <a href="tel:+8800888888" class="nav-collapse-mobil-tell"><?= PHONE ?></a>
-                    </li>
-                </ul>
-            </div>
+            </div>-->
+            
         </div>
     </div>
     <script type="text/javascript"> 

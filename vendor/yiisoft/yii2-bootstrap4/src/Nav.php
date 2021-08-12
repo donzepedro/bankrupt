@@ -168,12 +168,17 @@ class Nav extends Widget
         $items = ArrayHelper::getValue($item, 'items');
         $url = ArrayHelper::getValue($item, 'url', '#');
         $linkOptions = ArrayHelper::getValue($item, 'linkOptions', []);
+       
+
         $disabled = ArrayHelper::getValue($item, 'disabled', false);
         $active = $this->isItemActive($item);
-
+        
         if (empty($items)) {
             $items = '';
-            Html::addCssClass($options, ['widget' => 'nav-item']);
+             if(array_key_exists('class', $linkOptions))
+                Html::addCssClass($options, ['widget' => 'nav-item' . $linkOptions['class']]);
+             else
+                Html::addCssClass($options, ['widget' => 'nav-item']);
             Html::addCssClass($linkOptions, ['widget' => 'nav-link']);
         } else {
             $linkOptions['data-toggle'] = 'dropdown';
@@ -260,6 +265,7 @@ class Nav extends Widget
      */
     protected function isItemActive($item)
     {
+        
         if (!$this->activateItems) {
             return false;
         }
@@ -284,7 +290,6 @@ class Nav extends Widget
                     }
                 }
             }
-
             return true;
         }
 

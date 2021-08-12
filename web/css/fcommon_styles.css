@@ -1,0 +1,86 @@
+/* ***fedor's add ******** */
+.bor{
+    border: 1px solid red !important;
+}
+.snd-btn-show{
+        display: none;
+    }
+@media (max-width:550px){
+    .snd-btn-hide{
+        display: none !important;
+    }
+}
+@media (max-width:550px){
+    .snd-btn-show{
+        display: block;
+    }
+}
+.bugerbtn{
+    
+/*    max-width: 1142px; 
+    */min-width: 1142px; 
+    margin-right: auto;
+        margin-left: auto;
+}
+@media (max-width:1200px){
+    .bugerbtn{
+       max-width: 1142px; 
+       min-width: 960px; 
+    }
+}
+@media (max-width:992px){
+    .bugerbtn{    
+        margin-top: 2rem; 
+         min-width: 750px;
+    }
+}
+@media (max-width:768px){
+    .bugerbtn{
+        min-width: 600px;
+    }
+}
+.fstyle{
+    /*border: 1px solid red !important;*/
+}
+#w2{
+    width: 100%;
+}
+.nav-item{
+
+    max-height: 45px;
+    max-width: 210px;
+    margin: 0 15px 0 10px !important;
+    font-family: Jost-Regular;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+    color: #6a7c92;
+    /*border: 1px solid red !important;*/
+}
+.logoimg{
+    /*margin: 0 5px 0 5px !important;*/
+}
+.collapse navbar-collapse{
+    min-width: 1242px;  
+}
+
+@media (max-width:1200px){
+    .nav-item{
+       max-width: 98px;
+    }
+}
+@media (max-width:991px){
+    .logoimg{
+       display: none !important;
+    }
+}
+@media (max-width:991px){
+    .nav-item{
+       max-width: 100%;
+    }
+}
+@media (max-width:991px){
+    .navbar{
+    align-items: start;
+}
+}
