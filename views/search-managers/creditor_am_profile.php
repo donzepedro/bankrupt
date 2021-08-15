@@ -100,6 +100,8 @@ $img_path ='/img/front/';
                                         <h4 class="main-name-color-h4"><span><?= $val['count_of_procedure_phys'] + $val['count_of_procedure_legal'] ?></span></h4>
                                     </div>
                                     <div class="go-profile align-self-end snd-btn-hide"><?php
+                                    echo Html::button('Отправить&nbsp;заявку', ['value' => 'some val','id'=>'send', 'class' => 'button-search']);
+                                    /*
                                         Modal::begin([
                                             'title' => '<h2 class="main-name-h2">Leave a claim</h2>',
                                             //    'header'=>'<h2>Hello world </h2>',
@@ -117,12 +119,13 @@ $img_path ='/img/front/';
                                             <?= $form->field($claimForm, 'name')->textInput(['placeholder' => 'your INN'])->label(''); ?>
                                         <?php
                                         ActiveForm::end();
-                                        Modal::end();
+                                        Modal::end();*/
                                         ?> </div>
                                 </div>
                                 <div class="row text-center">
                                     <div class="col snd-btn-show mt-3">
                                         <?php
+                                        /*
                                         Modal::begin([
                                             'title' => '<h2 class="main-name-h2">Leave a claim</h2>',
                                             //    'header'=>'<h2>Hello world </h2>',
@@ -141,7 +144,9 @@ $img_path ='/img/front/';
                                         <?php
                                         ActiveForm::end();
                                         Modal::end();
-                                        ?>
+                                        
+                                         */ ?>
+                                         
                                     </div>
                                 </div>     
                                 <hr>
