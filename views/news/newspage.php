@@ -1,5 +1,6 @@
 <?php
 $img_path ='/img/front/';
+$eachnews='/news/each-news/';
 ?>
 
 <section class="news-wrapper">
@@ -21,7 +22,7 @@ $img_path ='/img/front/';
 									<div class="news-block-img" style="background-image: url('<?=$img_path?>desktop_news/news-1.png')"></div>
 									<h4 class="main-name-color-h4 mt-2">5 Мифов о банкротстве</h4>
 									<p class="main-name-p3 mb-3">Возможность должника объявить личную финансовую несостоятельность появилась не так давно. Многие не знакомы с законодательной базой данной процедуры, поэтому появляется много мифов. Возможность должника объявить личную финансовую несостоятельность появилась не так давно. Многие не знакомы с законодательной базой.</p>
-									<a href="desktop_news_read.html" class="button-search">Читать далее</a>
+									<a href="<?=$eachnews?>" class="button-search">Читать далее</a>
 								</div>
 							</div>
 							<div class="col-lg-4 col-md-6 col-sm-12">
@@ -29,7 +30,7 @@ $img_path ='/img/front/';
 									<div class="news-block-img" style="background-image: url('<?=$img_path?>desktop_news/news-1.png')"></div>
 									<h4 class="main-name-color-h4 mt-2">5 Мифов о банкротстве</h4>
 									<p class="main-name-p3 mb-3">Возможность должника объявить личную финансовую несостоятельность появилась не так давно. Многие не знакомы с законодательной базой данной процедуры, поэтому появляется много мифов. Возможность должника объявить личную финансовую несостоятельность появилась не так давно. Многие не знакомы с законодательной базой.</p>
-									<a href="desktop_news_read.html" class="button-search">Читать далее</a>
+									<a href="<?=$eachnews?>" class="button-search">Читать далее</a>
 								</div>
 							</div>
 							<div class="col-lg-4 col-md-6 col-sm-12">
@@ -37,7 +38,7 @@ $img_path ='/img/front/';
 									<div class="news-block-img" style="background-image: url('<?=$img_path?>desktop_news/news-1.png')"></div>
 									<h4 class="main-name-color-h4 mt-2">5 Мифов о банкротстве</h4>
 									<p class="main-name-p3 mb-3">Возможность должника объявить личную финансовую несостоятельность появилась не так давно. Многие не знакомы с законодательной базой данной процедуры, поэтому появляется много мифов. Возможность должника объявить личную финансовую несостоятельность появилась не так давно. Многие не знакомы с законодательной базой.</p>
-									<a href="desktop_news_read.html" class="button-search">Читать далее</a>
+									<a href="<?=$eachnews?>" class="button-search">Читать далее</a>
 								</div>
 							</div>
 						</div>

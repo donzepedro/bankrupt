@@ -1,7 +1,7 @@
 let commentsAmount = document.getElementById('commentsAmount').textContent;
 var dispamount=3;
-switchstyle = "height:20px;width:20px; background-color:#d7d7d7; border-radius:100px;cursor: pointer"
-bootstrap = "fordel mb-5 mx-2"
+switchstyle = "height:20px;width:20px; background-color:#d7d7d7; border-radius:100px;cursor: pointer; margin: 10px 10px 50px 0px"
+bootstrap = "fordel";
 let switches = [];
 
 showslider()
@@ -13,15 +13,20 @@ $(window).on("resize",()=>{
 })
 
 function createSwitches(){
-        $('.fordel').detach();
-   
+        
+        let switchNode = document.getElementById('switches');
+        while(switchNode.firstChild){
+            switchNode.removeChild(switchNode.firstChild);
+        }
+        
+        console.log(Math.ceil(commentsAmount / dispamount));
     for (let i = 0; i < Math.ceil(commentsAmount / dispamount); i++) {
-        $('#switches').append("<div class='" + bootstrap + "' style='" + switchstyle + "'" + "id=" + ('switch' + i) + "></div>");
+        $('#switches').append("<div style='" + switchstyle + "'" + "id=" + ('switch' + i) + "></div>");
         switches[i] = document.getElementById('switch' + i).addEventListener("click", function () {
             switchcomments(i)
         }, false)
     }
-    
+      
 }
 
 function switchcomments(switch_number){

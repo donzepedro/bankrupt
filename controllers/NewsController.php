@@ -21,4 +21,9 @@ class NewsController extends Controller{
         
         return $this->render('newspage');
     }
+    
+    public function actionEachNews(){
+        return $this->render('eachnews');
+        
+    }
 }

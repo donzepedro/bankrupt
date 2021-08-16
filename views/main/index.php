@@ -71,7 +71,7 @@ $img_path ='/img/front/';
                                                                         <p class="main-text-p4 indent-p5">Регион</p>
 									
                                                                         <?= $form->field($search_model, 'region')->dropDownList(ArrayHelper::map(\app\models\Regions::find()->all(), 'id', 'region'))->label('') ?>
-                                                                        
+                                                                        <!--ArrayHelper::map(\app\models\Regions::find()->all(), 'id', 'region')-->
 									<p class="main-text-p4 indent-p5">Вы являетесь:</p>
 								</div>
 								<div class="form-group form-check form-check-flex">
@@ -303,7 +303,7 @@ $img_path ='/img/front/';
                 <?php $numberOfComment++; ?>
             <?php endfor; ?>
         </div>
-        <div class="d-flex justify-content-center py-5" style=""id="switches">
+        <div class="d-flex justify-content-center py-5" style="" id="switches">
 
         </div>
     </div>
