@@ -4,6 +4,7 @@ defined('YII_DEBUG') or define('YII_DEBUG', true);
 defined('YII_ENV') or define('YII_ENV', 'dev');
 define('ROOT', str_replace('web', '', __DIR__));
 define('HOME', '/arbitr-manager/index?');
+define('INTRESTINGPGAES', '/news/intresting-pages/');
 
 define('DOMAIN','http://bankrupt/');
 

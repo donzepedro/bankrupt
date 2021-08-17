@@ -69,7 +69,14 @@ $img_path ='/img/front/';
                                                                 <?php $form = ActiveForm::begin(['method'=>'post','action'=>'/search-managers/']) ?>
 								<div class="form-group">
                                                                         <p class="main-text-p4 indent-p5">Регион</p>
-									
+                                                                        <script>let obj = { 
+                                                                            name: 'text',
+                                                                            email: 'text', 
+                                                                            phone: 'text',
+                                                                            message: 'text'
+                                                                        }
+                                                                        </script>
+                                                                        <div><input type="button" onclick="Comagic.addOfflineRequest(obj)" value="button"></input></div>
                                                                         <?= $form->field($search_model, 'region')->dropDownList(ArrayHelper::map(\app\models\Regions::find()->all(), 'id', 'region'))->label('') ?>
                                                                         <!--ArrayHelper::map(\app\models\Regions::find()->all(), 'id', 'region')-->
 									<p class="main-text-p4 indent-p5">Вы являетесь:</p>
