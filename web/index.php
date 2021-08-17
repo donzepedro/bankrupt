@@ -1,7 +1,4 @@
 <?php
-error_reporting = E_ALL;
-display_errors = On;
-display_startup_errors = On;
 // comment out the following two lines when deployed to production
 defined('YII_DEBUG') or define('YII_DEBUG', true);
 defined('YII_ENV') or define('YII_ENV', 'dev');
