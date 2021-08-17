@@ -56,12 +56,11 @@ $img_path ='/img/front/';
 					<div class="desktop-link-search">
 						<h4 class="main-text-h4">Интересные статьи</h4>
 						<div class="link-search-border"></div>
-						<a  href="#" class="link-search-a main-text-p2">В чем <span>ПЛЮСЫ</span> банкротства?</a>
-						<a  href="#" class="link-search-a main-text-p2">Прекращение начисления процентов</a>
-						<a  href="#" class="link-search-a main-text-p2">Возможность выезда за границу</a>
-						<a  href="#" class="link-search-a main-text-p2">Освобождение от обязательств</a>
-						<a  href="#" class="link-search-a main-text-p2">В чем <span>ПЛЮСЫ</span> банкротства?</a>
-						<a  href="#" class="link-search-a main-text-p2">Возможность выезда за границу</a>
+						<a  href="<?=INTRESTINGPGAES . '?id=0'?>" class="link-search-a main-text-p2">В чем <span>ПЛЮСЫ</span> банкротства?</a>
+					<a  href="<?=INTRESTINGPGAES . '?id=1'?>" class="link-search-a main-text-p2">Прекращение начисления процентов</a>
+					<a  href="<?=INTRESTINGPGAES . '?id=2'?>" class="link-search-a main-text-p2">Возможность выезда за границу</a>
+					<a  href="<?=INTRESTINGPGAES . '?id=3'?>" class="link-search-a main-text-p2">Освобождение от обязательств</a>
+					<a  href="<?=INTRESTINGPGAES . '?id=4'?>" class="link-search-a main-text-p2">Документы, необходимые для подачи на процедуру банкротства.</a>
 					</div>
 				</div>
 			</div>

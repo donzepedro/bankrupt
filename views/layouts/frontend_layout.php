@@ -40,11 +40,11 @@ switch(\Yii::$app->request->url){
         $news_page = '';
 }
 $img_path ='/img/front/';
-$creditors_path = '/main/creditor/';
-$bankrupt_path = '/main/';
-$am_path = '/am-login/';
-$address_path = '/address/';
-$news_path = '/news/';
+$creditors_path = '/main/creditor';
+$bankrupt_path = '/main';
+$am_path = '/am-login';
+$address_path = '/address';
+$news_path = '/news';
 
 
 //$this->registerCssFile("",['rel'=>'stylesheet']);
@@ -69,7 +69,7 @@ $news_path = '/news/';
 <body>
 <!--<div class="shadow-section"></div>-->
 
-<header class="header-top">
+<header class="header-top pt-3">
     <?php 
                             NavBar::begin([
                                 'innerContainerOptions' => [
