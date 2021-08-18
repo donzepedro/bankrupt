@@ -192,24 +192,10 @@ class ArbitrManagerController extends Controller {
             unlink($arbitr_managers->path_to_img);
             rmdir('../web/img/managers_profile_img/' . \Yii::$app->request->get('id'));
             }
-//        if(!(( $arbitr_managers->delete(false))&($SROAminfo->delete(false))&($education->delete(false))&($foreign_language->delete(false)))){
-//            throw new \yii\web\HttpException(500,'server error, some problem durinng deleting');
-//        }
             
         if(!$arbitr_managers->delete(false)){
             throw new \yii\web\HttpException(500,'server error, some problem durinng deleting');
         }
-        
-        
-//        try{
-//            $arbitr_managers->delete();
-//            $SROAminfo->delete();
-//            $education->delete();
-//            $foreign_language->delete();
-//            
-//        } catch (ErrorException $e){
-//            \Yii::warning('some problem durinng deleting');
-//        }
         
         if(!empty(\Yii::$app->request->get('page'))){
             $page = '&page=' . \Yii::$app->request->get('page');

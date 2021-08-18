@@ -15,13 +15,13 @@ class UploadForm extends Model
     public function rules()
     {
         return [
-           [['imageFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png,jpg,webp','maxSize'=>90000],
+           [['imageFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png,jpg,webp','maxSize'=>1000000],
         ];
     }
 //    '../web/img/managers_profile_img/'
-    public function upload($path)
+    public function upload($path,$filename = 'profileimg')
     {
-        $this->imageFile->name = 'profileimg' . '.' .$this->imageFile->extension;
+        $this->imageFile->name = $filename . '.' .$this->imageFile->extension;
         if ($this->validate()) {
             $this->imageFile->saveAs($path . $this->imageFile->baseName . '.' . $this->imageFile->extension);
             return true;

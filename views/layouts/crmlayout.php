@@ -38,6 +38,7 @@ NewAsset::register($this);
                   <a class="nav-link active" href="<?=DOMAIN?>bankrupt-phys">Bankrupt physical</a>
                   <a class="nav-link active" href="<?=DOMAIN?>creditor-legal">Creditor legal</a>
                   <a class="nav-link active" href="<?=DOMAIN?>creditor-phys">Creditor physical</a>
+                  <a class="nav-link active" href="<?=DOMAIN?>news-edit/news-show/">News</a>
                   <a class="nav-link active" href="<?=DOMAIN?>login/logout/">LogOut</a>
                   
                  
