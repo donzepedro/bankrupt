@@ -7,38 +7,15 @@ use yii\bootstrap4\NavBar;
 use app\assets\NewAsset;
 
 NewAsset::register($this);
-
-switch(\Yii::$app->request->url){
-    case '/main/creditor':
-        $creditor_page = ' active';
-        $bankrupt_page = '';
-        $am_page = '';
-         $news_page = '';
-        break;
-    case '/main':
-        $creditor_page = '';
-        $bankrupt_page = ' active';
-        $am_page = '';
-         $news_page = '';
-        break;
-    case '/am-login':
-        $creditor_page = '';
-        $bankrupt_page = '';
-        $am_page = ' active';
-        $news_page = '';
-        break;
-    case '/news':
-        $creditor_page = '';
-        $bankrupt_page = '';
-        $am_page = '';
-        $news_page = ' active';
-        break;
-    default:
+$curpageurl = \Yii::$app->request->url;
         $creditor_page = '';
         $bankrupt_page = '';
         $am_page = '';
         $news_page = '';
-}
+if(str_contains(\Yii::$app->request->url,'/news')) $news_page=' active';
+elseif(str_contains(\Yii::$app->request->url,'/main/creditor')) $creditor_page=' active';
+elseif(str_contains(\Yii::$app->request->url,'/main')) $bankrupt_page=' active';
+elseif(str_contains(\Yii::$app->request->url,'/am-login'))  $am_page=' active';
 $img_path ='/img/front/';
 $creditors_path = '/main/creditor';
 $bankrupt_path = '/main';

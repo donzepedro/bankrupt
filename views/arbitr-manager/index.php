@@ -24,9 +24,9 @@ use yii\helpers\Url;
         $nextpage = $curpage + 1;
         $start_elems_amount = count($data);
         $data = array_slice($data,$pg*( $curpage-1));
-        if(!empty(\Yii::$app->request->get('page'))){
-            $curpage = \Yii::$app->request->get('page');
-        }
+//        if(!empty(\Yii::$app->request->get('page'))){
+//            $curpage = \Yii::$app->request->get('page');
+//        }
         
     }
 ?>

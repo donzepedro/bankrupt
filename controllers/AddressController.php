@@ -8,6 +8,7 @@
 
 namespace app\controllers;
 use yii\web\Controller;
+use app\models\News;
 /**
  * Description of AddressController
  *
@@ -17,6 +18,7 @@ class AddressController extends Controller {
     //put your code here
     public $layout = 'frontend_layout.php';
     public function actionIndex(){
-        return $this->render('address');
+        $news = News::find()->all();
+        return $this->render('address',['news'=>$news]);
     }
 }

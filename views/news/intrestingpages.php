@@ -5,17 +5,17 @@ $img_path ='/img/front/';
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
-				<h2 class="main-name-h2">5 Мифов о банкротстве</h2>
+				<h2 class="main-name-h2"><?= $interesting->title ?></h2>
 				<div class="steps-border"></div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-lg-7">
 				<div class="navigation-news-block">
-					<div class="news-block-img" style="background-image: url('<?=$img_path?>desktop_news/news-1.png')"></div>
-                                        <p class="main-name-p3 mb-3">
-                                        <?= $intresting ?>
-                                        </p>
+					<div class="news-block-img" style="background-image: url('<?= str_replace('../web', '',$interesting->img_path)?>"></div>
+                                        <div class="main-name-p3 mb-3">
+                                        <?= $interesting->text ?>
+                                        </div>
 <!--					<p class="main-name-p3 mb-3">
 						В первые месяцы пандемии на рынке недвижимости произошло колоссальное снижение спроса, которое было отыграно за последующие летние и осенние месяцы. Введение льготной ипотечной ставки 6,5% как нельзя лучше простимулировало спрос, а на фоне роста спроса стали расти и цены.
 					</p>
@@ -49,11 +49,9 @@ $img_path ='/img/front/';
 				<div class="desktop-link-search">
 					<h4 class="main-text-h4">Интересные статьи</h4>
 					<div class="link-search-border"></div>
-					<a  href="<?=INTRESTINGPGAES . '?id=0'?>" class="link-search-a main-text-p2">В чем <span>ПЛЮСЫ</span> банкротства?</a>
-					<a  href="<?=INTRESTINGPGAES . '?id=1'?>" class="link-search-a main-text-p2">Прекращение начисления процентов</a>
-					<a  href="<?=INTRESTINGPGAES . '?id=2'?>" class="link-search-a main-text-p2">Возможность выезда за границу</a>
-					<a  href="<?=INTRESTINGPGAES . '?id=3'?>" class="link-search-a main-text-p2">Освобождение от обязательств</a>
-					<a  href="<?=INTRESTINGPGAES . '?id=4'?>" class="link-search-a main-text-p2">Документы, необходимые для подачи на процедуру банкротства.</a>
+                                        <?php foreach($news as $eachnews):?>
+                                        <a  href="<?=INTRESTINGPGAES . '?id=' . $eachnews->id?>" class="link-search-a main-text-p2"><?=$eachnews->title?></a>
+                                        <?php endforeach;?>
 				</div>
 				</div>
 			</div>

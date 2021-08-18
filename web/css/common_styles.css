@@ -724,6 +724,7 @@ ul.footer-menu-ul {
     background-color: #fff;
     transform: translateX(22px);
 }
+
 @media (min-width: 992px) and (max-width: 1200px) {
     .checkbox-block-flex {
         margin-top: 20px;
