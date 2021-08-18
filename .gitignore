@@ -40,5 +40,8 @@ tests/_support/_generated
 #profiles image
 /web/img/managers_profile_img
 
+#news image
+/web/img/news_img
+
 #favicon image
 /web/favicon.ico
