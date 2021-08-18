@@ -13,6 +13,7 @@ use app\models\SearchModel;
 use \yii\web\Controller;
 use app\models\SROAMInformation;
 use app\models\ClaimForm;
+use app\models\News;
 /**
  * Description of SearchManagersController
  *
@@ -23,6 +24,7 @@ class SearchManagersController extends Controller{
     public $layout = 'frontend_layout.php';
     
     public function actionIndex(){
+        $news = News::find()->all();
         $search_model = new SearchModel();
         $managers = ArbitrationManager::find()->where(['id'=>'0'])->all();
        
@@ -50,11 +52,11 @@ class SearchManagersController extends Controller{
                ])->all();
        }
        
-       return $this->render('index',['managers'=>$managers,'search_model'=>$search_model]);
+       return $this->render('index',['news'=>$news,'managers'=>$managers,'search_model'=>$search_model]);
     }
     
     public function actionCreditor(){
-        
+        $news = News::find()->all();
         $search_model = new SearchModel();
         $managers = ArbitrationManager::find()->where(['id'=>'0'])->all();
         if(\Yii::$app->request->isPost){
@@ -86,11 +88,12 @@ class SearchManagersController extends Controller{
             $managers = ArbitrationManager::find()->where($searcharray)->all();
             
         }
-        return $this->render('creditor_search',['managers'=>$managers,'search_model'=>$search_model]);
+        return $this->render('creditor_search',['news'=>$news,'managers'=>$managers,'search_model'=>$search_model]);
         
     }
     
     public function actionCreditorAmProfile(){
+        $news = News::find()->all();
         $search_model = new SearchModel();
         $claimForm = new ClaimForm();
         $managers = ArbitrationManager::find()->where(['id'=>0])->all();
@@ -105,10 +108,11 @@ class SearchManagersController extends Controller{
                     ->QueryAll();
             $foreign_lang = \app\models\ForeignLanguage::find()->where(['id_am'=>\Yii::$app->request->post("SearchModel")['id']])->one();
         }
-        return $this->render('creditor_am_profile',['managers'=>$managers,'search_model'=>$search_model,'foreign_lang'=>$foreign_lang,'claimForm'=>$claimForm]);
+        return $this->render('creditor_am_profile',['news'=>$news,'managers'=>$managers,'search_model'=>$search_model,'foreign_lang'=>$foreign_lang,'claimForm'=>$claimForm]);
     }
     
     public function actionClientAmProfile(){
+        $news = News::find()->all();
        $claimForm = new ClaimForm();
         $search_model = new SearchModel();
         $managers = ArbitrationManager::find()->where(['id'=>0])->all();
@@ -124,7 +128,7 @@ class SearchManagersController extends Controller{
             $foreign_lang = \app\models\ForeignLanguage::find()->where(['id_am'=>\Yii::$app->request->post("SearchModel")['id']])->one();
            
         }
-        return $this->render('client_am_profile',['managers'=>$managers,'search_model'=>$search_model,'foreign_lang'=>$foreign_lang,'claimForm'=>$claimForm]);
+        return $this->render('client_am_profile',['news'=>$news,'managers'=>$managers,'search_model'=>$search_model,'foreign_lang'=>$foreign_lang,'claimForm'=>$claimForm]);
     }
     
 }

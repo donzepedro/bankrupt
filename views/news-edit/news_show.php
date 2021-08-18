@@ -34,6 +34,7 @@ use yii\helpers\Url;
 
 <div class="row">
     <a href='/news-edit/news-create'><div class="btn btn-primary mt-3">Create News</div></a>
+    <a href='/news-edit/interesting-page-adjusting'><div class="btn btn-primary mt-3 ml-5">Interesting page's adjusting</div></a>
     
 </div>
 

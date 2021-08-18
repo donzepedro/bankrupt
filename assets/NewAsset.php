@@ -112,14 +112,13 @@ class NewAsset extends AssetBundle
         
     ];
     public $js = [
-//        'js/front/comagic.js',
+        'js/intresting_adjusting.js',
         'js/co_m_phone_btn.js',
         'js/fslider.js',
         'js/manager_delete.js',
         'js/validator.js',
         'js/loadphoto.js',
         'js/front/main.js',
-//        'js/front/cs.min.js',
        
     ];
     public $depends = [

@@ -6,23 +6,18 @@ $intrestingpages = '/news/intresting-pages/';
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
-				<h2 class="main-name-h2">5 Мифов о банкротстве</h2>
+				<h2 class="main-name-h2"><?= $eachnews->title?></h2>
 				<div class="steps-border"></div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-lg-7">
 				<div class="navigation-news-block">
-					<div class="news-block-img" style="background-image: url('<?=$img_path?>desktop_news/news-1.png')"></div>
-					<p class="main-name-p3 mb-3">
-						В первые месяцы пандемии на рынке недвижимости произошло колоссальное снижение спроса, которое было отыграно за последующие летние и осенние месяцы. Введение льготной ипотечной ставки 6,5% как нельзя лучше простимулировало спрос, а на фоне роста спроса стали расти и цены.
-					</p>
-					<p class="main-name-p3 mb-3">
-						В столичном регионе в июле 2020 года был зафиксирован нетипичный для этого месяца рост цен на квартиры – 8% к средней стоимости кв. м в июне. По итогам июля средняя стоимость «квадрата» составила более 250 тыс. рублей. Последующий рост цен в Москве остается традиционным до сегодняшнего дня – порядка 1-2% к цене предыдущего месяца.
-					</p>
-					<p class="main-name-p3 mb-3">
-						Вполне ожидаемо, что в декабре средняя стоимость кв. м. по рынку вырастет еще на 1% несмотря на новогодние скидки. Стоит отметить, что в 2018 и 2019 годах в декабре цена вырастала на 2,5% относительно ноября. Что касается января и мая, традиционных месяцев снижения деловой активности, то возможен около нулевой рост цен (не более +0,3%). А с февраля по апрель рост цен может составить до 2-3%. Таким образом, спустя полгода средняя стоимость за «квадрат» в Москве (в пределах МКАД) будет колебаться в районе 275 - 280 тыс. рублей.
-					</p>
+					<div class="news-block-img" style="background-image: url('<?= str_replace('../web', '',$eachnews->img_path)?>"></div>
+                                        <div class="main-name-p3 mb-3 mt-4">
+						<?= $eachnews->text?>
+					</div>
+					
 					<div class="news-read-socials">
 						<p class="main-text-p2">Поделиться: </p>
 						<a href="#" class="social-link">
@@ -47,11 +42,9 @@ $intrestingpages = '/news/intresting-pages/';
 				<div class="desktop-link-search">
 					<h4 class="main-text-h4">Интересные статьи</h4>
 					<div class="link-search-border"></div>
-					<a  href="<?=$intrestingpages . '?id=0'?>" class="link-search-a main-text-p2">В чем <span>ПЛЮСЫ</span> банкротства?</a>
-					<a  href="<?=$intrestingpages . '?id=1'?>" class="link-search-a main-text-p2">Прекращение начисления процентов</a>
-					<a  href="<?=$intrestingpages . '?id=2'?>" class="link-search-a main-text-p2">Возможность выезда за границу</a>
-					<a  href="<?=$intrestingpages . '?id=3'?>" class="link-search-a main-text-p2">Освобождение от обязательств</a>
-					<a  href="<?=$intrestingpages . '?id=4'?>" class="link-search-a main-text-p2">Документы, необходимые для подачи на процедуру банкротства.</a>
+					<?php foreach($news as $eachnews):?>
+                                        <a  href="<?=INTRESTINGPGAES . '?id=' . $eachnews->id?>" class="link-search-a main-text-p2"><?=$eachnews->title?></a>
+                                        <?php endforeach;?>
 				</div>
 			</div>
 		</div>

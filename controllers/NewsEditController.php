@@ -12,6 +12,8 @@ use yii\filters\AccessControl;
 use app\models\News;
 use app\models\UploadForm;
 use app\models\UploadFormForEdit;
+use app\models\InterestingPage;
+use app\models\InterestingPageInterlayer;
 /**
  * Description of NewsEditController
  *
@@ -128,5 +130,10 @@ class NewsEditController extends Controller {
        $this->redirect('/news-edit/news-show/');
     }
     
-    //put your code here
+    public function actionInterestingPageAdjusting(){
+        $interesting_page = InterestingPage::find()->all();
+        $news = News::find()->all();
+        $interLayer = new InterestingPageInterlayer;
+        return $this->render('interesting_pages',['interesting_page'=>$interesting_page,'news'=>$news,'interLayer'=>$interLayer]);
+    }
 }
