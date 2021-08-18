@@ -11,6 +11,7 @@ define('DOMAIN','http://bankrupt/');
 define('DOMAIN','http://atra-centr.ru/');
 
 define('MANAGERS_IMG_FOLDER', '../web/img/managers_profile_img/');
+define('NEWS_IMG_FOLDER', '../web/img/news_img/');
 
 define('VK','https://vk.com/atrabankrotstvo');
 define('INSTA','https://www.instagram.com/atra.bankrotstvo/');
