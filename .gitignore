@@ -45,3 +45,6 @@ tests/_support/_generated
 
 #favicon image
 /web/favicon.ico
+
+#index enter point of app
+/web/index.php
