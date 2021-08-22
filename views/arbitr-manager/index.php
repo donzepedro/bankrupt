@@ -33,23 +33,23 @@ use yii\helpers\Url;
 
 
 <div class="row">
-    <a href='/arbitr-manager/create-manager'><div class="btn btn-primary mt-3">Create new Arbitration manager</div></a>
+    <a href='/arbitr-manager/create-manager'><div class="btn btn-primary mt-3">Создать нового арбитражного управляющего</div></a>
     
 </div>
 
 <table class="table my-4 ">
      <thead>
          <tr class="text-center">
-                <th >Avatar</th>
-                <th >Last Name</th>
-                <th >First Name</th>
-                <th >Middle Name</th>
-                <th >Job Region</th>
-                <th >Phone</th>
-                <th >End date</th>
+                <th style='vertical-align: top'>Аватар</th>
+                <th style='vertical-align: top'>Фамилия</th>
+                <th style='vertical-align: top'>Имя</th>
+                <th style='vertical-align: top'>Отчество</th>
+                <th style='vertical-align: top'>Область работы</th>
+                <th style='vertical-align: top'>Телефон</th>
+                <th style='vertical-align: top'>Дата окончания</th>
                 <th  colspan="2"> 
                     <div class="row">
-                        <div class="col my-auto">show by</div>
+                        <div class="col my-auto">Показывать по</div>
                         <div class="col ">
                         <select class="custom-select " onchange="window.location.href = this.options[this.selectedIndex].value">
                             <option selected><?= $pg ?></option>
@@ -83,11 +83,8 @@ use yii\helpers\Url;
         <td><?= $eachmanager->end_date ?></td>
         <!--<td><?php // $eachmanager->id ?></td>-->
         <!--<td class="badge badge-info my-2 ml-1"><a href=<?='/arbitr-manager/edit-manager?id=' . $eachmanager->id?>>view</a></td>-->
-        <td class="badge badge-secondary my-5 ml-1"><a  href=<?='/arbitr-manager/edit-manager?id=' . $eachmanager->id?>>edit</a></td>
-        <td class="badge badge-danger my-5 ml-1 "><a id='delete_manager' href="<?='/arbitr-manager/delete-manager?pg='. $pg . '&page='. $curpage .'&id=' . $eachmanager->id?>" onclick="delete_manager()">delete</a></td> 
-        
-        
-        
+        <td class="badge badge-secondary my-5 ml-1"><a  href=<?='/arbitr-manager/edit-manager?id=' . $eachmanager->id?>>редактировать</a></td>
+        <td class="badge badge-danger my-5 ml-1 "><a id='delete_manager' href="<?='/arbitr-manager/delete-manager?pg='. $pg . '&page='. $curpage .'&id=' . $eachmanager->id?>" onclick="delete_manager()">удалить</a></td>                        
     </tr>
     <?php endforeach;?>
 </table>

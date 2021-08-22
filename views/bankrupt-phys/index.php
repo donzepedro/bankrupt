@@ -37,20 +37,20 @@ $start_rows_for_one_page = 5;
 
 ?>
 <div class="row">
-    <a href= "<?= $base_url_for_controller . 'create-bankrupt'?>"><div class="btn btn-primary mt-3">Create new Bankrupt physical</div></a>
+    <a href= "<?= $base_url_for_controller . 'create-bankrupt'?>"><div class="btn btn-primary mt-3">Добавить нового банкрота (физ.лицо)</div></a>
 </div>
 <table class="table my-4">
     <tr class="text-center">
-    
-                <th >Last Name</th>
-                <th >First Name</th>
-                <th >Middle Name</th>
-                <th >Debt Amount</th>
-                <th >Inn</th>
-                <th >Region</th>
+                <th >Имя</th>
+                <th >Отчество</th>
+                <th >Фамилия</th>
+                <th >Сумма долга</th>
+                <th >ИНН</th>
+                <th >Регион</th>
+                
                 <th  colspan="2" class="border-bottom"> 
                     <div class="row">
-                        <div class="col my-auto">show by</div>
+                        <div class="col my-auto">Показывать по</div>
                         <div class="col ">
                         <select class="custom-select " onchange="window.location.href = this.options[this.selectedIndex].value">
                             <option selected><?= $pg ?></option>
@@ -86,8 +86,8 @@ $start_rows_for_one_page = 5;
         <!--<td ><?php// $each_bankrupt_legal->id ?></td>-->
 
     
-        <td class="btn btn-secondary p-2 mt-3 ml-1 "><a href="<?= $base_url_for_controller . 'edit-bankrupt/' . '?id='. $each_bankrupt_phys->id?>">Edit</a></td>
-        <td class="btn btn-danger p-2 mt-3 ml-1 "><a id='delete_manager' href="<?= $base_url_for_controller . 'delete-bankrupt-phys/' . '?pg='. $pg . '&page='. $curpage .'&id=' . $each_bankrupt_phys->id?>" onclick="Delete_manager()">delete</a></td>
+        <td class="btn btn-secondary p-2 mt-3 ml-1 "><a href="<?= $base_url_for_controller . 'edit-bankrupt/' . '?id='. $each_bankrupt_phys->id?>">Редактировать</a></td>
+        <td class="btn btn-danger p-2 mt-3 ml-1 "><a id='delete_manager' href="<?= $base_url_for_controller . 'delete-bankrupt-phys/' . '?pg='. $pg . '&page='. $curpage .'&id=' . $each_bankrupt_phys->id?>" onclick="Delete_manager()">Удалить</a></td>
        
         
         

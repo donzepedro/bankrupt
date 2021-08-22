@@ -5,7 +5,7 @@ use yii\helpers\Html;
 ?>
 
 <?php $form=ActiveForm::begin();  ?>
-<?= $form->field($moderators,'username')->textInput(); ?>
-<?= $form->field($moderators,'password')->passwordInput(); ?>
+<?= $form->field($moderators,'username')->textInput()->lable('Имя пользователя'); ?>
+<?= $form->field($moderators,'password')->passwordInput()->lable('Пароль'); ?>
    <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
     <?php ActiveForm::end();?>
