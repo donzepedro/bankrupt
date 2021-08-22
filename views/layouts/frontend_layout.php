@@ -76,7 +76,7 @@ $news_path = '/news';
 //                                  
                                 ],
                                   
-                                'options' => ['class' => 'navbar-nav navbar'],
+                                'options' => ['class' => 'navbar-nav navbar','style'=>'min-width:100%'],
                                 
                             ]);
                            
