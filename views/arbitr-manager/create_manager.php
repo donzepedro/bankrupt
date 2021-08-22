@@ -19,60 +19,61 @@ $base_url_for_controller = '/arbitr-manager/';
         <img class="img-fluid" id="image_upload_preview" style="max-height: 300px" src= '/img/F_M_profilepic.jpg'>
         <div class='col '><?= $form->field($imgupload, 'imageFile')->fileInput(['id'=>'inputFile', 'class'=>'imgloadbtn'])->label('') ?></div>
         <div class="row mt-5">
-           <div class="col-6"><?= Html::submitButton('Create Manager', ['class' => 'btn btn-success', 'name' => 'Create-button']) ?></div>
-           <a id='delete_manager' href="<?= $base_url_for_controller ?>"><div class="col btn btn-danger"> 
-                Back
+            <div class="col-12"><?= Html::submitButton('Создать арбитражного управляющего', ['class' => 'btn btn-success', 'name' => 'Create-button']) ?></div>
+            <div class="col-12 mt-2">
+            <a id='delete_manager' href="<?= $base_url_for_controller ?>"><div class="col btn btn-danger"> 
+                Назад
             </div></a>
-           
+                </div>
         </div>
     </div>
-        <div class="col-3">
-  
-                    <?php // $form->field($arbitr_managers, 'id')->textInput([]) ?>
-                    <?= $form->field($arbitr_managers, 'lname')->textInput([]) ?>
-                    <?= $form->field($arbitr_managers, 'fname')->textInput([]) ?>
-                    <?= $form->field($arbitr_managers, 'mname')->textInput([]) ?>
-                    <?= $form->field($arbitr_managers, 'birth_date')->textInput(['type'=>'date']) ?>
-                    <?= $form->field($arbitr_managers, 'post_addr')->textInput([]) ?>
-                    <?= $form->field($arbitr_managers, 'inn')->textInput([]) ?>
-                    <?= $form->field($arbitr_managers, 'phone_number')->textInput([]) ?>
-                    <?= $form->field($arbitr_managers, 'job_region')->dropDownList(ArrayHelper::map(\app\models\Regions::find()->all(), 'id', 'region')) ?>
-                    <?= $form->field($arbitr_managers, 'government_secret_access')->dropdownList(['No','Yes']) ?>
-        
-        </div>
-        <div class="col-3">
-                    <?php // $form = ActiveForm::begin();?>
-            
-                    <?= $form->field($arbitr_managers, 'debtor_categories')->dropdownList(['Legal','Physical','Both']) ?>
-                    <?= $form->field($arbitr_managers, 'bankrupt_categories')->dropdownList(['Legal','Physical','Both']) ?>
-                    <?= $form->field($arbitr_managers, 'count_of_procedure_phys')->textInput([]) ?>
-                    <?= $form->field($arbitr_managers, 'count_of_procedure_legal')->textInput([]) ?>
-                    <?= $form->field($arbitr_managers, 'procedure_time_average')->textInput([]) ?>
-                    <?= $form->field($arbitr_managers, 'start_date')->textInput(['type'=>'date']) ?>
-                    <?= $form->field($arbitr_managers, 'end_date')->textInput(['type'=>'date']) ?>
-                    <?= $form->field($education, 'speciality')->textInput([]) ?>
-                    <?= $form->field($education, 'level')->textInput([]) ?>
-                    
-                    <?php // ActiveForm::end(); ?>
-        </div><!-- comment -->
-        <div class="col-3">
-                <?php // $form = ActiveForm::begin();?>
-                    <?php // $form->field($arbitr_managers, 'path_to_img')->textInput([]) ?>
-            
-                        <?= $form->field($education, 'institution')->textInput([]) ?>
-                    <?= $form->field($education, 'start_date')->textInput(['type'=>'date']) ?>
-                    <?= $form->field($education, 'end_date')->textInput(['type'=>'date']) ?>
-                    <?= $form->field($foreign_language, 'language')->textInput([]) ?>
-                    <?= $form->field($foreign_language, 'level')->textInput([]) ?>
-                    <?= $form->field($SROAminfo,'SRO_name')->textInput([]);?>
-                    <?= $form->field($SROAminfo,'membership_start_date')->textInput(['type'=>'date']); ?>
-                    <?= $form->field($SROAminfo,'membership_end_date')->textInput(['type'=>'date']); ?>
-                    <?= $form->field($SROAminfo,'leave_reason')->textarea([]); ?>
-                <?php // ActiveForm::end(); ?>
-        </div>
-        <div class="col-12">
-            
-        </div>
+    <table class="table mytable">
+        <tr>
+            <td> <?= $form->field($arbitr_managers, 'lname')->textInput([])->label('Фамилия') ?></td>
+            <td> <?= $form->field($arbitr_managers, 'debtor_categories')->dropdownList(['Legal','Physical','Both'])->label('Категории должников') ?></td>
+            <td><?= $form->field($education, 'institution')->textInput([])->label('Учреждение') ?></td>
+        </tr>
+        <tr>
+            <td> <?= $form->field($arbitr_managers, 'fname')->textInput([])->label('Имя') ?></td>
+            <td><?= $form->field($arbitr_managers, 'bankrupt_categories')->dropdownList(['Legal','Physical','Both'])->label('Категории банкротов') ?></td>
+            <td><?= $form->field($education, 'start_date')->textInput(['type'=>'date'])->label('Дата начала обучения') ?></td>
+        </tr>
+        <tr>
+            <td><?= $form->field($arbitr_managers, 'mname')->textInput([])->label('Отчество') ?></td>
+            <td><?= $form->field($arbitr_managers, 'count_of_procedure_phys')->textInput([])->label('Количество процедур для физ.лиц') ?></td>
+            <td><?= $form->field($education, 'end_date')->textInput(['type'=>'date'])->label('Дата конца обучения') ?></td>
+        </tr>
+         <tr>
+            <td><?= $form->field($arbitr_managers, 'birth_date')->textInput(['type'=>'date'])->label('Дата рождения') ?></td>
+            <td><?= $form->field($arbitr_managers, 'count_of_procedure_legal')->textInput([])->label('Количество процедур для юр.лиц') ?></td>
+            <td><?= $form->field($foreign_language, 'language')->textInput([])->label('Иностранные языки') ?></td>
+        </tr>
+         <tr>
+            <td><?= $form->field($arbitr_managers, 'post_addr')->textInput([])->label('Почтовый адрес') ?></td>
+            <td><?= $form->field($arbitr_managers, 'procedure_time_average')->textInput([])->label('Среднее время процедуры') ?></td>
+            <td><?= $form->field($foreign_language, 'level')->textInput([])->label('Уровень владения языком') ?></td>
+        </tr>
+         <tr>
+             <td><?= $form->field($arbitr_managers, 'inn')->textInput([])->label('ИНН') ?></td>
+            <td><?= $form->field($arbitr_managers, 'start_date')->textInput(['type'=>'date'])->label('Дата начала работы арбитражным управляющим') ?></td>
+            <td><?= $form->field($SROAminfo,'SRO_name')->textInput([])->label('Название СРО');?></td>
+        </tr>
+         <tr>
+            <td><?= $form->field($arbitr_managers, 'phone_number')->textInput([])->label('Телефон') ?></td>
+            <td><?= $form->field($arbitr_managers, 'end_date')->textInput(['type'=>'date'])->label('Дата конца работы арбитражным управляющим') ?></td>
+            <td><?= $form->field($SROAminfo,'membership_start_date')->textInput(['type'=>'date'])->label('Дата начала членства в СРО'); ?></td>
+        </tr>
+         <tr>
+            <td><?= $form->field($arbitr_managers, 'job_region')->dropDownList(ArrayHelper::map(\app\models\Regions::find()->all(), 'id', 'region'))->label('Область работы') ?></td>
+            <td><?= $form->field($education, 'speciality')->textInput([])->label('Специальность') ?></td>
+            <td><?= $form->field($SROAminfo,'membership_end_date')->textInput(['type'=>'date'])->label('Дата окончания членства в СРО'); ?></td>
+        </tr>
+         <tr>
+            <td><?= $form->field($arbitr_managers, 'government_secret_access')->dropdownList(['No','Yes'])->label('Доступ к государственной тайне') ?></td>
+            <td><?= $form->field($education, 'level')->textInput([])->label('Уровень образования') ?></td>
+            <td><?= $form->field($SROAminfo,'leave_reason')->textarea([])->label('Причина ухода'); ?></td>
+        </tr>
+    </table>            
     </div>
     
         <?php ActiveForm::end(); ?>

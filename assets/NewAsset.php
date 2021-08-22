@@ -16,6 +16,7 @@ class NewAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
+        'css/create_table.css',
         'css/fslider.css',
         'css/crmlayout.css',
         'css/imgloadbtn.css',

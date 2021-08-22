@@ -1,0 +1,7 @@
+.mytable{
+   max-width: 75%; 
+}
+.mytable td{
+     max-width: 150px;
+    vertical-align: bottom;
+}

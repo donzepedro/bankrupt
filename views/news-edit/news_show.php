@@ -33,20 +33,20 @@ use yii\helpers\Url;
 
 
 <div class="row">
-    <a href='/news-edit/news-create'><div class="btn btn-primary mt-3">Create News</div></a>
-    <a href='/news-edit/interesting-page-adjusting'><div class="btn btn-primary mt-3 ml-5">Interesting page's adjusting</div></a>
+    <a href='/news-edit/news-create'><div class="btn btn-primary mt-3">Добавить новость</div></a>
+    <a href='/news-edit/interesting-page-adjusting'><div class="btn btn-primary mt-3 ml-5">Настроить "интересные страницы"</div></a>
     
 </div>
 
 <table class="table my-4 ">
      <thead>
          <tr class="text-center">
-                <th >News picture</th>
-                <th >Title</th>
-                <th >Create time</th>
+                <th style='vertical-align: top'>Изображение</th>
+                <th style='vertical-align: top'>Заголовок</th>
+                <th style='vertical-align: top'>Дата создания</th>
                 <th  colspan="2"> 
                     <div class="row">
-                        <div class="col my-auto">show by</div>
+                        <div class="col my-auto">Показывать по</div>
                         <div class="col ">
                         <select class="custom-select " onchange="window.location.href = this.options[this.selectedIndex].value">
                             <option selected><?= $pg ?></option>
@@ -76,8 +76,8 @@ use yii\helpers\Url;
         <td><?= $eachnews->create_date ?></td>
         <!--<td><?php // $eachnews->id ?></td>-->
         <!--<td class="badge badge-info my-2 ml-1"><a href=<?='/news-edit/news-medit?id=' . $eachnews->id?>>view</a></td>-->
-        <td class="badge badge-secondary my-5 ml-1"><a  href=<?='/news-edit/news-edit?id=' . $eachnews->id?>>edit</a></td>
-        <td class="badge badge-danger my-5 ml-1 "><a id='delete_manager' href="<?='/news-edit/news-delete?pg='. $pg . '&page='. $curpage .'&id=' . $eachnews->id?>" onclick="delete_manager()">delete</a></td> 
+        <td class="badge badge-secondary my-5 ml-1"><a  href=<?='/news-edit/news-edit?id=' . $eachnews->id?>>Редактировать</a></td>
+        <td class="badge badge-danger my-5 ml-1 "><a id='delete_manager' href="<?='/news-edit/news-delete?pg='. $pg . '&page='. $curpage .'&id=' . $eachnews->id?>" onclick="delete_manager()">Удалить</a></td> 
         
         
         
