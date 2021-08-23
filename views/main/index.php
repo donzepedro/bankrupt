@@ -3,8 +3,7 @@
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 use yii\bootstrap4\ActiveForm;
-use yii\jui\AutoComplete;
-use yii\web\JsExpression;
+use kartik\select2\Select2;
 
 $img_path ='/img/front/';
 ?>
@@ -70,21 +69,7 @@ $img_path ='/img/front/';
 						</div>
 						<div class="main-banner-location">
 
-                                                                <?php $form = ActiveForm::begin(['method'=>'post','action'=>'/search-managers/']) ?>
-						                            <?php
-                                                                            
-                                                                                
-                                                                                echo $form->field($search_model, 'region')->widget(AutoComplete::classname(), [
-                                                                                'clientOptions' => [
-                                                                                    'source' =>ArrayHelper::map(\app\models\Regions::find()->all(), 'id', 'region') 
-//                                                                                    ArrayHelper::map(\app\models\Regions::find()->select(['id','region'])->all(), 'id', 'region')
-                                                                                ],
-                                                                                'options'=>[
-                                                                                    'placeholder' => 'Ваш город (начните вводить)',
-                                                                                    'class' => 'form-control form-control-signup input-sm select-registration'
-                                                                                ]
-                                                                            ])->label('');
-                                                                ?>		
+                                                                <?php $form = ActiveForm::begin(['method'=>'post','action'=>'/search-managers/']) ?>						                            		
                                                     <div class="form-group">
                                                                         <p class="main-text-p4 indent-p5">Регион</p>
                                                                         <script>let obj = { 
@@ -94,8 +79,19 @@ $img_path ='/img/front/';
                                                                             message: 'text'
                                                                         }
                                                                         </script>
-                                                                        <div><input type="button" onclick="Comagic.addOfflineRequest(obj)" value="button"></input></div>
-                                                                        <?= $form->field($search_model, 'region')->dropDownList(ArrayHelper::map(\app\models\Regions::find()->all(), 'id', 'region'))->label('') ?>
+                                                                        <div><input type="button" onclick="ComagicWidget.openSitePhonePanel()" value="button"></input></div>
+                                                                        <?php
+                                                                            
+                                                                                echo $form->field($search_model, 'region')->widget(Select2::classname(), [
+                                                                                        'data' => ArrayHelper::map(\app\models\Regions::find(['id','region'])->all(), 'id', 'region'),
+                                                                                        'options' => ['placeholder' => 'Выберите регион ...'],
+                                                                                        'pluginOptions' => [
+                                                                                            'allowClear' => true
+                                                                                        ],
+                                                                                    ])->label('');
+                                                                            
+                                                                        ?>
+                                                                        <?php //  $form->field($search_model, 'region')->dropDownList(ArrayHelper::map(\app\models\Regions::find()->all(), 'id', 'region'))->label('') ?>
                                                                         <!--ArrayHelper::map(\app\models\Regions::find()->all(), 'id', 'region')-->
 									<p class="main-text-p4 indent-p5">Вы являетесь:</p>
 								</div>

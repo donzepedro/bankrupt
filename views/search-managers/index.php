@@ -2,6 +2,7 @@
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 use yii\bootstrap4\ActiveForm;
+use kartik\select2\Select2;
 $img_path ='/img/front/';
 $path_to_profile = '/search-managers/client-am-profile/';
 ?>
@@ -21,7 +22,14 @@ $path_to_profile = '/search-managers/client-am-profile/';
                             <div class="form-group">
                                 <p class="main-text-p4">Регион</p>
                                 <?php $form = ActiveForm::begin(['options' => ['class' => 'form-group']]) ?>
-                                <?= $form->field($search_model, 'region')->dropDownList(ArrayHelper::map(\app\models\Regions::find()->all(), 'id', 'region'))->label('') ?>
+                                <?= $form->field($search_model, 'region')->widget(Select2::classname(), [
+                                                                                        'data' => ArrayHelper::map(\app\models\Regions::find(['id','region'])->all(), 'id', 'region'),
+                                                                                        'options' => ['placeholder' => 'Выберите регион ...'],
+                                                                                        'pluginOptions' => [
+                                                                                            'allowClear' => true
+                                                                                        ],
+                                                                                    ])->label('');                                                                            
+                                                                                ?>
                                 <p class="main-text-p4 indent-p5">Вы являетесь:</p>
                             </div>
                             <div class="form-group form-check form-check-flex">

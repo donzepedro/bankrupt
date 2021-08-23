@@ -21,6 +21,7 @@
         "yiisoft/yii2-jui": "^2.0"
     },
     "require-dev": {
+        "kartik-v/yii2-widget-select2": "dev-master",
         "yiisoft/yii2-jui": "^2.0",
         "yiisoft/yii2-debug": "~2.1.0",
         "yiisoft/yii2-gii": "~2.1.0",
