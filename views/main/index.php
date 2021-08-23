@@ -71,25 +71,14 @@ $img_path ='/img/front/';
 
                                                                 <?php $form = ActiveForm::begin(['method'=>'post','action'=>'/search-managers/']) ?>						                            		
                                                     <div class="form-group">
-                                                                        <p class="main-text-p4 indent-p5">Регион</p>
-                                                                        <script>let obj = { 
-                                                                            name: 'text',
-                                                                            email: 'text', 
-                                                                            phone: 'text',
-                                                                            message: 'text'
-                                                                        }
-                                                                        </script>
-                                                                        <div><input type="button" onclick="ComagicWidget.openSitePhonePanel()" value="button"></input></div>
-                                                                        <?php
-                                                                            
-                                                                                echo $form->field($search_model, 'region')->widget(Select2::classname(), [
+                                                                        <p class="main-text-p4 indent-p5">Регион</p>                                                                       
+                                                                        <?= $form->field($search_model, 'region')->widget(Select2::classname(), [
                                                                                         'data' => ArrayHelper::map(\app\models\Regions::find(['id','region'])->all(), 'id', 'region'),
                                                                                         'options' => ['placeholder' => 'Выберите регион ...'],
                                                                                         'pluginOptions' => [
                                                                                             'allowClear' => true
                                                                                         ],
-                                                                                    ])->label('');
-                                                                            
+                                                                                    ])->label('');                                                                            
                                                                         ?>
                                                                         <?php //  $form->field($search_model, 'region')->dropDownList(ArrayHelper::map(\app\models\Regions::find()->all(), 'id', 'region'))->label('') ?>
                                                                         <!--ArrayHelper::map(\app\models\Regions::find()->all(), 'id', 'region')-->
@@ -347,7 +336,7 @@ $img_path ='/img/front/';
 					<a href="mailto:<?=EMAIL?>?subject=Вопрос по HTML" class="email-address"><?=EMAIL?></a>
 					<h3 class="main-name-h3 contacts-indent">Единый телефон офиса:</h3>
 					<div class="phone"><a href="tel:+8800888888"><?=PHONE?></a></div>
-					<a href="#" class="btn button-search">Оставить заявку на звонок</a>
+                                        <a href="#" class="btn button-search" onclick="ComagicWidget.openSitePhonePanel()">Оставить заявку на звонок</a>
 				</div>
 			</div>
 			<div class="col-lg-6 without-borders">

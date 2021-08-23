@@ -54,11 +54,15 @@ $path_to_profile = '/search-managers/creditor-am-profile/';
                                     <p class="main-text-p4 indent-p5">Вы являетесь:</p>
                                     <div class="checkbox-human">
                                         <div class="main-name-p3">
-                                            <?= $form->field($search_model, 'b_phys')->checkbox([])->label('Физическим лицом') ?>       
+                                            <?= $form->field($search_model, 'b_phys')->checkbox([
+                                                "template"=>"<div class=\"custom-control custom-checkbox p-0\">{input} {label}</div>\n<div>{error}</div>"
+                                            ])->label('Физическим лицом') ?>       
                                 <!--<input type="checkbox" id="cb1"> <label for="cb1" class="main-name-p3">Физическим лицом</label>-->
                                         </div>
                                         <div class="main-name-p3 mt-2">
-                                            <?= $form->field($search_model, 'b_legal')->checkbox([])->label('Юридическим лицом') ?>
+                                            <?= $form->field($search_model, 'b_legal')->checkbox([
+                                                "template"=>"<div class=\"custom-control custom-checkbox p-0\">{input} {label}</div>\n<div>{error}</div>"
+                                            ])->label('Юридическим лицом') ?>
                                                 <!--<input type="checkbox" id="cb2"> <label for="cb2" class="main-name-p3">Юридическим лицом</label>-->
                                         </div>
                                     </div>
@@ -90,12 +94,6 @@ $path_to_profile = '/search-managers/creditor-am-profile/';
             </div>
             <div class="col-lg-7 col-md-12 personal-col">
                 <div class="personal-specialists-wrapper">
-                    <div class="personal-block-close">
-                        <svg width="24" height="21" viewBox="0 0 24 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1.89453 1.15778L12.2729 10.4983L2.2937 19.3199" stroke="#3951D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M22.377 1.15778L11.9986 10.4983L21.9778 19.3199" stroke="#3951D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
                     <?php $amform = ActiveForm::begin(['action'=>$path_to_profile]) ?>
                     <?php foreach ($managers as $key => $val): ?>
                     <div class="row text-center ">
