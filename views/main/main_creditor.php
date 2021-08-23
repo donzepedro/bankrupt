@@ -2,6 +2,7 @@
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 use yii\bootstrap4\ActiveForm;
+use kartik\select2\Select2;
 $img_path ='/img/front/';
 ?>
 
@@ -63,7 +64,14 @@ $img_path ='/img/front/';
 							<?php $form = ActiveForm::begin(['method'=>'post','action'=>'/search-managers/creditor']) ?>
 								<div class="form-group">
                                                                     <p class="main-text-p4">Регион</p>
-                                                                        <?= $form->field($search_model, 'region')->dropDownList(ArrayHelper::map(\app\models\Regions::find()->all(), 'id', 'region'))->label('') ?>
+                                                                        <?= $form->field($search_model, 'region')->widget(Select2::classname(), [
+                                                                                        'data' => ArrayHelper::map(\app\models\Regions::find(['id','region'])->all(), 'id', 'region'),
+                                                                                        'options' => ['placeholder' => 'Выберите регион ...'],
+                                                                                        'pluginOptions' => [
+                                                                                            'allowClear' => true
+                                                                                        ],
+                                                                                    ])->label('');                                                                            
+                                                                                ?>
 									<div class="form-select-block-1">
 										<p class="main-text-p4">Саморегулируемая организация (СРО АУ)</p>
 										

@@ -2,7 +2,7 @@
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 use yii\bootstrap4\ActiveForm;
-use yii\bootstrap4\Modal;
+use kartik\select2\Select2;
 $img_path ='/img/front/';
 ?>
 <section id="found-specialists" class="search-creditor-wrapper">
@@ -21,7 +21,14 @@ $img_path ='/img/front/';
                                         <div class="form-group">
                                             <p class="main-text-p4">Регион</p>
                                             <?php $form = ActiveForm::begin(['method' => 'post', 'action' => '/search-managers/creditor/']) ?>
-                                            <?= $form->field($search_model, 'region')->dropDownList(ArrayHelper::map(\app\models\Regions::find()->all(), 'id', 'region'))->label('') ?>
+                                            <?= $form->field($search_model, 'region')->widget(Select2::classname(), [
+                                                                                        'data' => ArrayHelper::map(\app\models\Regions::find(['id','region'])->all(), 'id', 'region'),
+                                                                                        'options' => ['placeholder' => 'Выберите регион ...'],
+                                                                                        'pluginOptions' => [
+                                                                                            'allowClear' => true
+                                                                                        ],
+                                                                                    ])->label('');                                                                            
+                                                                                ?>
                                             <div class="form-select-block-1">
                                                 <p class="main-text-p4">Саморегулируемая организация (СРО АУ)</p>
 
@@ -97,7 +104,7 @@ $img_path ='/img/front/';
                                         <h4 class="main-name-color-h4"><span><?= $val['count_of_procedure_phys'] + $val['count_of_procedure_legal'] ?></span></h4>
                                     </div>
                                     <div class="go-profile align-self-end snd-btn-hide"><?php
-                                    echo Html::button('Отправить&nbsp;заявку', ['value' => 'some val','id'=>'send', 'class' => 'button-search']);
+                                    echo Html::button('Отправить&nbsp;заявку', ['value' => 'some val','id'=>'send', 'class' => 'button-search','onclick'=>'ComagicWidget.openSitePhonePanel()']);
                                     /*
                                         Modal::begin([
                                             'title' => '<h2 class="main-name-h2">Leave a claim</h2>',
