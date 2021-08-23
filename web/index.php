@@ -8,15 +8,11 @@ define('HOME', '/arbitr-manager/index?');
 //=======
 define('INTRESTINGPGAES', '/news/intresting-pages/');
 
-define('DOMAIN','http://bankrupt/');
-
-<<<<<<< HEAD
 //>>>>>>> 4eb705c21485b4d0705d6ba9605d3a1a243a1531
 define('DOMAIN','http://atra-centr.ru/');
-=======
+
 //define('DOMAIN','http://atra-centr.ru/');
 
->>>>>>> 6b50a6e36824d5865bd9c1ef53c4378eaae50af3
 define('MANAGERS_IMG_FOLDER', '../web/img/managers_profile_img/');
 define('NEWS_IMG_FOLDER', '../web/img/news_img/');
 
