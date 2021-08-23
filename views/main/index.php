@@ -3,6 +3,9 @@
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 use yii\bootstrap4\ActiveForm;
+use yii\jui\AutoComplete;
+use yii\web\JsExpression;
+
 $img_path ='/img/front/';
 ?>
 
@@ -66,8 +69,23 @@ $img_path ='/img/front/';
 							</div>
 						</div>
 						<div class="main-banner-location">
+
                                                                 <?php $form = ActiveForm::begin(['method'=>'post','action'=>'/search-managers/']) ?>
-								<div class="form-group">
+						                            <?php
+                                                                            
+                                                                                
+                                                                                echo $form->field($search_model, 'region')->widget(AutoComplete::classname(), [
+                                                                                'clientOptions' => [
+                                                                                    'source' =>ArrayHelper::map(\app\models\Regions::find()->all(), 'id', 'region') 
+//                                                                                    ArrayHelper::map(\app\models\Regions::find()->select(['id','region'])->all(), 'id', 'region')
+                                                                                ],
+                                                                                'options'=>[
+                                                                                    'placeholder' => 'Ваш город (начните вводить)',
+                                                                                    'class' => 'form-control form-control-signup input-sm select-registration'
+                                                                                ]
+                                                                            ])->label('');
+                                                                ?>		
+                                                    <div class="form-group">
                                                                         <p class="main-text-p4 indent-p5">Регион</p>
                                                                         <script>let obj = { 
                                                                             name: 'text',
