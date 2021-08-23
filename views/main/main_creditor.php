@@ -337,7 +337,7 @@ $img_path ='/img/front/';
 					<a href="mailto:<?=EMAIL?>?subject=Вопрос по HTML" class="email-address"><?=EMAIL?></a>
 					<h3 class="main-name-h3 contacts-indent">Единый телефон офиса:</h3>
 					<div class="phone"><a href="tel:+8800888888"><?=PHONE?></a></div>
-					<a href="#" class="btn button-search">Оставить заявку на звонок</a>
+                                        <a href="#" class="btn button-search" onclick="ComagicWidget.openSitePhonePanel()">Оставить заявку на звонок</a>
 				</div>
 			</div>
 			<div class="col-lg-6 without-borders">
