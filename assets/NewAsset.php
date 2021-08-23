@@ -114,7 +114,7 @@ class NewAsset extends AssetBundle
     ];
     public $js = [
         'js/intresting_adjusting.js',
-        'js/co_m_phone_btn.js',
+//        'js/co_m_phone_btn.js',
         'js/fslider.js',
         'js/manager_delete.js',
         'js/validator.js',

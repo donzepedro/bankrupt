@@ -34,7 +34,7 @@ $path_to_profile = '/search-managers/creditor-am-profile/';
                             </div>
                             <div class="block-form-group-flex">
                                 <div class="form-select-block-2">
-                                    <p class="main-text-p4">Категория должников</p>
+                                    <p class="main-text-p4">Категория sdf должников</p>
 
                                     <?=
                                     $form->field($search_model, 'debtor_category')->dropDownList([
