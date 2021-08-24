@@ -100,7 +100,7 @@ class ArbitrManagerController extends Controller {
                 if(!$SROAminfo->save()){
                     throw new \yii\web\HttpException(500,'server error, data for SRO AM not saved');
                 }
-                return $this->redirect(HOME);
+                return $this->redirect(HOME.'pg=' . \Yii::$app->request->get('pg') . '&page='.\Yii::$app->request->get('page'));
             }
             
             return $this->render('edit_manager',['regions'=>$regions,'SROAminfo'=>$SROAminfo,'imgupload'=>$imgupload,'foreign_language'=>$foreign_language,'education'=>$education, 'arbitr_managers'=>$arbitr_managers]);    
@@ -175,7 +175,7 @@ class ArbitrManagerController extends Controller {
                 } 
             }
             
-            return $this->redirect(HOME);
+            return $this->redirect(HOME . 'end=1');
         }
         return $this->render('create_manager',['SROAminfo'=>$SROAminfo,'imgupload'=>$imgupload,'foreign_language'=>$foreign_language,'education'=>$education, 'arbitr_managers'=>$arbitr_managers]);
     }

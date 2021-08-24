@@ -38,7 +38,10 @@ class MainController extends Controller{
                 "img"=>"bankrut-img3.png"
             ]
         ];
-    
+    public function actionSlide(){
+        
+        return $this->render('slidetest');
+    }
     public function actionIndex() {
         $search_model = new SearchModel();
         $regions = Regions::find()->all();
