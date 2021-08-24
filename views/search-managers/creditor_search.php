@@ -71,7 +71,7 @@ $path_to_profile = '/search-managers/creditor-am-profile/';
                                     <div class="checkbox-toggle p-4">
                                         <?=
                                         $form->field($search_model, 'goverment_secret')->checkbox([
-                                            'template' => "<div class=\"custom-control custom-switch\">{input} {label}</div>\n<div>{error}</div>",
+                                            'template' => "<div class=\"custom-control custom-switch \">{input} {label}</div>\n<div>{error}</div>",
                                             'class' => 'custom-control-input'])->label('Допуск к гос.тайне', ['class' => 'custom-control-label main-name-p3'])
                                         ?>
                                     </div>

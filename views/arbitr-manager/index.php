@@ -7,6 +7,17 @@ use yii\helpers\Url;
 //echo '</pre>';
 //die;
     $start_rows_for_one_page = 5;
+    $pages_amount = intdiv(count($data),$start_rows_for_one_page);
+//    echo fmod(count($data),$start_rows_for_one_page);
+//    die;
+   
+    if(!empty(\Yii::$app->request->get('end'))){
+        if(fmod(count($data),$start_rows_for_one_page) != '0'){
+            $last_page = (fmod(count($data),$start_rows_for_one_page) != '0') ? $pages_amount+1 : $pages_amount;
+          
+        }
+        return Yii::$app->response->redirect(Url::to(['', 'pg' => $start_rows_for_one_page,'page'=>$last_page]));
+    }
     if(empty(\Yii::$app->request->get('pg'))){
       return Yii::$app->response->redirect(Url::to(['', 'pg' => $start_rows_for_one_page])); 
     }else{
@@ -23,11 +34,11 @@ use yii\helpers\Url;
         $prevpage = $curpage - 1; 
         $nextpage = $curpage + 1;
         $start_elems_amount = count($data);
+//        intdiv($start_elems_amount,$pg)
         $data = array_slice($data,$pg*( $curpage-1));
 //        if(!empty(\Yii::$app->request->get('page'))){
 //            $curpage = \Yii::$app->request->get('page');
 //        }
-        
     }
 ?>
 
@@ -83,16 +94,17 @@ use yii\helpers\Url;
         <td><?= $eachmanager->end_date ?></td>
         <!--<td><?php // $eachmanager->id ?></td>-->
         <!--<td class="badge badge-info my-2 ml-1"><a href=<?='/arbitr-manager/edit-manager?id=' . $eachmanager->id?>>view</a></td>-->
-        <td class="badge badge-secondary my-5 ml-1"><a  href=<?='/arbitr-manager/edit-manager?id=' . $eachmanager->id?>>редактировать</a></td>
+        <td class="badge badge-secondary my-5 ml-1"><a  href=<?='/arbitr-manager/edit-manager?id=' . $eachmanager->id .'&pg='. $pg .  '&page='. $curpage?>>редактировать</a></td>
         <td class="badge badge-danger my-5 ml-1 "><a id='delete_manager' href="<?='/arbitr-manager/delete-manager?pg='. $pg . '&page='. $curpage .'&id=' . $eachmanager->id?>" onclick="delete_manager()">удалить</a></td>                        
     </tr>
     <?php endforeach;?>
 </table>
+<?php   $last_page = (fmod(count($data),$start_rows_for_one_page) != '0') ? 1 : 0;?>
 <div class="row  my-2 px-0 text-center w-50">
     <?php if(!($curpage == 1)): ?>
         <div class="col-1 mx-1 py-2 w-100"><a class="badge badge-light" style="cursor:pointer" href=<?= '/arbitr-manager/?pg='.$pg.'&page='.  $prevpage ?>> < </a></div>
     <?php endif; ?>
-    <?php for($i=1; $i <= intdiv($start_elems_amount,$pg)+1; $i++ ):?>
+    <?php for($i=1; $i <= intdiv($start_elems_amount,$pg)+$last_page; $i++ ):?>
         <div class="col-1 mx-1 py-2 "><a class="badge badge-light" style="cursor:pointer" href=<?= '/arbitr-manager/?pg='.$pg.'&page='.$i?>><?=  $i?></a></div>
     <?php endfor;?>
     <?php if(!(($curpage)==$i-1)):?>
