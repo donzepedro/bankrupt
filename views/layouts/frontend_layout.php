@@ -67,7 +67,7 @@ $news_path = '/news';
                                     ['label' => 'Арбитражным управляющим', 'url' => [$am_path],'linkOptions'=>['class'=>$am_page]],
                                     'brandimage' => \yii\bootstrap4\Html::img($img_path.'logo-head.png',['class'=>'logoimg']),
                                     ['label' => 'Новости и статьи', 'url' => [$news_path],'linkOptions'=>['class'=>$news_page]],
-                                    ['label' => PHONE, 'url' => 'tel:+78126039334'],
+                                    ['label' => PHONE, 'url' => 'tel:+78126039334','linkOptions'=>['class'=>' active']],
                                     ['label' => '<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="20" cy="20" r="20" fill="#D1D7DC"/>
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M20.4082 19.4958C22.0492 19.4958 23.3794 18.0769 23.3794 16.3265C23.3794 14.5762 22.0492 13.1573 20.4082 13.1573C18.7673 13.1573 17.4371 14.5762 17.4371 16.3265C17.4371 18.0769 18.7673 19.4958 20.4082 19.4958ZM20.4082 21.2245C22.9442 21.2245 25.0001 19.0316 25.0001 16.3265C25.0001 13.6215 22.9442 11.4286 20.4082 11.4286C17.8722 11.4286 15.8164 13.6215 15.8164 16.3265C15.8164 19.0316 17.8722 21.2245 20.4082 21.2245Z" fill="#EEF1F4"/>
