@@ -293,31 +293,38 @@ $img_path ='/img/front/';
         </div>
     </div>
 </div>
-<div class="slider">
-    <?php
-    $commentsamount = 9;
-    $dispamount = 3;
-    ?>
-    <div id="commentsAmount" style='display:none'><?= $commentsamount ?> </div>
-    <div class="d-flex justify-content-center">
-        <?php $numberOfComment = 0 ?>
-        <?php for ($i = 0; $i < $commentsamount; $i++): ?>
-            <?php $numberOfComment = $numberOfComment == 3 ? 0 : $numberOfComment ?>
-            <div class="col-2 commentcard pb-0 mr-5" style='display:none' id=<?= 'slide' . $i ?>>
-                <div class="row">
-                    <div class="col-5 capture p-0"><img src="<?= $img_path . $commentInfo[$numberOfComment]['img'] ?>"/></div>
-                    <div class="col-7 capture p-0"><h4 class="main-text-h4"><?= $commentInfo[$numberOfComment]['capture'] ?></h4></div>
+ <div class="slider">
+        <?php
+        $commentsamount = count($commentInfo);
+        
+        $dispamount = 3;
+        ?>
+        <div id="commentsAmount" style='display:none'><?= $commentsamount ?> </div>
+        <div class="d-flex justify-content-center">
+            <?php $numberOfComment = 0 ?>
+            <?php for ($i = 0; $i < $commentsamount; $i++): ?>
+                <?php $numberOfComment = $numberOfComment == 3 ? 0 : $numberOfComment ?>
+            <div style='display:none' id=<?= 'slide' . $i ?>>
+                
+                <div class="col-2 commentcard mr-5 pb-5" style="min-height: 100%" >
+                    <div class="row">
+                      
+                        <div class="col-7 capture p-0"><h4 class="main-text-h4 mx-4 my-3"><?= $commentInfo[$i]['capture'] ?></h4></div>
+                        <div class="col-12 customer-text">
+                            <p class="main-name-p3" ><?= $commentInfo[$i]['textComment'] ?></p>
+                        </div>
+                       
+                    </div>
                 </div>
-                <div class="col-12 customer-text pb-5 mt-3 mb-4"><p class="main-name-p3"><?= $commentInfo[$numberOfComment]['textComment'] ?></p></div>
-                <div><p class="main-name-p2"><?= $commentInfo[$numberOfComment]['name'] ?></p></div>
+                 <p class="main-name-p2 ml-2" style="margin-top: -50px;"><?= $commentInfo[$i]['name'] ?></p>   
             </div>
-            <?php $numberOfComment++; ?>
-        <?php endfor; ?>
-    </div>
-    <div class="d-flex justify-content-center py-5" style=""id="switches">
+                <?php $numberOfComment++; ?>
+            <?php endfor; ?>
+        </div>
+        <div class="d-flex justify-content-center py-5" style="" id="switches">
 
+        </div>
     </div>
-</div>
 
 
 <section id="main-contacts">

@@ -2,6 +2,11 @@
 
 ?>
 <style>
+    .slide-area{
+        width: 100%;
+        
+        background: yellow;
+    }
 .slider {
   position: relative;
   width: 200px;
@@ -36,6 +41,7 @@
 }
 
 .slider-track {
+    transform: translate3d(0px,0px,0px); 
   display: flex;
 }
 
@@ -72,7 +78,8 @@
   pointer-events: none;
 }
 </style>
-<div class="slider">
+<div class="slide-area" id="slide-area">
+<div class="slider" id="slider">
   <div class="slider-list">
     <div class="slider-track">
       <div class="slide">1</div>
@@ -86,4 +93,5 @@
     <button type="button" class="prev">&larr;</button>
     <button type="button" class="next">&rarr;</button>
   </div>
+</div>
 </div>
