@@ -9,7 +9,7 @@ define('HOME', '/arbitr-manager/index?');
 define('INTRESTINGPGAES', '/news/intresting-pages/');
 
 //>>>>>>> 4eb705c21485b4d0705d6ba9605d3a1a243a1531
-define('DOMAIN','http://atra-centr.ru/');
+define('DOMAIN','http://bankruptcy/');
 
 //define('DOMAIN','http://atra-centr.ru/');
 

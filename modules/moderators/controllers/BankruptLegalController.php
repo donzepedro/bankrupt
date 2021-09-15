@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-namespace app\controllers;
+namespace app\modules\moderators\controllers;
 use yii\web\Controller;
 use app\models\BankruptLegal;
 use yii\filters\AccessControl;

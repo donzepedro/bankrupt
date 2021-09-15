@@ -23,7 +23,7 @@ use yii\bootstrap4\ActiveForm;
                     <?= $form->field($service_model,'phone')->textInput(['placeholder'=>'Номер телефона','class'=>''])->label('')?>
                     <?= $form->field($service_model,'password')->textInput(['placeholder'=>'Пароль','class'=>''])->label('')?>
                     <?= Html::submitButton('Вход') ?>
-                    <?= Html::tag('a','Перейти к регистрации',["class"=>"myregisterbtn","href"=>"#"]) ?>
+                    <?= Html::tag('a','Перейти к регистрации',["class"=>"myregisterbtn","href"=>"/am-registration/"]) ?>
                 </div>
                 <?php ActiveForm::end() ?>
             </div>

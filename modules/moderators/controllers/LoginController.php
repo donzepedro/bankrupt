@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-namespace app\controllers;
+namespace app\modules\moderators\controllers;
 use yii\web\Controller;
 use yii\filters\AccessControl;
 use app\models\Moderators;
@@ -49,7 +49,7 @@ class LoginController extends Controller{
             $moderators->load(\Yii::$app->request->post());
             
              if($moderators->login()){
-                 return $this->redirect('/arbitr-manager/');
+                 return $this->redirect('/moderators/arbitr-manager/');
              }
         }
         return $this->render('index',['moderators'=>$moderators]);
@@ -58,6 +58,6 @@ class LoginController extends Controller{
     public function actionLogout(){
         
         \Yii::$app->user->logout();
-        return $this->redirect('/login');
+        return $this->redirect('/moderators/login/');
     }
 }

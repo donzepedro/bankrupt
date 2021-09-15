@@ -33,13 +33,13 @@ NewAsset::register($this);
               </button>
               <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                  <a class="nav-link active" aria-current="page" href="<?=DOMAIN?>arbitr-manager">Арбитражные менеджеры</a>
-                  <a class="nav-link active" href="<?=DOMAIN?>bankrupt-legal">Банкрот юр.лицо</a>
-                  <a class="nav-link active" href="<?=DOMAIN?>bankrupt-phys">Банкрот физ.лицо</a>
-                  <a class="nav-link active" href="<?=DOMAIN?>creditor-legal">Кредитор юр.лицо</a>
-                  <a class="nav-link active" href="<?=DOMAIN?>creditor-phys">Кредитор физ.лицо</a>
-                  <a class="nav-link active" href="<?=DOMAIN?>news-edit/news-show/">Новости и страницы</a>
-                  <a class="nav-link active" href="<?=DOMAIN?>login/logout/">Выйти</a>
+                  <a class="nav-link active" aria-current="page" href="<?=DOMAIN?>moderators/arbitr-manager">Арбитражные менеджеры</a>
+                  <a class="nav-link active" href="<?=DOMAIN?>moderators/bankrupt-legal">Банкрот юр.лицо</a>
+                  <a class="nav-link active" href="<?=DOMAIN?>moderators/bankrupt-phys">Банкрот физ.лицо</a>
+                  <a class="nav-link active" href="<?=DOMAIN?>moderators/creditor-legal">Кредитор юр.лицо</a>
+                  <a class="nav-link active" href="<?=DOMAIN?>moderators/creditor-phys">Кредитор физ.лицо</a>
+                  <a class="nav-link active" href="<?=DOMAIN?>moderators/news-edit/news-show/">Новости и страницы</a>
+                  <a class="nav-link active" href="<?=DOMAIN?>moderators/login/logout/">Выйти</a>
                   
                  
                 </div>

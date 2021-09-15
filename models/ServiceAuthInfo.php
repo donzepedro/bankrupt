@@ -61,6 +61,7 @@ class ServiceAuthInfo extends \yii\db\ActiveRecord
      *
      * @return \yii\db\ActiveQuery
      */
+
     public function getAm()
     {
         return $this->hasOne(ArbitrationManager::className(), ['id' => 'am_id']);

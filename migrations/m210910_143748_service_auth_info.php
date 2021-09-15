@@ -16,6 +16,7 @@ class m210910_143748_service_auth_info extends Migration
                 (
                 id int NOT NULL AUTO_INCREMENT,
                 am_id int NOT NULL,
+                phone varchar(20) NOT NULL,
                 password varchar(100) NOT NULL,
                 email_check tinyint NULL DEFAULT 0 COMMENT '0-not confirm 1-confirm',
                 registry_check tinyint DEFAULT 0 COMMENT '0-not confirm 1-confirm',

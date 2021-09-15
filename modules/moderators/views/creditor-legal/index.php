@@ -2,15 +2,16 @@
 use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\bootstrap4\ActiveForm;
-$base_url_for_controller = '/creditor-phys/';
-//echo "<pre>";
-//var_dump($creditor_phys);
-//echo "</pre>";
+$base_url_for_controller = '/creditor-legal/';
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+//
+//echo "<pre>";
+//var_dump($creditor_legal);
+//echo "</pre>";
 $start_rows_for_one_page = 5;
     if(empty(\Yii::$app->request->get('pg'))){
       return Yii::$app->response->redirect(Url::to(['', 'pg' => $start_rows_for_one_page])); 
@@ -19,7 +20,7 @@ $start_rows_for_one_page = 5;
         $pg = \Yii::$app->request->get('pg');
         $disprows = $start_rows_for_one_page;
         $rows = 0;
-        $pages_amount = intdiv(count($creditor_phys),$start_rows_for_one_page); // this is for list "show by" for 5,10,15,20 etc.
+        $pages_amount = intdiv(count($creditor_legal),$start_rows_for_one_page); // this is for list "show by" for 5,10,15,20 etc.
         if(!empty(\Yii::$app->request->get('page'))){
             $curpage = \Yii::$app->request->get('page');
         }else{
@@ -27,8 +28,8 @@ $start_rows_for_one_page = 5;
         }
         $prevpage = $curpage - 1; 
         $nextpage = $curpage + 1;
-        $start_elems_amount = count($creditor_phys);
-        $creditor_phys = array_slice($creditor_phys,$pg*( $curpage-1));
+        $start_elems_amount = count($creditor_legal);
+        $creditor_legal = array_slice($creditor_legal,$pg*( $curpage-1));
         if(!empty(\Yii::$app->request->get('page'))){
             $curpage = \Yii::$app->request->get('page');
         }
@@ -37,7 +38,7 @@ $start_rows_for_one_page = 5;
 
 ?>
 <div class="row">
-    <a href= "<?= $base_url_for_controller . 'create-creditor'?>"><div class="btn btn-primary mt-3">Добавить нового кредитора (физ.лицо)</div></a>
+    <a href= "<?= $base_url_for_controller . 'create-creditor'?>"><div class="btn btn-primary mt-3">Добавить нового кредитора (юр.лицо)</div></a>
 </div>
 <table class="table my-4">
     <tr class="text-center">
@@ -46,12 +47,13 @@ $start_rows_for_one_page = 5;
                 <th >Отчество</th>
                 <th >Фамилия</th>
                 <th >Сумма долга</th>
+                <th >Название организации</th>
                 <th >ИНН</th>
                 <th >Регион</th>
                 <th  colspan="2" class="border-bottom"> 
                     <div class="row">
-                        <div class="col my-auto">Показывать по</div>
-                        <div class="col ">
+                        <div class="col ">Показывать по</div>
+                        <div class="col-7 ">
                         <select class="custom-select " onchange="window.location.href = this.options[this.selectedIndex].value">
                             <option selected><?= $pg ?></option>
                             <?php for($i=0; $i <= $pages_amount; $i++ ):?>
@@ -65,7 +67,7 @@ $start_rows_for_one_page = 5;
                     </div>    
                 </th>
     </tr>
-    <?php foreach ($creditor_phys as $each_creditor_phys): ?>
+    <?php foreach ($creditor_legal as $each_creditor_legal): ?>
     <?php if($rows == $pg){
            break;
        }
@@ -73,25 +75,21 @@ $start_rows_for_one_page = 5;
        ?>
      <input type="hidden" id="managerid" value=>
      <tr class="text-center">
-        
-        
-         <?php $form = ActiveForm::begin(); ?>
-        <td class="pt-4 "><?= $each_creditor_phys->lname ?></td>
-        <td class="pt-4 "><?= $each_creditor_phys->fname ?></td>
-        <td class="pt-4 "><?= $each_creditor_phys->mname ?></td>
-        <td class="pt-4 "><?= $each_creditor_phys->debt_amount ?></td>
-        <td class="pt-4 "><?= $each_creditor_phys->inn ?></td>
-        <td class="pt-4 border-right"><?= $each_creditor_phys->region ?></td>
-        <?= $form->field($each_creditor_phys,'id')->hiddenInput(['value'=>$each_creditor_phys->id])->label(false) ?>
-        <!--<td ><?php// $each_creditor_legal->id ?></td>-->
-
-        <td class="btn btn-secondary p-2 mt-3 ml-1 "><a href="<?= $base_url_for_controller . 'edit-creditor/' . '?pg='. $pg . '&page='. $curpage .'&id=' . $each_creditor_phys->id?>">Редактировать</a></td>
-        <td class="btn btn-danger p-2 mt-3 ml-1 "><a id='delete_manager' href="<?= $base_url_for_controller . 'delete-creditor-phys/' . '?pg='. $pg . '&page='. $curpage .'&id=' . $each_creditor_phys->id?>" onclick="delete_manager()">Удалить</a></td>
+     <?php $form = ActiveForm::begin(); ?>
+        <td class="pt-4"><?= $each_creditor_legal->lname ?></td>
+        <td class="pt-4"><?= $each_creditor_legal->fname ?></td>
+        <td class="pt-4"><?= $each_creditor_legal->mname ?></td>
+        <td class="pt-4"><?= $each_creditor_legal->debt_amount ?></td>
+        <td class="pt-4"><?= $each_creditor_legal->org_name ?></td>
+        <td class="pt-4"><?= $each_creditor_legal->inn ?></td>
+        <td class="border-right pt-4"><?= $each_creditor_legal->region ?></td>
+        <?= $form->field($each_creditor_legal,'id')->hiddenInput(['value'=>$each_creditor_legal->id])->label(false) ?>
+        <td class="btn btn-secondary p-2 mt-3 ml-1 "><a href="<?= $base_url_for_controller . 'edit-creditor/' . '?id='. $each_creditor_legal->id?>">Редактировать</a></td>
+        <td class="btn btn-danger p-2 mt-3 ml-1 "><a id='delete_manager' href="<?= $base_url_for_controller . 'delete-creditor-legal/' . '?pg='. $pg . '&page='. $curpage .'&id=' . $each_creditor_legal->id?>" onclick="delete_manager()">Удалить</a></td>
        
         
         
     <?php ActiveForm::end()?>   
-        
     </tr>
     <?php endforeach;?>
 </table>

@@ -62,6 +62,7 @@ class ArbitrationManager extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
+    //ALTER TABLE `arbitration_manager` CHANGE `phone_number` `phone_number` VARCHAR(20) NULL DEFAULT NULL;
     public function attributeLabels()
     {
         return [
