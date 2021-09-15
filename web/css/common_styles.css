@@ -401,6 +401,25 @@ p.main-name-p2 span,
     line-height: 22px;
     color: #454F5B;
 }
+.myregisterbtn{
+    display: block;
+    text-align: center;
+    margin-top: 25px;
+    background-color: #3951D2;
+    border: 2px solid #3951D2;
+    color: #f2f2f2;
+    line-height: 38px;
+    font-size: 18px;
+    font-family: Jost-Regular;
+    padding: 4px 20px;
+    border-radius: 2px;
+    outline: none;
+}
+
+.myregisterbtn:hover{
+    text-decoration: none;
+    color: #f2f2f2;
+}
 
 /**************/
 .checkbox-human input[type="checkbox"]:checked,

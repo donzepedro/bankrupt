@@ -354,6 +354,7 @@ $img_path ='/img/front/';
 		</div>
 	</div>
 </section>
+<div class="some"></div>
 
 
 

@@ -8,6 +8,8 @@
 
 namespace app\controllers;
 use yii\web\Controller;
+use app\models\ServiceAuthInfo;
+use app\models\ArbitrationManager;
 /**
  * Description of AmLoginController
  *
@@ -16,8 +18,11 @@ use yii\web\Controller;
 class AmLoginController extends Controller {
     
     public $layout = 'frontend_layout.php';
-    
+
     public function actionIndex(){
-        return $this->render('amlogin');
+        $service_model = new ServiceAuthInfo();
+
+
+        return $this->render('amlogin',['service_model'=>$service_model]);
     }
 }

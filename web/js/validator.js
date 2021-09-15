@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-function validatedate(){
+function validatedate() {
 
     let test = document.getElementById('arbitrationmanager-start_date');
     console.log(test.value.match(/\d{4}-\d{2}-\d{2}/));
