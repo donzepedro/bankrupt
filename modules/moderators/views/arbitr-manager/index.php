@@ -44,7 +44,7 @@ use yii\helpers\Url;
 
 
 <div class="row">
-    <a href='/arbitr-manager/create-manager'><div class="btn btn-primary mt-3">Создать нового арбитражного управляющего</div></a>
+    <a href='/moderators/arbitr-manager/create-manager'><div class="btn btn-primary mt-3">Создать нового арбитражного управляющего</div></a>
     
 </div>
 
@@ -102,13 +102,13 @@ use yii\helpers\Url;
 <?php   $last_page = (fmod(count($data),$start_rows_for_one_page) != '0') ? 1 : 0;?>
 <div class="row  my-2 px-0 text-center w-50">
     <?php if(!($curpage == 1)): ?>
-        <div class="col-1 mx-1 py-2 w-100"><a class="badge badge-light" style="cursor:pointer" href=<?= '/arbitr-manager/?pg='.$pg.'&page='.  $prevpage ?>> < </a></div>
+        <div class="col-1 mx-1 py-2 w-100"><a class="badge badge-light" style="cursor:pointer" href=<?= '/moderators/arbitr-manager/?pg='.$pg.'&page='.  $prevpage ?>> < </a></div>
     <?php endif; ?>
     <?php for($i=1; $i <= intdiv($start_elems_amount,$pg)+$last_page; $i++ ):?>
-        <div class="col-1 mx-1 py-2 "><a class="badge badge-light" style="cursor:pointer" href=<?= '/arbitr-manager/?pg='.$pg.'&page='.$i?>><?=  $i?></a></div>
+        <div class="col-1 mx-1 py-2 "><a class="badge badge-light" style="cursor:pointer" href=<?= '/moderators/arbitr-manager/?pg='.$pg.'&page='.$i?>><?=  $i?></a></div>
     <?php endfor;?>
     <?php if(!(($curpage)==$i-1)):?>
-        <div class="col-1 mx-1 py-2 mr-auto"><a class="badge badge-light" style="cursor:pointer" href=<?= '/arbitr-manager/?pg='.$pg.'&page='. $nextpage?>> > </a></div>
+        <div class="col-1 mx-1 py-2 mr-auto"><a class="badge badge-light" style="cursor:pointer" href=<?= '/moderators/arbitr-manager/?pg='.$pg.'&page='. $nextpage?>> > </a></div>
     <?php endif;?>
 </div>
 

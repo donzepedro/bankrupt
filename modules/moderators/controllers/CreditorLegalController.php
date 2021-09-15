@@ -50,7 +50,7 @@ class CreditorLegalController extends Controller {
         if(!$creditor_legal->delete()){
                 throw new \yii\web\HttpException(500,'server error,Creditor legal not deleted'); 
             }
-            $this->redirect('http://bankrupt/creditor-legal/');
+            $this->redirect(ADMINDOMAIN . '/creditor-legal/');
 //        echo "<pre>";
 //        var_dump( $creditor_legal);
 //        echo "</pre>";
@@ -67,7 +67,7 @@ class CreditorLegalController extends Controller {
             if(!$creditor_legal->save()){
                 throw new \yii\web\HttpException(500,'server error,Bankrupt legal not saved'); 
             }
-            $this->redirect('http://bankrupt/creditor-legal/');
+            $this->redirect(ADMINDOMAIN . '/creditor-legal/');
         }
         return $this->render('create_creditor_legal',['creditor_legal'=>$creditor_legal]);
     }
@@ -80,7 +80,7 @@ class CreditorLegalController extends Controller {
             if(!$creditor_legal->save()){
                 throw new \yii\web\HttpException(500,'server error,Creditorlegal not saved'); 
             }
-            $this->redirect('http://bankrupt/creditor-legal/');
+            $this->redirect(ADMINDOMAIN . '/creditor-legal/');
 //            echo "<pre>";
 //            var_dump(\Yii::$app->request->post());
 //            echo "</pre>";

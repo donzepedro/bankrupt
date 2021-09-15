@@ -2,7 +2,7 @@
 use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\bootstrap4\ActiveForm;
-$base_url_for_controller = '/bankrupt-legal/';
+$base_url_for_controller = '/moderators/bankrupt-legal/';
 //echo "<pre>";
 //var_dump($bankrupt_legal);
 //echo "</pre>";

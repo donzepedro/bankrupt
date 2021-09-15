@@ -49,7 +49,7 @@ class CreditorPhysController extends Controller{
         if(!$creditor_phys->delete()){
                 throw new \yii\web\HttpException(500,'server error,Creditor phys not deleted'); 
             }
-            $this->redirect('http://bankrupt/creditor-phys/');
+            $this->redirect(ADMINDOMAIN . '/creditor-phys/');
 //        echo "<pre>";
 //        var_dump( $creditor_phys);
 //        echo "</pre>";
@@ -65,7 +65,7 @@ class CreditorPhysController extends Controller{
             if(!$creditor_phys->save()){
                 throw new \yii\web\HttpException(500,'server error,Creditor phys not saved'); 
             }
-            $this->redirect('http://bankrupt/creditor-phys/');
+            $this->redirect(ADMINDOMAIN . '/creditor-phys/');
         }
         return $this->render('create_creditor_phys',['creditor_phys'=>$creditor_phys]);
     }
@@ -77,7 +77,7 @@ class CreditorPhysController extends Controller{
             if(!$creditor_phys->save()){
                 throw new \yii\web\HttpException(500,'server error,Creditor legal not saved'); 
             }
-            $this->redirect('http://bankrupt/creditor-phys/');
+            $this->redirect(ADMINDOMAIN . '/creditor-phys/');
 
         }
         return $this->render('edit_creditor_phys',['creditor_phys'=>$creditor_phys]);

@@ -50,7 +50,7 @@ class BankruptPhysController extends Controller{
         if(!$bankrupt_phys->delete()){
                 throw new \yii\web\HttpException(500,'server error,Bankrupt phys not deleted'); 
             }
-            $this->redirect('http://bankrupt/bankrupt-phys/');
+            $this->redirect(ADMINDOMAIN . '/bankrupt-phys/');
 //        echo "<pre>";
 //        var_dump( $bankrupt_phys);
 //        echo "</pre>";
@@ -66,7 +66,7 @@ class BankruptPhysController extends Controller{
             if(!$bankrupt_phys->save()){
                 throw new \yii\web\HttpException(500,'server error,Bankrupt phys not saved'); 
             }
-            $this->redirect('http://bankrupt/bankrupt-phys/');
+            $this->redirect(ADMINDOMAIN . '/bankrupt-phys/');
         }
         return $this->render('create_bankrupt_phys',['bankrupt_phys'=>$bankrupt_phys]);
     }

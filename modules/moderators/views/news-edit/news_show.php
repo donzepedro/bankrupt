@@ -33,8 +33,8 @@ use yii\helpers\Url;
 
 
 <div class="row">
-    <a href='/news-edit/news-create'><div class="btn btn-primary mt-3">Добавить новость</div></a>
-    <a href='/news-edit/interesting-page-adjusting'><div class="btn btn-primary mt-3 ml-5">Настроить "интересные страницы"</div></a>
+    <a href='/moderators/news-edit/news-create'><div class="btn btn-primary mt-3">Добавить новость</div></a>
+    <a href='/moderators/news-edit/interesting-page-adjusting'><div class="btn btn-primary mt-3 ml-5">Настроить "интересные страницы"</div></a>
     
 </div>
 
@@ -76,8 +76,8 @@ use yii\helpers\Url;
         <td><?= $eachnews->create_date ?></td>
         <!--<td><?php // $eachnews->id ?></td>-->
         <!--<td class="badge badge-info my-2 ml-1"><a href=<?='/news-edit/news-medit?id=' . $eachnews->id?>>view</a></td>-->
-        <td class="badge badge-secondary my-5 ml-1"><a  href=<?='/news-edit/news-edit?id=' . $eachnews->id?>>Редактировать</a></td>
-        <td class="badge badge-danger my-5 ml-1 "><a id='delete_manager' href="<?='/news-edit/news-delete?pg='. $pg . '&page='. $curpage .'&id=' . $eachnews->id?>" onclick="delete_manager()">Удалить</a></td> 
+        <td class="badge badge-secondary my-5 ml-1"><a  href=<?='/moderators/news-edit/news-edit?id=' . $eachnews->id?>>Редактировать</a></td>
+        <td class="badge badge-danger my-5 ml-1 "><a id='delete_manager' href="<?='/moderators/news-edit/news-delete?pg='. $pg . '&page='. $curpage .'&id=' . $eachnews->id?>" onclick="delete_manager()">Удалить</a></td>
         
         
         
@@ -86,13 +86,13 @@ use yii\helpers\Url;
 </table>
 <div class="row  my-2 px-0 text-center w-50">
     <?php if(!($curpage == 1)): ?>
-        <div class="col-1 mx-1 py-2 w-100"><a class="badge badge-light" style="cursor:pointer" href=<?= '/news-edit/news-show/?pg='.$pg.'&page='.  $prevpage ?>> < </a></div>
+        <div class="col-1 mx-1 py-2 w-100"><a class="badge badge-light" style="cursor:pointer" href=<?= '/moderators/news-edit/news-show/?pg='.$pg.'&page='.  $prevpage ?>> < </a></div>
     <?php endif; ?>
     <?php for($i=1; $i <= intdiv($start_elems_amount,$pg)+1; $i++ ):?>
-        <div class="col-1 mx-1 py-2 "><a class="badge badge-light" style="cursor:pointer" href=<?= '/news-edit/news-show/?pg='.$pg.'&page='.$i?>><?=  $i?></a></div>
+        <div class="col-1 mx-1 py-2 "><a class="badge badge-light" style="cursor:pointer" href=<?= '/moderators/news-edit/news-show/?pg='.$pg.'&page='.$i?>><?=  $i?></a></div>
     <?php endfor;?>
     <?php if(!(($curpage)==$i-1)):?>
-        <div class="col-1 mx-1 py-2 mr-auto"><a class="badge badge-light" style="cursor:pointer" href=<?= '/news-edit/news-show/?pg='.$pg.'&page='. $nextpage?>> > </a></div>
+        <div class="col-1 mx-1 py-2 mr-auto"><a class="badge badge-light" style="cursor:pointer" href=<?= '/moderators/news-edit/news-show/?pg='.$pg.'&page='. $nextpage?>> > </a></div>
     <?php endif;?>
 </div>
 

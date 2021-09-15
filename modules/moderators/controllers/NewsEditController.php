@@ -68,7 +68,7 @@ class NewsEditController extends Controller {
                     throw new \yii\web\HttpException(500, 'server error, data for news not saved');
                 }
             }
-            return $this->redirect('/news-edit/news-show/');
+            return $this->redirect('/modearators/news-edit/news-show/');
         }
 
         return $this->render('news_edit', ['imgupload' => $imgupload, 'news' => $news]);
@@ -100,7 +100,7 @@ class NewsEditController extends Controller {
                     throw new \yii\web\HttpException(500,'server error, data for news not saved');
                 } 
             }
-            return $this->redirect('/news-edit/news-show/');
+            return $this->redirect('/moderators/news-edit/news-show/');
 //            echo "<pre>";
 //            var_dump(\Yii::$app->request->post());
 //            var_dump($imgupload->imageFile->name);
@@ -127,7 +127,7 @@ class NewsEditController extends Controller {
         }else{
             $page='';
         }
-       $this->redirect('/news-edit/news-show/');
+       $this->redirect('/moderators/news-edit/news-show/');
     }
     
     public function actionInterestingPageAdjusting(){
