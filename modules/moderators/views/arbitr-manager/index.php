@@ -94,8 +94,8 @@ use yii\helpers\Url;
         <td><?= $eachmanager->end_date ?></td>
         <!--<td><?php // $eachmanager->id ?></td>-->
         <!--<td class="badge badge-info my-2 ml-1"><a href=<?='/arbitr-manager/edit-manager?id=' . $eachmanager->id?>>view</a></td>-->
-        <td class="badge badge-secondary my-5 ml-1"><a  href=<?='/arbitr-manager/edit-manager?id=' . $eachmanager->id .'&pg='. $pg .  '&page='. $curpage?>>редактировать</a></td>
-        <td class="badge badge-danger my-5 ml-1 "><a id='delete_manager' href="<?='/arbitr-manager/delete-manager?pg='. $pg . '&page='. $curpage .'&id=' . $eachmanager->id?>" onclick="delete_manager()">удалить</a></td>                        
+        <td class="badge badge-secondary my-5 ml-1"><a  href=<?='/moderators/arbitr-manager/edit-manager?id=' . $eachmanager->id .'&pg='. $pg .  '&page='. $curpage?>>редактировать</a></td>
+        <td class="badge badge-danger my-5 ml-1 "><a id='delete_manager' href="<?='/moderators/arbitr-manager/delete-manager?pg='. $pg . '&page='. $curpage .'&id=' . $eachmanager->id?>" onclick="delete_manager()">удалить</a></td>
     </tr>
     <?php endforeach;?>
 </table>
