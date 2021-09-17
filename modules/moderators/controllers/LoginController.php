@@ -33,7 +33,7 @@ class LoginController extends Controller{
                      [
                         'allow'=>true,
                         'actions' => ['logout'],
-                        'roles'=>['admin'],
+                        'roles'=>['@'],
                     ],
                 ],
             ],
