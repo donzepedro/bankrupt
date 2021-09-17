@@ -9,8 +9,8 @@
 namespace app\modules\moderators\controllers;
 use yii\web\Controller;
 use yii\filters\AccessControl;
+use app\models\Users;
 use app\models\Moderators;
-
 /**
  * Description of LoginController
  *
@@ -33,7 +33,7 @@ class LoginController extends Controller{
                      [
                         'allow'=>true,
                         'actions' => ['logout'],
-                        'roles'=>['@'],
+                        'roles'=>['admin'],
                     ],
                 ],
             ],
@@ -41,18 +41,23 @@ class LoginController extends Controller{
         
     } 
     public function actionIndex(){
-        
-        $moderators= new Moderators();
-         if(\Yii::$app->request->post('Moderators'))
+
+        $users= new Users();
+
+         if(!empty(\Yii::$app->request->post('Users')))
         {
 
-            $moderators->load(\Yii::$app->request->post());
-            
-             if($moderators->login()){
+            $users->load(\Yii::$app->request->post());
+
+             if($users->login()){
                  return $this->redirect('/moderators/arbitr-manager/');
              }
         }
-        return $this->render('index',['moderators'=>$moderators]);
+//        if(\Yii::$app->request->isPost){
+//            return $this->redirect('/moderators/login/');
+//        }
+        return $this->render('index',['users'=>$users]);
+//
     }
     
     public function actionLogout(){

@@ -10,9 +10,9 @@ use yii\helpers\Html;
 <div class="row mx-5 my-5 w-50 ">
     <div class="col">
         <?php $form=ActiveForm::begin();  ?>
-        <?= $form->field($moderators,'username')->textInput(); ?>
-        <?= $form->field($moderators,'password')->passwordInput(); ?>
-        <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+        <?= $form->field($users,'email')->textInput(); ?>
+        <?= $form->field($users,'password')->passwordInput(); ?>
+        <?= Html::submitButton('Login', ['class' => 'btn btn-primary mt-3', 'name' => '-button']) ?>
         <?php ActiveForm::end();?>
     </div>
 </div>

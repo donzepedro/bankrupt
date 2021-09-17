@@ -16,6 +16,8 @@ use app\models\UploadFormForEdit;
 use app\models\SROAMInformation;
 use app\models\Regions;
 use yii\filters\AccessControl;
+use yii\web\ForbiddenHttpException;
+
 
 /**
  * Description of ArbitrManagerController
@@ -36,7 +38,7 @@ class ArbitrManagerController extends Controller {
                     [
                         'allow'=>true,
                         'actions' => ['index','create-manager','edit-manager','delete-manager'],
-                        'roles'=>['@'],
+                        'roles'=>['admin'],
                     ],
                 ],
             ],
@@ -46,7 +48,6 @@ class ArbitrManagerController extends Controller {
   
     
     public function actionIndex(){
-        
         $arbitr_managers = ArbitrationManager::find()->all();
         return $this->render('index',['data'=>$arbitr_managers]);
     }

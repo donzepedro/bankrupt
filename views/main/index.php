@@ -6,6 +6,8 @@ use yii\bootstrap4\ActiveForm;
 use kartik\select2\Select2;
 
 $img_path ='/img/front/';
+//var_dump(\Yii::$app->user->identity->id);
+//die;
 ?>
 
 <html lang="en">

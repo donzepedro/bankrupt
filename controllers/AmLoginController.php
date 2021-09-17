@@ -7,8 +7,9 @@
  */
 
 namespace app\controllers;
+use app\models\Users;
 use yii\web\Controller;
-use app\models\ServiceAuthInfo;
+
 use app\models\ArbitrationManager;
 /**
  * Description of AmLoginController
@@ -20,9 +21,12 @@ class AmLoginController extends Controller {
     public $layout = 'frontend_layout.php';
 
     public function actionIndex(){
-        $service_model = new ServiceAuthInfo();
+        $users_model = new Users();
 
+        if(\Yii::$app->request->isPost){
+            var_dump(\Yii::$app->request->Post());
+        }
 
-        return $this->render('amlogin',['service_model'=>$service_model]);
+        return $this->render('amlogin',['login_form'=>$users_model]);
     }
 }

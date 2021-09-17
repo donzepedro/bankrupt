@@ -1,16 +1,13 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 namespace app\models;
 
-class ModeratorsIdentity extends Moderators implements \yii\web\IdentityInterface
+
+use yii\web\IdentityInterface;
+
+class UsersIdentity extends Users implements IdentityInterface
 {
-    
     /**
      * {@inheritdoc}
      */
@@ -24,7 +21,7 @@ class ModeratorsIdentity extends Moderators implements \yii\web\IdentityInterfac
      */
     public static function findIdentityByAccessToken($token, $type = null)
     {
-          return static::FindOne(['access_token'=>$token]);
+        return static::FindOne(['access_token'=>$token]);
     }
 
     /**
@@ -35,7 +32,9 @@ class ModeratorsIdentity extends Moderators implements \yii\web\IdentityInterfac
      */
     public static function findByUsername($username)
     {
-       return static::find()->where(['username'=>$username])->one();
+        $test = static::find()->where(['email'=>$username])->one();
+//        var_dump($test);
+        return $test;
     }
 
     /**
