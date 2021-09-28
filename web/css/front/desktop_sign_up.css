@@ -154,6 +154,16 @@ input.input-submit {
 .sign-up-wrapper input:focus-visible {
     outline: 1px solid #3951d2!important;
 }
+.requireReg{
+    background-color: #3951D2;
+    border: 1px solid #3951D2;
+    color: #fafafa;
+    padding: 4px 20px;
+    font-family: Jost-Regular;
+    font-size: 18px;
+    line-height: 40px;
+    border-radius: 2px;
+}
 /*********************/
 @media (max-width : 575px) {
     .form-sign-up-flex {
@@ -183,6 +193,13 @@ input.input-submit {
 }
 @media (max-width : 370px) {
     input.input-submit {
+        padding: 4px 5px;
+        font-size: 14px;
+        line-height: 35px;
+    }
+}
+@media (max-width : 370px) {
+    .requireReg {
         padding: 4px 5px;
         font-size: 14px;
         line-height: 35px;

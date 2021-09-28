@@ -3,6 +3,7 @@ use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 use yii\bootstrap4\ActiveForm;
 $base_url_for_controller = '/arbitr-manager/';
+use kartik\select2\Select2;
 //if(isset($error)) echo $error;  else      DBdebug($data);
 ?>
 <?php 
@@ -64,7 +65,15 @@ $base_url_for_controller = '/arbitr-manager/';
             <td><?= $form->field($SROAminfo,'membership_start_date')->textInput(['type'=>'date'])->label('Дата начала членства в СРО'); ?></td>
         </tr>
          <tr>
-            <td><?= $form->field($arbitr_managers, 'job_region')->dropDownList(ArrayHelper::map(\app\models\Regions::find()->all(), 'id', 'region'))->label('Область работы') ?></td>
+             <td><?= $form->field($arbitr_managers, 'job_region')->widget(Select2::class, [
+                 'data' => ArrayHelper::map(\app\models\Regions::find(['id','region'])->all(), 'id', 'region'),
+                 'options' => ['placeholder' => 'Выберите регион ...'],
+                 'pluginOptions' => [
+                     'allowClear' => true
+                 ],
+             ])->label('Область работы');
+             ?></td>
+
             <td><?= $form->field($education, 'speciality')->textInput([])->label('Специальность') ?></td>
             <td><?= $form->field($SROAminfo,'membership_end_date')->textInput(['type'=>'date'])->label('Дата окончания членства в СРО'); ?></td>
         </tr>

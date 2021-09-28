@@ -20,8 +20,8 @@ use yii\bootstrap4\ActiveForm;
                 <?php $form = ActiveForm::begin() ?>
                 <div class="login-container-form">
                     <h2 class="main-name-h2">Вход</h2>
-                    <?= $form->field($login_form,'phone')->textInput(['placeholder'=>'Номер телефона','class'=>''])->label('')?>
-                    <?= $form->field($login_form,'password')->textInput(['placeholder'=>'Пароль','class'=>''])->label('')?>
+                    <?= $form->field($login_form,'login')->textInput(['placeholder'=>'Email /+7 (xxx) xxx xx xx','class'=>'','id'=>'login_field'])->label('')?>
+                    <?= $form->field($login_form,'password')->passwordInput(['placeholder'=>'Пароль','class'=>''])->label('')?>
                     <?= Html::submitButton('Вход') ?>
                     <?= Html::tag('a','Перейти к регистрации',["class"=>"myregisterbtn","href"=>"/am-registration/"]) ?>
                 </div>

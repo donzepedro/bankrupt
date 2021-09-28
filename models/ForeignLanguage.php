@@ -34,7 +34,7 @@ class ForeignLanguage extends \yii\db\ActiveRecord
             [['id_am'], 'integer'],
             [['language'], 'string', 'max' => 50],
             [['level'], 'string', 'max' => 20],
-            [['id_am'], 'exist', 'skipOnError' => true, 'targetClass' => ArbitrationManager::className(), 'targetAttribute' => ['id_am' => 'id']],
+            [['id_am'], 'exist', 'skipOnError' => true, 'targetClass' => ArbitrationManager::class, 'targetAttribute' => ['id_am' => 'id']],
         ];
     }
 
@@ -58,6 +58,6 @@ class ForeignLanguage extends \yii\db\ActiveRecord
      */
     public function getAm()
     {
-        return $this->hasOne(ArbitrationManager::className(), ['id' => 'id_am']);
+        return $this->hasOne(ArbitrationManager::class, ['id' => 'id_am']);
     }
 }

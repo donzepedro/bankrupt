@@ -32,7 +32,7 @@ class ArbitrManagerController extends Controller {
     public function behaviors() {
         return [
             'access'=>[
-              'class' => AccessControl::className(),
+              'class' => AccessControl::class,
                 'only' => ['index','create-manager','edit-manager','delete-manager'],
                 'rules' => [
                     [
@@ -41,6 +41,9 @@ class ArbitrManagerController extends Controller {
                         'roles'=>['admin'],
                     ],
                 ],
+                'denyCallback' => function ($rule, $action) {
+                    return $this->redirect('/moderators/login/');
+                }
             ],
         ];
        

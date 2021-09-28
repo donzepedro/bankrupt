@@ -31,6 +31,9 @@ class BankruptPhysController extends Controller{
                         'roles'=>['@'],
                     ],
                 ],
+                'denyCallback' => function ($rule, $action) {
+                    return $this->redirect('/moderators/login/');
+                }
             ],
         ];
        

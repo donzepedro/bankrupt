@@ -48,7 +48,10 @@ $news_path = '/news';
 <!--<div class="shadow-section"></div>-->
 
 <header class="header-top pt-3">
-    <?php 
+    <?php
+//    $user = Yii::$app->user->isGuest ? '':"<a class='ml-1' href='am-login/log-out/'>Выход</a>";
+    $user = Yii::$app->user->isGuest ? '': 'Выход';
+    $ProfileLoginPath = Yii::$app->user->isGuest ? '/am-login' : '/am-profile/';
                             NavBar::begin([
                                 'innerContainerOptions' => [
                                     'class'=>'bugerbtn'
@@ -73,7 +76,8 @@ $news_path = '/news';
                             <circle cx="20" cy="20" r="20" fill="#D1D7DC"/>
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M20.4082 19.4958C22.0492 19.4958 23.3794 18.0769 23.3794 16.3265C23.3794 14.5762 22.0492 13.1573 20.4082 13.1573C18.7673 13.1573 17.4371 14.5762 17.4371 16.3265C17.4371 18.0769 18.7673 19.4958 20.4082 19.4958ZM20.4082 21.2245C22.9442 21.2245 25.0001 19.0316 25.0001 16.3265C25.0001 13.6215 22.9442 11.4286 20.4082 11.4286C17.8722 11.4286 15.8164 13.6215 15.8164 16.3265C15.8164 19.0316 17.8722 21.2245 20.4082 21.2245Z" fill="#EEF1F4"/>
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M21.0349 21.6071H19.1686C16.1977 21.6071 13.7893 23.9576 13.7893 26.8571C13.7893 26.9163 13.8385 26.9643 13.8991 26.9643H26.3044C26.3651 26.9643 26.4142 26.9163 26.4142 26.8571C26.4142 23.9576 24.0058 21.6071 21.0349 21.6071ZM19.1686 20C15.2882 20 12.1426 23.07 12.1426 26.8571C12.1426 27.8039 12.929 28.5714 13.8991 28.5714H26.3044C27.2745 28.5714 28.0609 27.8039 28.0609 26.8571C28.0609 23.07 24.9153 20 21.0349 20H19.1686Z" fill="#EEF1F4"/>
-                        </svg>', 'url' => [$news_path]],
+                         </svg>', 'url' => [$ProfileLoginPath]],
+                                    ['label' => $user,'url'=>'/am-login/log-out/','linkOptions'=>['class'=>' active']]
 //                                  
                                 ],
                                   

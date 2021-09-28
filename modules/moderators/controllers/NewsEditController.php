@@ -25,15 +25,18 @@ class NewsEditController extends Controller {
     public function behaviors() {
         return [
             'access'=>[
-              'class' => AccessControl::className(),
-                'only' => ['index','create-manager','edit-manager','delete-manager','news-edit'],
+              'class' => AccessControl::class,
+                'only' => ['news-show','news-create','news-delete','interesting-page-adjusting','news-edit'],
                 'rules' => [
                     [
                         'allow'=>true,
-                        'actions' => ['index','create-manager','edit-manager','delete-manager','news-edit'],
-                        'roles'=>['@'],
+                        'actions' => ['news-show','news-create','news-delete','interesting-page-adjusting','news-edit'],
+                        'roles'=>['admin'],
                     ],
                 ],
+                'denyCallback' => function ($rule, $action) {
+                    return $this->redirect('/moderators/login/');
+                }
             ],
         ];
        

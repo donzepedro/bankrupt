@@ -22,7 +22,7 @@ class LoginController extends Controller{
     public function behaviors() {
         return [
             'access'=>[
-              'class' => AccessControl::className(),
+              'class' => AccessControl::class,
                 'only' => ['index','logout'],
                 'rules' => [
                     [
@@ -33,7 +33,7 @@ class LoginController extends Controller{
                      [
                         'allow'=>true,
                         'actions' => ['logout'],
-                        'roles'=>['@'],
+                        'roles'=>['admin'],
                     ],
                 ],
             ],

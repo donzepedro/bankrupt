@@ -19,8 +19,8 @@ class NewsController extends Controller{
     public $layout = 'frontend_layout.php';
     
     public function actionIndex(){
-        $news = News::find()->all();
-        return $this->render('newspage',['news'=>$news]);
+//        $news = News::find()->all();
+        return $this->render('newspage',['news'=>News::find()->all()]);
     }
     
     public function actionEachNews(){
@@ -28,7 +28,7 @@ class NewsController extends Controller{
         if(filter_var ( \Yii::$app->request->get('id'), FILTER_VALIDATE_INT )){
             $eachnews = News::find()->where(['id'=>\Yii::$app->request->get('id')])->one();
         }else{
-            throw new \yii\web\HttpException(500,'server error, GET parametr invalid'); 
+            throw new \yii\web\HttpException(404,'News with that id not found');
         }
         
         return $this->render('eachnews',['eachnews'=>$eachnews,'news'=>$news]);

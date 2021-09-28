@@ -60,13 +60,16 @@ class SearchManagersController extends Controller{
         $search_model = new SearchModel();
         $managers = ArbitrationManager::find()->where(['id'=>'0'])->all();
         if(\Yii::$app->request->isPost){
+
            $categories = \Yii::$app->request->post("SearchModel")["b_phys"] + \Yii::$app->request->post("SearchModel")["b_legal"];
            if((\Yii::$app->request->post("SearchModel")["b_legal"]== 1)&&(\Yii::$app->request->post("SearchModel")["b_phys"]== 0)){
                $categories = 0;
            }else if((\Yii::$app->request->post("SearchModel")["b_legal"]== 0)&&(\Yii::$app->request->post("SearchModel")["b_phys"]== 0)){
                $categories = 2;
            }
-            
+//           echo "<pre>";
+//            var_dump($categories);
+//            echo "</pre>";
             $job_region = Regions::find()->where(['id'=>\Yii::$app->request->post("SearchModel")["region"]])->one();
             $SRO_name = SROAMInformation::find()->where(['id'=>\Yii::$app->request->post("SearchModel")["SRO_name"]])->one();
             if(\Yii::$app->request->post("SearchModel")["SRO_name"] == ''){

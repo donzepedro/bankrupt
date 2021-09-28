@@ -8,6 +8,7 @@
 
 
 namespace app\modules\moderators\controllers;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use app\models\UploadForm;
 /**
@@ -16,8 +17,26 @@ use app\models\UploadForm;
  * @author zepedro
  */
 class ImguploadController extends Controller {
-    
-    
+
+    public function behaviors() {
+        return [
+            'access'=>[
+                'class' => AccessControl::class,
+                'only' => ['index'],
+                'rules' => [
+                    [
+                        'allow'=>true,
+                        'actions' => ['index'],
+                        'roles'=>['admin'],
+                    ],
+                ],
+                'denyCallback' => function ($rule, $action) {
+                    return $this->redirect('/moderators/login/');
+                }
+            ],
+        ];
+
+    }
     
     public $layout = 'crmlayout.php';
     public function actionIndex(){
